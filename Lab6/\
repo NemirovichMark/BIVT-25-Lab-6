@@ -168,41 +168,30 @@ namespace Lab6
 
 	    InsertColumn(ref A, rowInd, colInd, B);
 
-	    // end
+            // end
 
-	}
+        }
 
 	public void ChangeMatrixValues(int[,] matrix)
 	{
-	  int n = matrix.GetLength(0);
-	  int m = matrix.GetLength(1);
-
 	  int[] maxesx = new int[5];
 	  int[] maxesy = new int[5];
 
 	  for (int i = 0; i < n; i++){
 	    for (int j = 0; j < m; j++){
-	      if (matrix[maxesx[0], maxesy[0]] < matrix[i, j]){
-		maxesx[0] = i;
-		maxesy[0] = j;
-		int k = 0;
-		while (k < 5 && matrix[maxesx[k], maxesy[k]] > matrix[maxesx[k+1], maxesy[k+1]])
-		{
-		  (maxesx[k], maxesx[k+1], maxesy[k], maxesy[k+1]) = (maxesx[k+1], maxesx[k], maxesy[k+1], maxesy[k]);
+	      if (matrix[maxesx[4], maxesy[4]] < matrix[i, j]){
+		for (int k = 0; k < 4; k++){
+		  maxesx[k] = maxesx[k+1];
+		  maxesy[k] = maxesy[k+1];
 		}
+		maxesx[4] = i;
+		maxesy[4] = j;
 	      }
 	    }
 	  }
 
-	  for (int i = 0; i < 5; i++){
-	    matrix[maxesx[i], maxesy[i]]*=4;
-	  }
-	  for (int i = 0; i < n; i++){
-	    for (int j = 0; j < m; j++){
-	      matrix[i, j]/=2;
-	    }
-	  }
-	  
+	 for (int i = 0; i < 5; i++){
+	  matrix[maxesx[i], maxesy[i]]*=4
 	}
 
         public void Task3(int[,] matrix)
