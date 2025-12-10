@@ -210,7 +210,7 @@ namespace Lab6
 
             // code here
 
-
+	  ChangeMatrixValues(matrix);
 
             // end
 
