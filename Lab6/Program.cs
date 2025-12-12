@@ -6,6 +6,8 @@ namespace Lab6
     {
         public static void Main()
         {
+            
         }
+        
     }
 }
