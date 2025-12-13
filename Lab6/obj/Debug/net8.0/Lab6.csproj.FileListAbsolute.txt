@@ -1,0 +1,15 @@
+/Users/maksonchik/Documents/BIVT-25-Lab-6/Lab6/obj/Debug/net8.0/Lab6.GeneratedMSBuildEditorConfig.editorconfig
+/Users/maksonchik/Documents/BIVT-25-Lab-6/Lab6/obj/Debug/net8.0/Lab6.AssemblyInfoInputs.cache
+/Users/maksonchik/Documents/BIVT-25-Lab-6/Lab6/obj/Debug/net8.0/Lab6.AssemblyInfo.cs
+/Users/maksonchik/Documents/BIVT-25-Lab-6/Lab6/obj/Debug/net8.0/Lab6.csproj.CoreCompileInputs.cache
+/Users/maksonchik/Documents/BIVT-25-Lab-6/Lab6/obj/Debug/net8.0/Lab6.sourcelink.json
+/Users/maksonchik/Documents/BIVT-25-Lab-6/Lab6/bin/Debug/net8.0/Lab6
+/Users/maksonchik/Documents/BIVT-25-Lab-6/Lab6/bin/Debug/net8.0/Lab6.deps.json
+/Users/maksonchik/Documents/BIVT-25-Lab-6/Lab6/bin/Debug/net8.0/Lab6.runtimeconfig.json
+/Users/maksonchik/Documents/BIVT-25-Lab-6/Lab6/bin/Debug/net8.0/Lab6.dll
+/Users/maksonchik/Documents/BIVT-25-Lab-6/Lab6/bin/Debug/net8.0/Lab6.pdb
+/Users/maksonchik/Documents/BIVT-25-Lab-6/Lab6/obj/Debug/net8.0/Lab6.dll
+/Users/maksonchik/Documents/BIVT-25-Lab-6/Lab6/obj/Debug/net8.0/refint/Lab6.dll
+/Users/maksonchik/Documents/BIVT-25-Lab-6/Lab6/obj/Debug/net8.0/Lab6.pdb
+/Users/maksonchik/Documents/BIVT-25-Lab-6/Lab6/obj/Debug/net8.0/Lab6.genruntimeconfig.cache
+/Users/maksonchik/Documents/BIVT-25-Lab-6/Lab6/obj/Debug/net8.0/ref/Lab6.dll
