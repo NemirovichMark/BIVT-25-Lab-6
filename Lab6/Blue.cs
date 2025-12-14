@@ -128,7 +128,7 @@ namespace Lab6
             if (method == null) return;
 
             int col = method(matrix);
-            RemoveCol(ref matrix, col);
+            RemoveColumn(ref matrix, col);
             // end
 
         }
@@ -179,7 +179,7 @@ namespace Lab6
 
             return maxj;
         }
-        public void RemoveCol(ref int[,] matrix, int col)
+        public void RemoveColumn(ref int[,] matrix, int col)
         {
             int rows = matrix.GetLength(0);
             int cols = matrix.GetLength(1);
@@ -219,7 +219,7 @@ namespace Lab6
                 flag = CheckZerosInColumn(matrix, j);
                 if (!flag)
                 {
-                    RemoveCol(ref matrix, j);
+                    RemoveColumn(ref matrix, j);
                 }
             }
             // end
