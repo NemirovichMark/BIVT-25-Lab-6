@@ -180,29 +180,40 @@ namespace Lab6
 	  int[] maxesx = new int[5];
 	  int[] maxesy = new int[5];
 
-	  for (int i = 0; i < n; i++){
-	    for (int j = 0; j < m; j++){
-	      if (matrix[maxesx[0], maxesy[0]] < matrix[i, j]){
-		maxesx[0] = i;
-		maxesy[0] = j;
-		int k = 0;
-		while (k < 5 && matrix[maxesx[k], maxesy[k]] > matrix[maxesx[k+1], maxesy[k+1]])
-		{
-		  (maxesx[k], maxesx[k+1], maxesy[k], maxesy[k+1]) = (maxesx[k+1], maxesx[k], maxesy[k+1], maxesy[k]);
+	  if (n*m >= 5)
+	  {
+
+	    for (int i = 0; i < n; i++){
+	      for (int j = 0; j < m; j++){
+		if (matrix[maxesx[0], maxesy[0]] < matrix[i, j]){
+		  maxesx[0] = i;
+		  maxesy[0] = j;
+		  int k = 0;
+		  while (k < 5 && matrix[maxesx[k], maxesy[k]] > matrix[maxesx[k+1], maxesy[k+1]])
+		  {
+		    (maxesx[k], maxesx[k+1], maxesy[k], maxesy[k+1]) = (maxesx[k+1], maxesx[k], maxesy[k+1], maxesy[k]);
+		  }
 		}
 	      }
 	    }
-	  }
 
-	  for (int i = 0; i < 5; i++){
-	    matrix[maxesx[i], maxesy[i]]*=4;
-	  }
-	  for (int i = 0; i < n; i++){
-	    for (int j = 0; j < m; j++){
-	      matrix[i, j]/=2;
+	    for (int i = 0; i < 5; i++){
+	      matrix[maxesx[i], maxesy[i]]*=4;
+	    }
+	    for (int i = 0; i < n; i++){
+	      for (int j = 0; j < m; j++){
+		matrix[i, j]/=2;
+	      }
 	    }
 	  }
-	  
+	  else
+	  {
+	    for (int i = 0; i < n; i++){
+	      for (int j = 0; j < m; j++){
+		matrix[i, j]*=2;
+	      }
+	    }
+	  }
 	}
 
         public void Task3(int[,] matrix)
@@ -215,15 +226,62 @@ namespace Lab6
             // end
 
         }
+
+	public int[] CountNegativesPerRow(int[,] matrix)
+	{
+	  int n = matrix.GetLength(0);
+	  int m = matrix.GetLength(1);
+
+	  int[] ans = new int[n];
+
+	  for (int i = 0; i < n; i++){
+	    int count = 0;
+	    for (int j = 0; j < m; j++){
+	      if (matrix[i, j] < 0){
+		count++;
+	      }
+	    }
+	    ans[i] = count;
+	  }
+	  return ans;
+	}
+
+	public int FindMaxIndex(int[] array)
+	{
+	  int imax = 0;
+	  for (int i = 0; i < array.Length; i++){
+	    if (array[imax] < array[i]){
+	      imax = i;
+	    }
+	  }
+	  return imax;
+	}
+
         public void Task4(int[,] A, int[,] B)
         {
 
             // code here
 
+	  int n1 = A.GetLength(0);
+	  int m1 = A.GetLength(1);
+	  int n2 = B.GetLength(0);
+	  int m2 = B.GetLength(1);
+
+	  int[] negA = CountNegativesPerRow(A);
+	  int[] negB = CountNegativesPerRow(B);
+	  
+	  int rowIndA = FindMaxIndex(negA);
+	  int rowIndB = FindMaxIndex(negB);
+
+	  for (int i = 0; i < Math.Min(m1, m2); i++){
+	    (A[rowIndA, i], B[rowIndB, i]) = (B[rowIndB, i], A[rowIndA, i]);
+	  }
+
+
             // end
 
         }
-        public void Task5(int[] matrix, Sorting sort)
+        public void Task5(int[] matrix/*, /*Sorting sort*/)
         {
 
             // code here
@@ -231,7 +289,7 @@ namespace Lab6
             // end
 
         }
-        public void Task6(int[,] matrix, SortRowsByMax sort)
+        public void Task6(int[,] matrix/*, /*SortRowsByMax sort*/)
         {
 
             // code here
@@ -239,7 +297,7 @@ namespace Lab6
             // end
 
         }
-        public int[] Task7(int[,] matrix, FindNegatives find)
+        public int[] Task7(int[,] matrix/*, /*FindNegatives find*/)
         {
             int[] negatives = null;
 
@@ -249,7 +307,7 @@ namespace Lab6
 
             return negatives;
         }
-        public int[,] Task8(int[,] matrix, MathInfo info)
+        public int[,] Task8(int[,] matrix/*, MathInfo info*/)
         {
             int[,] answer = null;
 
