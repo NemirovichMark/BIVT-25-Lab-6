@@ -14,7 +14,7 @@ namespace Lab6
             DeleteMaxElement(ref A);
             DeleteMaxElement(ref B);
             A = CombineArrays(A, B);
-            // end
+            //end
 
         }
         public void Task2(int[,] matrix, int[] array)
@@ -413,3 +413,4 @@ namespace Lab6
         }
     }
 }
+
