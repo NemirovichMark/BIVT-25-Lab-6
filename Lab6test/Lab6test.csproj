@@ -29,5 +29,12 @@
   <ItemGroup>
     <Using Include="Microsoft.VisualStudio.TestTools.UnitTesting" />
   </ItemGroup>
+<ItemGroup>
+  <Compile Remove="Blue.cs" />
+  <Compile Remove="Purple.cs" />
+  <Compile Remove="White.cs" />
+</ItemGroup>
+
 
 </Project>
+
