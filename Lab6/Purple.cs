@@ -486,20 +486,34 @@ namespace Lab6
         }
         public int CountSignFlips(double a, double b, double h, Func<double, double> func)
         {
-            int count =0;
+            int count = 0;
 
-            double x=a;
-            double prev= func(x);
+            double x = a;
+            double prev = func(x);
 
-            x+=h;
+            while (x <= b && prev == 0)
+            {
+                x += h;
+                prev = func(x);
+            }
+
+            x += h;
 
             while (x <= b)
             {
-                double cur=func(x);
-                if (cur*prev<0) count++;
-                prev=cur;
-                x+=h;
+                double cur = func(x);
+
+                if (cur != 0)
+                {
+                    if (prev * cur < 0)
+                        count++;
+
+                    prev = cur;
+                }
+
+                x += h;
             }
+
             return count;
         }
         public double FuncA(double x)
