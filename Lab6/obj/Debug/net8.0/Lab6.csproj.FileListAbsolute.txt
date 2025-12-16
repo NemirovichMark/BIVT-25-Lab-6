@@ -1,0 +1,15 @@
+/home/astracelebrities/BIVT-25-Lab-6/Lab6/obj/Debug/net8.0/Lab6.GeneratedMSBuildEditorConfig.editorconfig
+/home/astracelebrities/BIVT-25-Lab-6/Lab6/obj/Debug/net8.0/Lab6.AssemblyInfoInputs.cache
+/home/astracelebrities/BIVT-25-Lab-6/Lab6/obj/Debug/net8.0/Lab6.AssemblyInfo.cs
+/home/astracelebrities/BIVT-25-Lab-6/Lab6/obj/Debug/net8.0/Lab6.csproj.CoreCompileInputs.cache
+/home/astracelebrities/BIVT-25-Lab-6/Lab6/obj/Debug/net8.0/Lab6.sourcelink.json
+/home/astracelebrities/BIVT-25-Lab-6/Lab6/bin/Debug/net8.0/Lab6
+/home/astracelebrities/BIVT-25-Lab-6/Lab6/bin/Debug/net8.0/Lab6.deps.json
+/home/astracelebrities/BIVT-25-Lab-6/Lab6/bin/Debug/net8.0/Lab6.runtimeconfig.json
+/home/astracelebrities/BIVT-25-Lab-6/Lab6/bin/Debug/net8.0/Lab6.dll
+/home/astracelebrities/BIVT-25-Lab-6/Lab6/bin/Debug/net8.0/Lab6.pdb
+/home/astracelebrities/BIVT-25-Lab-6/Lab6/obj/Debug/net8.0/Lab6.dll
+/home/astracelebrities/BIVT-25-Lab-6/Lab6/obj/Debug/net8.0/refint/Lab6.dll
+/home/astracelebrities/BIVT-25-Lab-6/Lab6/obj/Debug/net8.0/Lab6.pdb
+/home/astracelebrities/BIVT-25-Lab-6/Lab6/obj/Debug/net8.0/Lab6.genruntimeconfig.cache
+/home/astracelebrities/BIVT-25-Lab-6/Lab6/obj/Debug/net8.0/ref/Lab6.dll
