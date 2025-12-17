@@ -9,6 +9,7 @@ namespace Lab6
         {
 
             // code here
+            
             DeleteMaxElement(ref A);
             DeleteMaxElement(ref B);
             A = CombineArrays(A, B);
@@ -443,3 +444,4 @@ namespace Lab6
         
     }
 }
+
