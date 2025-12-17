@@ -6,7 +6,7 @@ namespace Lab6
 {
     public class White
     {
-        public int FindMaxIndex(double[] array)
+       public int FindMaxIndex(double[] array)
         {
             int len = array.Length;
             double maxValue = double.MinValue;
@@ -84,7 +84,7 @@ namespace Lab6
             // end
 
         }
-        public int[] GetNegativeCountPerRow(int[,] matrix)
+         public int[] GetNegativeCountPerRow(int[,] matrix)
         {
             int rows = matrix.GetLength(0), cols = matrix.GetLength(1);
             int[] NegInRow = new int[rows];
@@ -103,7 +103,6 @@ namespace Lab6
         public int Task3(int[,] matrix)
         {
             int answer = 0;
-
             // code here
             int count = -1;
             int[] negativeData = GetNegativeCountPerRow(matrix);
@@ -113,7 +112,7 @@ namespace Lab6
 
             return answer;
         }
-        public int FindMax(int[,] matrix, out int row, out int col)
+       public int FindMax(int[,] matrix, out int row, out int col)
         {
             row = 0; col = 0;
             int MaxValue = int.MinValue;
@@ -129,12 +128,11 @@ namespace Lab6
                 }
             }
             return MaxValue;
-        }     
-        public void Task4(int[,] A, int[,] B)
+        }        public void Task4(int[,] A, int[,] B)
         {
 
-            // code here
             int rowA, rowB, colA, colB;
+            // code here
             int maxA = FindMax(A, out rowA, out colA);
             int maxB = FindMax(B, out rowB, out colB);
             A[rowA, colA] = maxB;
@@ -142,7 +140,7 @@ namespace Lab6
             // end
 
         }
-        public void SwapColumns(int[,] A, int colIndexA, int[,] B, int colIndexB)
+         public void SwapColumns(int[,] A, int colIndexA, int[,] B, int colIndexB)
         {
             for (int i = 0; i < A.GetLength(0); i++)
             {
@@ -193,6 +191,7 @@ namespace Lab6
                 }
             }
         }
+
         public void SortDiagonalDescending(int[,] matrix)
         {
             int rows = matrix.GetLength(0);
@@ -222,6 +221,7 @@ namespace Lab6
                 }
             }
         }
+
         public void Task6(int[,] matrix, Sorting sort)
         {
 
@@ -280,12 +280,13 @@ namespace Lab6
             double answer = 0;
 
              //code here
-             answer = ride(v, a);
+              answer = ride(v, a);
+
              //end
 
             return answer;
         }
-        public delegate void Swapper(int[] array);
+       public delegate void Swapper(int[] array);
         public void SwapFromLeft(int[] array)
         {
             int n = array.Length;
@@ -330,7 +331,7 @@ namespace Lab6
             return answer;
         }
 
-        public delegate int Func(int[][] array);
+         public delegate int Func(int[][] array);
         public int CountPositive(int[][] array)
         {
             int countPos = 0;
