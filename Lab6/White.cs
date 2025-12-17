@@ -6,7 +6,7 @@ namespace Lab6
 {
     public class White
     {
-       public int FindMaxIndex(double[] array)
+        public int FindMaxIndex(double[] array)
         {
             int len = array.Length;
             double maxValue = double.MinValue;
@@ -84,7 +84,7 @@ namespace Lab6
             // end
 
         }
-         public int[] GetNegativeCountPerRow(int[,] matrix)
+        public int[] GetNegativeCountPerRow(int[,] matrix)
         {
             int rows = matrix.GetLength(0), cols = matrix.GetLength(1);
             int[] NegInRow = new int[rows];
@@ -112,7 +112,7 @@ namespace Lab6
 
             return answer;
         }
-       public int FindMax(int[,] matrix, out int row, out int col)
+        public int FindMax(int[,] matrix, out int row, out int col)
         {
             row = 0; col = 0;
             int MaxValue = int.MinValue;
@@ -140,7 +140,7 @@ namespace Lab6
             // end
 
         }
-         public void SwapColumns(int[,] A, int colIndexA, int[,] B, int colIndexB)
+        public void SwapColumns(int[,] A, int colIndexA, int[,] B, int colIndexB)
         {
             for (int i = 0; i < A.GetLength(0); i++)
             {
@@ -286,7 +286,7 @@ namespace Lab6
 
             return answer;
         }
-       public delegate void Swapper(int[] array);
+        public delegate void Swapper(int[] array);
         public void SwapFromLeft(int[] array)
         {
             int n = array.Length;
@@ -331,7 +331,7 @@ namespace Lab6
             return answer;
         }
 
-         public delegate int Func(int[][] array);
+        public delegate int Func(int[][] array);
         public int CountPositive(int[][] array)
         {
             int countPos = 0;
