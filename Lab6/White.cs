@@ -25,6 +25,7 @@ namespace Lab6
         {
 
             // code here
+
             double sumOfArray = 0;
             int count = 0;
             double median = 0;
@@ -72,6 +73,7 @@ namespace Lab6
         {
 
             // code here
+
             int rowA = FindMaxRowIndexInColumn(A, 1), rowB = FindMaxRowIndexInColumn(B, 1);
             if ((A.GetLength(0) == B.GetLength(0)) && (A.GetLength(1) == B.GetLength(1)))
             {
@@ -80,7 +82,6 @@ namespace Lab6
                     (A[rowA, col], B[rowB, col]) = (B[rowB, col], A[rowA, col]);
                 }
             }
-
             // end
 
         }
@@ -103,10 +104,13 @@ namespace Lab6
         public int Task3(int[,] matrix)
         {
             int answer = 0;
+
             // code here
+
             int count = -1;
             int[] negativeData = GetNegativeCountPerRow(matrix);
             int maxStr = negativeData.Max();
+            //// code here
             answer = Array.IndexOf(negativeData, maxStr);
             // end
 
@@ -128,11 +132,13 @@ namespace Lab6
                 }
             }
             return MaxValue;
-        }        public void Task4(int[,] A, int[,] B)
+        }
+        public void Task4(int[,] A, int[,] B)
         {
 
             int rowA, rowB, colA, colB;
             // code here
+
             int maxA = FindMax(A, out rowA, out colA);
             int maxB = FindMax(B, out rowB, out colB);
             A[rowA, colA] = maxB;
@@ -151,6 +157,7 @@ namespace Lab6
         {
 
             // code here
+
             int rowA, rowB, colA, colB;
             int maxA = FindMax(A, out rowA, out colA);
             int maxB = FindMax(B, out rowB, out colB);
@@ -226,6 +233,7 @@ namespace Lab6
         {
 
             // code here
+
             sort(matrix);
             // end
 
@@ -241,6 +249,7 @@ namespace Lab6
             long answer = 0;
 
             // code here
+
             if (n >= k)
             {
                 answer = Factorial(n) / (Factorial(k) * Factorial(n - k));
@@ -279,10 +288,10 @@ namespace Lab6
         {
             double answer = 0;
 
-             //code here
-              answer = ride(v, a);
+            // code here
 
-             //end
+            answer = ride(v, a);
+            // end
 
             return answer;
         }
@@ -318,6 +327,7 @@ namespace Lab6
             int answer = 0;
 
             // code here
+
             int len = array.Length;
             Swapper swap;
             swap = (len % 2 == 0) ? SwapFromLeft : SwapFromRight;
@@ -330,7 +340,6 @@ namespace Lab6
 
             return answer;
         }
-
         public delegate int Func(int[][] array);
         public int CountPositive(int[][] array)
         {
@@ -373,6 +382,7 @@ namespace Lab6
             int answer = 0;
 
             // code here
+
             answer = func(array);
             // end
 
