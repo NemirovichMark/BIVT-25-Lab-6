@@ -1,4 +1,5 @@
-﻿using System.Transactions;
+﻿/*
+using System.Transactions;
 
 namespace Lab6test
 {
@@ -1201,3 +1202,4 @@ namespace Lab6test
         }
     }
 }
+*/

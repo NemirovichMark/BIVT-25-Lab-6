@@ -10,7 +10,7 @@
         [TestMethod]
         public void Test01()
         {
-            // Arrange
+            // Arrangez
             var inputA = new int[][,] {
                 new int[,] {
                     {1, 2, 3, 4, 5, 6, 7},
