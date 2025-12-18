@@ -345,19 +345,138 @@ namespace Lab6
         {
 
             // code here
-
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                if (i % 2 == 0)
+                {
+                    SortMatrixRow(matrix, i, sorter);
+                }
+            }
             // end
 
         }
+        
+        public delegate void Action(int[] array);
+
+        public void SortMatrixRow(int[,] matrix, int row, Action<int[]> sorter)
+        {
+            int[] array = new int[matrix.GetLength(1)];
+            for (int j = 0; j < matrix.GetLength(1); j++)
+            {
+                array[j] = matrix[row, j];
+            }
+            sorter(array);
+            ReplaceRow(matrix, row, array);
+        }
+
+        public void ReplaceRow(int[,] matrix, int row, int[] array)
+        {
+            for (int j = 0; j < matrix.GetLength(1); j++)
+            {
+                matrix[row, j] = array[j];
+            }
+        }
+
+        public void SortAscending(int[] array)
+        {
+            for (int i = 0; i < array.Length - 1; i++)
+            {
+                for (int j = 0; j < array.Length - i - 1; j++)
+                {
+                    if (array[j] > array[j + 1])
+                    {
+                        (array[j], array[j + 1]) = (array[j + 1], array[j]);
+                    }
+                }
+            }
+        }
+
+        public void SortDescending(int[] array)
+        {
+            for (int i = 0; i < array.Length - 1; i++)
+            {
+                for (int j = 0; j < array.Length - i - 1; j++)
+                {
+                    if (array[j] < array[j + 1])
+                    {
+                        (array[j], array[j + 1]) = (array[j + 1], array[j]);
+                    }
+                }
+            }
+        }
+        
         public double Task10(int[][] array, Func<int[][], double> func)
         {
             double res = 0;
 
             // code here
-
+            res = func(array);
             // end
 
             return res;
+        }
+        
+        public delegate int[][] Func(int[][] array);
+
+        public double CountZeroSum(int[][] array)
+        {
+            double count = 0;
+            for (int i = 0; i < array.Length; i++)
+            {
+                int sum = 0;
+                for (int j = 0; j < array[i].Length; j++)
+                {
+                    sum += array[i][j];
+                }
+                if (sum == 0) count++;
+            }
+            return count;
+        }
+
+        public double FindMedian(int[][] array)
+        {
+            double median;
+            int len = 0;
+            for (int i = 0; i < array.Length; i++)
+            {
+                len += array[i].Length;
+            }
+
+            int[] arr = new int[len];
+            for (int i = 0, k = 0; i < array.Length; i++)
+            {
+                for (int j = 0; j < array[i].Length; j++)
+                {
+                    arr[k++] = array[i][j];
+                }
+            }
+            SortAscending(arr);
+            if (arr.Length % 2 == 0)
+            {
+                median = (double)(arr[len / 2 - 1] + arr[len / 2]) / 2;
+            }
+            else median = arr[len / 2];
+            return median;
+        }
+
+        public double CountLargeElements(int[][] array)
+        {
+            double count = 0;
+            double avg;
+            for (int i = 0; i < array.Length; i++)
+            {
+                double sum = 0;
+                for (int j = 0; j < array[i].Length; j++)
+                {
+                    sum += array[i][j];
+                }
+                avg = sum / array[i].Length;
+                for (int j = 0; j < array[i].Length; j++)
+                {
+                    if (array[i][j] > avg) count++;
+                }
+            }
+            return count;
         }
     }
 }
