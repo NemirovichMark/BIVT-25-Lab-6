@@ -1,15 +1,358 @@
 ﻿using System.Linq;
 using System.Runtime.InteropServices;
 
+
 namespace Lab6
 {
     public class Green
     {
+        public void DeleteMaxElement(ref int[] array)
+        {
+            if (array.Length == 0) return;
+
+            int max = array[0];
+            int indmax = 0;
+            for (int i = 1; i < array.Length; i++)
+            {
+                if (array[i] > max)
+                {
+                    max = array[i];
+                    indmax = i;
+                }
+            }
+            int[] newarray = new int[array.Length - 1];
+            for (int i = 0; i < newarray.Length; i++)
+            {
+                if (i < indmax)
+                {
+                    newarray[i] = array[i];
+                }
+                else
+                {
+                    newarray[i] = array[i + 1];
+                }
+            }
+            array = newarray;
+        }
+
+        public int[] CombineArrays(int[] A, int[] B)
+        {
+            int[] result = new int[A.Length + B.Length];
+            for (int i = 0; i < result.Length; i++)
+            {
+                if (i < A.Length) result[i] = A[i];
+                else result[i] = B[i - A.Length];
+            }
+            return result;
+        }
+
+        public int FindMaxInRow(int[,] matrix, int row, out int col)
+        {
+            int cols = matrix.GetLength(1);
+            int max = matrix[row, 0];
+            col = 0;
+            for (int j = 1; j < cols; j++)
+            {
+                if (matrix[row, j] > max)
+                {
+                    max = matrix[row, j];
+                    col = j;
+                }
+            }
+            return max;
+        }
+
+        public void FindMax(int[,] matrix, out int row, out int col)
+        {
+            int rows = matrix.GetLength(0);
+            int cols = matrix.GetLength(1);
+            int max = matrix[0, 0];
+            row = -1;
+            col = -1;
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < cols; j++)
+                {
+                    if (matrix[i, j] > max)
+                    {
+                        max = matrix[i, j];
+                        row = i;
+                        col = j;
+                    }
+                }
+            }
+        }
+
+        public void SwapColWithDiagonal(int[,] matrix, int col)
+        {
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                if (i == col) continue;
+                int temp = matrix[i, i];
+                matrix[i, i] = matrix[i, col];
+                matrix[i, col] = temp;
+            }
+        }
+
+        public void RemoveRow(ref int[,] matrix, int row)
+        {
+            int rows = matrix.GetLength(0);
+            int cols = matrix.GetLength(1);
+            int[,] newmatrix = new int[rows - 1, cols];
+            for (int i = 0; i < rows - 1; i++)
+            {
+                if (i < row)
+                {
+                    for (int j = 0; j < cols; j++)
+                    {
+                        newmatrix[i, j] = matrix[i, j];
+                    }
+                }
+                else
+                {
+                    for (int j = 0; j < cols; j++)
+                    {
+                        newmatrix[i, j] = matrix[i + 1, j];
+                    }
+                }
+            }
+            matrix = newmatrix;
+        }
+
+        public int[] GetRowsMinElements(int[,] matrix)
+        {
+            int rows = matrix.GetLength(0);
+            int cols = matrix.GetLength(1);
+            if (rows != cols) return null;
+            int[] mins = new int[rows];
+            for (int i = 0; i < rows; i++)
+            {
+                int min = matrix[i, i];
+                for (int j = i; j < cols; j++)
+                {
+                    if (matrix[i, j] < min)
+                    {
+                        min = matrix[i, j];
+                    }
+                }
+                mins[i] = min;
+            }
+            return mins;
+        }
+
+        public int[] SumPositiveElementsInColumns(int[,] matrix)
+        {
+            int rows = matrix.GetLength(0);
+            int cols = matrix.GetLength(1);
+            int[] array = new int[cols];
+            for (int j = 0; j < cols; j++)
+            {
+                int sum = 0;
+                for (int i = 0; i < rows; i++)
+                {
+                    if (matrix[i, j] > 0) sum += matrix[i, j];
+                }
+                array[j] = sum;
+            }
+            return array;
+        }
+
+        public delegate void Sorting(int[,] matrix);
+
+        public void SortEndAscending(int[,] matrix)
+        {
+            int rows = matrix.GetLength(0);
+            int cols = matrix.GetLength(1);
+            for (int i = 0; i < rows; i++)
+            {
+                int maxIndex = 0;
+                int max = matrix[i, 0];
+                for (int j = 1; j < cols; j++)
+                {
+                    if (matrix[i, j] > max)
+                    {
+                        maxIndex = j;
+                        max = matrix[i, j];
+                    }
+                }
+
+                for (int j = maxIndex + 1; j < cols; j++)
+                {
+                    for (int k = maxIndex + 1; k < cols - j + maxIndex; k++)
+                    {
+                        if (matrix[i, k] > matrix[i, k + 1])
+                        {
+                            int temp = matrix[i, k];
+                            matrix[i, k] = matrix[i, k + 1];
+                            matrix[i, k + 1] = temp;
+                        }
+                    }
+                }
+            }
+        }
+
+        public void SortEndDescending(int[,] matrix)
+        {
+            int rows = matrix.GetLength(0);
+            int cols = matrix.GetLength(1);
+            for (int i = 0; i < rows; i++)
+            {
+                int maxIndex = 0;
+                int max = matrix[i, 0];
+                for (int j = 0; j < cols; j++)
+                {
+                    if (matrix[i, j] > max)
+                    {
+                        maxIndex = j;
+                        max = matrix[i, j];
+                    }
+                }
+
+                for (int j = maxIndex + 1; j < cols; j++)
+                {
+                    for (int k = maxIndex + 1; k < cols - j + maxIndex; k++)
+                    {
+                        if (matrix[i, k] < matrix[i, k + 1])
+                        {
+                            int temp = matrix[i, k];
+                            matrix[i, k] = matrix[i, k + 1];
+                            matrix[i, k + 1] = temp;
+                        }
+                    }
+                }
+            }
+        }
+
+        public double GeronArea(double a, double b, double c)
+        {
+            if (a + b < c || a + c < b || b + c < a) return 0;
+            double p = (a + b + c) / 2;
+            double S = Math.Sqrt(p * (p - a) * (p - b) * (p - c));
+            return S;
+        }
+
+
+
+        public void SortMatrixRow(int[,] matrix, int row, Action<int[]> sorter)
+        {
+            int cols = matrix.GetLength(1);
+            int[] array = new int[cols];
+            for (int j = 0; j < cols; j++)
+            {
+                array[j] = matrix[row, j];
+            }
+            sorter(array);
+            ReplaceRow(matrix, row, array);
+        }
+
+        public void ReplaceRow(int[,] matrix, int row, int[] array)
+        {
+            for (int j = 0; j < matrix.GetLength(1); j++)
+            {
+                matrix[row, j] = array[j];
+            }
+        }
+
+        public void SortAscending(int[] array)
+        {
+            int n = array.Length;
+            for (int i = 0; i < n - 1; i++)
+            {
+                for (int j = 0; j < n - i - 1; j++)
+                {
+                    if (array[j] > array[j + 1])
+                    {
+                        (array[j], array[j + 1]) = (array[j + 1], array[j]);
+                    }
+                }
+            }
+        }
+
+        public void SortDescending(int[] array)
+        {
+            int n = array.Length;
+            for (int i = 0; i < n - 1; i++)
+            {
+                for (int j = 0; j < n - i - 1; j++)
+                {
+                    if (array[j] < array[j + 1])
+                    {
+                        (array[j], array[j + 1]) = (array[j + 1], array[j]);
+                    }
+                }
+            }
+        }
+
+        public delegate int[][] Func(int[][] array);
+
+        public double CountZeroSum(int[][] array)
+        {
+            double count = 0;
+            for (int i = 0; i < array.Length; i++)
+            {
+                int sum = 0;
+                for (int j = 0; j < array[i].Length; j++)
+                {
+                    sum += array[i][j];
+                }
+                if (sum == 0) count++;
+            }
+            return count;
+        }
+
+        public double FindMedian(int[][] array)
+        {
+            double median;
+            int len = 0;
+            for (int i = 0; i < array.Length; i++)
+            {
+                len += array[i].Length;
+            }
+
+            int[] arr = new int[len];
+            for (int i = 0, k = 0; i < array.Length; i++)
+            {
+                for (int j = 0; j < array[i].Length; j++)
+                {
+                    arr[k++] = array[i][j];
+                }
+            }
+            SortAscending(arr);
+            if (arr.Length % 2 == 0)
+            {
+                median = (double)(arr[len / 2 - 1] + arr[len / 2]) / 2;
+            }
+            else median = arr[len / 2];
+            return median;
+        }
+
+        public double CountLargeElements(int[][] array)
+        {
+            double count = 0, avg;
+            for (int i = 0; i < array.Length; i++)
+            {
+                double sum = 0;
+                for (int j = 0; j < array[i].Length; j++)
+                {
+                    sum += array[i][j];
+                }
+                avg = sum / array[i].Length;
+                for (int j = 0; j < array[i].Length; j++)
+                {
+                    if (array[i][j] > avg) count++;
+                }
+            }
+            return count;
+        }
+        //------------------------------------------------------------------------------------------
         public void Task1(ref int[] A, ref int[] B)
         {
 
             // code here
-
+            DeleteMaxElement(ref A);
+            DeleteMaxElement(ref B);
+            int[] result = CombineArrays(A, B);
+            A = result;
             // end
 
         }
@@ -17,7 +360,15 @@ namespace Lab6
         {
 
             // code here
-
+            if (array.Length == 0 || matrix.GetLength(0) != array.Length) return;
+            for (int i = 0; i < array.Length; i++)
+            {
+                int maxValue = FindMaxInRow(matrix, i, out int maxCol);
+                if (maxValue < array[i])
+                {
+                    matrix[i, maxCol] = array[i];
+                }
+            }
             // end
 
         }
@@ -25,7 +376,10 @@ namespace Lab6
         {
 
             // code here
-
+            int rows = matrix.GetLength(0), cols = matrix.GetLength(1);
+            if (rows != cols) return;
+            FindMax(matrix, out int row, out int col);
+            SwapColWithDiagonal(matrix, col);
             // end
 
         }
@@ -33,7 +387,24 @@ namespace Lab6
         {
 
             // code here
-
+            int rows = matrix.GetLength(0);
+            for (int i = rows - 1; i >= 0; i--)
+            {
+                bool hasZero = false;
+                int cols = matrix.GetLength(1);
+                for (int j = 0; j < cols; j++)
+                {
+                    if (matrix[i, j] == 0)
+                    {
+                        hasZero = true;
+                        break;
+                    }
+                }
+                if (hasZero)
+                {
+                    RemoveRow(ref matrix, i);
+                }
+            }
             // end
 
         }
@@ -42,7 +413,7 @@ namespace Lab6
             int[] answer = null;
 
             // code here
-
+            answer = GetRowsMinElements(matrix);
             // end
 
             return answer;
@@ -52,7 +423,9 @@ namespace Lab6
             int[] answer = null;
 
             // code here
-
+            int[] arr1 = SumPositiveElementsInColumns(A);
+            int[] arr2 = SumPositiveElementsInColumns(B);
+            answer = CombineArrays(arr1, arr2);
             // end
 
             return answer;
@@ -61,7 +434,7 @@ namespace Lab6
         {
 
             // code here
-
+            sort(matrix);
             // end
 
         }
@@ -70,7 +443,11 @@ namespace Lab6
             int answer = 0;
 
             // code here
-
+            if (A.Length != 3 || B.Length != 3) return 0;
+            double triangle1 = GeronArea(A[0], A[1], A[2]);
+            double triangle2 = GeronArea(B[0], B[1], B[2]);
+            if (triangle1 > triangle2) answer = 1;
+            else answer = 2;
             // end
 
             return answer;
@@ -79,7 +456,13 @@ namespace Lab6
         {
 
             // code here
-
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                if (i % 2 == 0)
+                {
+                    SortMatrixRow(matrix, i, sorter);
+                }
+            }
             // end
 
         }
@@ -88,7 +471,7 @@ namespace Lab6
             double res = 0;
 
             // code here
-
+            res = func(array);
             // end
 
             return res;
