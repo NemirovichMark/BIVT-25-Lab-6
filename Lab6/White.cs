@@ -17,7 +17,7 @@ namespace Lab6
                     maxPlaceA = i;
                 }
             }
-            
+
             int maxPlaceB = 0;
             double maxValueB = B[0];
             for (int i = 1; i < B.Length; i++)
@@ -28,24 +28,24 @@ namespace Lab6
                     maxPlaceB = i;
                 }
             }
-            
+
             int distanceA = A.Length - 1 - maxPlaceA;
             int distanceB = B.Length - 1 - maxPlaceB;
-            
+
             double[] arrayToChange = A;
             int elementPlace = maxPlaceA;
-            
+
             if (distanceB > distanceA)
             {
                 arrayToChange = B;
                 elementPlace = maxPlaceB;
             }
-            
+
             if (elementPlace == arrayToChange.Length - 1)
             {
                 return;
             }
-            
+
             double total = 0;
             int count = 0;
             for (int i = elementPlace + 1; i < arrayToChange.Length; i++)
@@ -53,7 +53,7 @@ namespace Lab6
                 total += arrayToChange[i];
                 count++;
             }
-            
+
             double average = total / count;
             arrayToChange[elementPlace] = average;
         }
@@ -64,7 +64,7 @@ namespace Lab6
             {
                 return;
             }
-            
+
             int maxRowA = 0;
             int maxInColA = A[0, 0];
             for (int i = 1; i < A.GetLength(0); i++)
@@ -75,7 +75,7 @@ namespace Lab6
                     maxRowA = i;
                 }
             }
-            
+
             int maxRowB = 0;
             int maxInColB = B[0, 0];
             for (int i = 1; i < B.GetLength(0); i++)
@@ -86,7 +86,7 @@ namespace Lab6
                     maxRowB = i;
                 }
             }
-            
+
             for (int j = 0; j < A.GetLength(1); j++)
             {
                 int temp = A[maxRowA, j];
@@ -98,12 +98,12 @@ namespace Lab6
         public int Task3(int[,] matrix)
         {
             int answer = 0;
-            
+
             int rowCount = matrix.GetLength(0);
             int colCount = matrix.GetLength(1);
-            
+
             int[] negativeCount = new int[rowCount];
-            
+
             for (int i = 0; i < rowCount; i++)
             {
                 int count = 0;
@@ -116,10 +116,10 @@ namespace Lab6
                 }
                 negativeCount[i] = count;
             }
-            
+
             int maxCount = negativeCount[0];
             answer = 0;
-            
+
             for (int i = 1; i < rowCount; i++)
             {
                 if (negativeCount[i] > maxCount)
@@ -136,7 +136,7 @@ namespace Lab6
             int rowA = 0;
             int colA = 0;
             int maxA = A[0, 0];
-            
+
             for (int i = 0; i < A.GetLength(0); i++)
             {
                 for (int j = 0; j < A.GetLength(1); j++)
@@ -149,11 +149,11 @@ namespace Lab6
                     }
                 }
             }
-            
+
             int rowB = 0;
             int colB = 0;
             int maxB = B[0, 0];
-            
+
             for (int i = 0; i < B.GetLength(0); i++)
             {
                 for (int j = 0; j < B.GetLength(1); j++)
@@ -166,7 +166,7 @@ namespace Lab6
                     }
                 }
             }
-            
+
             A[rowA, colA] = maxB;
             B[rowB, colB] = maxA;
         }
@@ -176,7 +176,7 @@ namespace Lab6
             int rowA = 0;
             int colA = 0;
             int maxA = A[0, 0];
-            
+
             for (int i = 0; i < A.GetLength(0); i++)
             {
                 for (int j = 0; j < A.GetLength(1); j++)
@@ -189,11 +189,11 @@ namespace Lab6
                     }
                 }
             }
-            
+
             int rowB = 0;
             int colB = 0;
             int maxB = B[0, 0];
-            
+
             for (int i = 0; i < B.GetLength(0); i++)
             {
                 for (int j = 0; j < B.GetLength(1); j++)
@@ -206,12 +206,12 @@ namespace Lab6
                     }
                 }
             }
-            
+
             if (A.GetLength(0) != B.GetLength(0))
             {
                 return;
             }
-            
+
             for (int i = 0; i < A.GetLength(0); i++)
             {
                 int temp = A[i, colA];
@@ -226,38 +226,38 @@ namespace Lab6
             {
                 return;
             }
-            
+
             sort(matrix);
         }
 
         public long Task7(int n, int k)
         {
             long answer = 0;
-            
+
             if (k > n || n < 0 || k < 0)
             {
                 return 0;
             }
-            
+
             long factN = 1;
             for (int i = 2; i <= n; i++)
             {
                 factN = factN * i;
             }
-            
+
             long factK = 1;
             for (int i = 2; i <= k; i++)
             {
                 factK = factK * i;
             }
-            
+
             long factNK = 1;
             int diff = n - k;
             for (int i = 2; i <= diff; i++)
             {
                 factNK = factNK * i;
             }
-            
+
             answer = factN / (factK * factNK);
             return answer;
         }
@@ -272,7 +272,7 @@ namespace Lab6
         public int Task9(int[][] array)
         {
             int answer = 0;
-            
+
             if (array.Length % 2 == 0)
             {
                 for (int i = 0; i < array.Length; i++)
@@ -282,7 +282,7 @@ namespace Lab6
                     {
                         tempArray[j] = array[i][j];
                     }
-                    
+
                     for (int j = 0; j < tempArray.Length - 1; j += 2)
                     {
                         double temp = tempArray[j];
@@ -300,7 +300,7 @@ namespace Lab6
                     {
                         tempArray[j] = array[i][j];
                     }
-                    
+
                     for (int j = tempArray.Length - 1; j > 0; j -= 2)
                     {
                         double temp = tempArray[j];
@@ -309,7 +309,7 @@ namespace Lab6
                     }
                 }
             }
-            
+
             double totalSum = 0;
             for (int i = 0; i < array.Length; i++)
             {
@@ -320,7 +320,7 @@ namespace Lab6
                     {
                         tempArray[j] = array[i][j];
                     }
-                    
+
                     for (int j = 0; j < tempArray.Length; j++)
                     {
                         if (j % 2 == 0)
@@ -330,7 +330,7 @@ namespace Lab6
                     }
                 }
             }
-            
+
             answer = (int)totalSum;
             return answer;
         }
