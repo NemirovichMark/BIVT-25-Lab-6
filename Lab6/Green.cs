@@ -163,6 +163,7 @@ namespace Lab6
             double res = 0;
 
             // code here
+            if (array == null || func == null) return 0;
             res = func(array);
             // end
 
@@ -355,65 +356,54 @@ namespace Lab6
             sorter(tmp);
             for (int j = 0; j < cols; j++) matrix[row, j] = tmp[j];
         }
-        public double CountZeroSum(int[][] array)
+         public double CountZeroSum(int[][] array)
         {
-            double count = 0;
+            if (array == null) return 0;
+            int cnt = 0;
             for (int i = 0; i < array.Length; i++)
             {
-                int sum = 0;
-                for (int j = 0; j < array[i].Length; j++)
-                {
-                    sum += array[i][j];
-                }
-                if (sum == 0) count++;
+                int[] row = array[i] ?? System.Array.Empty<int>();
+                long s = 0;
+                for (int j = 0; j < row.Length; j++) s += row[j];
+                if (s == 0) cnt++;
             }
-            return count;
+            return cnt;
         }
         public double FindMedian(int[][] array)
         {
-            double median;
-            int len = 0;
+            if (array == null) return 0;
+            int total = 0;
+            for (int i = 0; i < array.Length; i++) total += (array[i]?.Length ?? 0);
+            if (total == 0) return 0;
+            int[] flat = new int[total];
+            int k = 0;
             for (int i = 0; i < array.Length; i++)
             {
-                len += array[i].Length;
+                int[] row = array[i] ?? System.Array.Empty<int>();
+                for (int j = 0; j < row.Length; j++) flat[k++] = row[j];
             }
-
-            int[] arr = new int[len];
-            for (int i = 0, k = 0; i < array.Length; i++)
-            {
-                for (int j = 0; j < array[i].Length; j++)
-                {
-                    arr[k++] = array[i][j];
-                }
-            }
-            SortAscending(arr);
-            if (arr.Length % 2 == 0)
-            {
-                median = (double)(arr[len / 2 - 1] + arr[len / 2]) / 2;
-            }
-            else median = arr[len / 2];
-            return median;
+            System.Array.Sort(flat);
+            if ((total & 1) == 1) return flat[total / 2];
+            return (flat[total / 2 - 1] + flat[total / 2]) / 2.0;
         }
         public double CountLargeElements(int[][] array)
         {
-            double count = 0, avg;
+            if (array == null) return 0;
+            long cnt = 0;
             for (int i = 0; i < array.Length; i++)
             {
-                double sum = 0;
-                for (int j = 0; j < array[i].Length; j++)
-                {
-                    sum += array[i][j];
-                }
-                avg = sum / array[i].Length;
-                for (int j = 0; j < array[i].Length; j++)
-                {
-                    if (array[i][j] > avg) count++;
-                }
+                int[] row = array[i] ?? System.Array.Empty<int>();
+                if (row.Length == 0) continue;
+                long sum = 0;
+                for (int j = 0; j < row.Length; j++) sum += row[j];
+                double avg = (double)sum / row.Length;
+                for (int j = 0; j < row.Length; j++) if (row[j] > avg) cnt++;
             }
-            return count;
+            return cnt;
         }
     }
 }
+
 
 
 
