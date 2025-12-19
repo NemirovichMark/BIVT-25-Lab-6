@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using System.Runtime.InteropServices;
 
 namespace Lab6
@@ -15,7 +15,7 @@ namespace Lab6
             // end
 
         }
-
+        
         public void DeleteMaxElement(ref int[] array)
         {
             int maxIndex = 0;
@@ -39,7 +39,7 @@ namespace Lab6
 
             array = newArray;
         }
-
+        
         public int[] CombineArrays(int[] A, int[] B)
         {
             if (A == null) A = new int[0];
@@ -59,7 +59,7 @@ namespace Lab6
 
             return result;
         }
-
+        
         public void Task2(int[,] matrix, int[] array)
         {
 
@@ -77,7 +77,7 @@ namespace Lab6
             // end
 
         }
-
+        
         public int FindMaxInRow(int[,] matrix, int row, out int col)
         {
             int maxValue = int.MinValue;
@@ -93,18 +93,18 @@ namespace Lab6
             }
             return maxValue;
         }
-
+        
         public void Task3(int[,] matrix)
         {
 
             // code here
-            if (matrix.GetLength(0) != matrix.GetLength(1)) { return; }
+            if (matrix.GetLength(0) !=  matrix.GetLength(1)) { return; }
             FindMax(matrix, out int row, out int col);
             SwapColWithDiagonal(matrix, col);
             // end
 
         }
-
+        
         public void FindMax(int[,] matrix, out int row, out int col)
         {
             row = 0;
@@ -116,7 +116,7 @@ namespace Lab6
                 for (int j = 0; j < matrix.GetLength(1); j++)
                 {
                     if (matrix[i, j] > maxValue)
-                    {
+                    {  
                         maxValue = matrix[i, j];
                         row = i;
                         col = j;
@@ -124,7 +124,7 @@ namespace Lab6
                 }
             }
         }
-
+        
         public void SwapColWithDiagonal(int[,] matrix, int col)
         {
             for (int i = 0; i < matrix.GetLength(0); i++)
@@ -134,7 +134,7 @@ namespace Lab6
                 matrix[i, col] = temp;
             }
         }
-
+        
         public void Task4(ref int[,] matrix)
         {
 
@@ -146,7 +146,7 @@ namespace Lab6
                 {
                     if (matrix[i, j] == 0)
                     {
-                        flag = true;
+                        flag = true; 
                         break;
                     }
                 }
@@ -155,10 +155,10 @@ namespace Lab6
             // end
 
         }
-
+        
         public void RemoveRow(ref int[,] matrix, int row)
         {
-            int[,] res = new int[matrix.GetLength(0) - 1, matrix.GetLength(1)];
+            int[,] res = new int[matrix.GetLength(0) - 1, matrix.GetLength(1)]; 
 
             for (int i = 0; i < row; i++)
             {
@@ -168,17 +168,17 @@ namespace Lab6
                 }
             }
 
-            for (int i = row + 1; i < matrix.GetLength(0); i++)
+            for (int i = row + 1;  i < matrix.GetLength(0); i++)
             {
-                for (int j = 0; j < matrix.GetLength(1); j++)
+                for (int j = 0;j < matrix.GetLength(1); j++)
                 {
-                    res[i - 1, j] = matrix[i, j];
+                    res[i - 1, j] = matrix[i, j]; 
                 }
             }
 
             matrix = res;
         }
-
+        
         public int[] Task5(int[,] matrix)
         {
             int[] answer = null;
@@ -191,7 +191,7 @@ namespace Lab6
 
             return answer;
         }
-
+        
         public int[] GetRowsMinElements(int[,] matrix)
         {
             int[] array = new int[matrix.GetLength(0)];
@@ -199,7 +199,7 @@ namespace Lab6
             for (int i = 0; i < matrix.GetLength(0); i++)
             {
                 int minValue = int.MaxValue;
-                for (int j = i; j < matrix.GetLength(1); j++)
+                for (int j = i; j <  matrix.GetLength(1); j++)
                 {
                     if (matrix[i, j] < minValue)
                     {
@@ -211,7 +211,7 @@ namespace Lab6
 
             return array;
         }
-
+        
         public int[] Task6(int[,] A, int[,] B)
         {
             int[] answer = null;
@@ -224,24 +224,24 @@ namespace Lab6
 
             return answer;
         }
-
+        
         public int[] SumPositiveElementsInColumns(int[,] matrix)
         {
             int[] array = new int[matrix.GetLength(1)];
-            for (int i = 0; i < matrix.GetLength(1); i++)
+            for (int i = 0; i < matrix.GetLength(1) ; i++)
             {
                 int SumCol = 0;
-                for (int j = 0; j < matrix.GetLength(0); j++)
+                for (int j = 0;  j < matrix.GetLength(0); j++)
                 {
-                    if (matrix[j, i] > 0)
-                    { SumCol += matrix[j, i]; }
+                    if (matrix [j, i] > 0)
+                    { SumCol += matrix[j, i]; }    
                 }
                 array[i] = SumCol;
                 SumCol = 0;
             }
             return array;
         }
-
+        
         public void Task7(int[,] matrix, Sorting sort)
         {
 
@@ -250,7 +250,7 @@ namespace Lab6
             // end
 
         }
-
+        
         public delegate void Sorting(int[,] matrix);
 
 
@@ -315,7 +315,7 @@ namespace Lab6
                 }
             }
         }
-
+        
         public int Task8(double[] A, double[] B)
         {
             int answer = 0;
@@ -330,7 +330,7 @@ namespace Lab6
 
             return answer;
         }
-
+        
         public double GeronArea(double a, double b, double c)
         {
             if (a + b <= c || a + c <= b || b + c <= a) { return 0; }
@@ -340,7 +340,7 @@ namespace Lab6
 
             return S;
         }
-
+        
         public void Task9(int[,] matrix, Action<int[]> sorter)
         {
 
@@ -355,7 +355,7 @@ namespace Lab6
             // end
 
         }
-
+        
         public delegate void Action(int[] array);
 
         public void SortMatrixRow(int[,] matrix, int row, Action<int[]> sorter)
@@ -404,7 +404,7 @@ namespace Lab6
                 }
             }
         }
-
+        
         public double Task10(int[][] array, Func<int[][], double> func)
         {
             double res = 0;
@@ -415,7 +415,7 @@ namespace Lab6
 
             return res;
         }
-
+        
         public delegate int[][] Func(int[][] array);
 
         public double CountZeroSum(int[][] array)
