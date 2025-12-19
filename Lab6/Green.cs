@@ -3,6 +3,8 @@ using System.Runtime.InteropServices;
 
 namespace Lab6
 {
+            public delegate void Sorting(int[] row);
+    
     public class Green
     {
         public void Task1(ref int[] A, ref int[] B)
@@ -458,3 +460,4 @@ namespace Lab6
         }
     }
 }
+
