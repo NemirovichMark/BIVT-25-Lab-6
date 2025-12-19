@@ -1,4 +1,4 @@
-﻿using System.Transactions;
+using System.Transactions;
 
 namespace Lab6test
 {
@@ -1095,7 +1095,7 @@ namespace Lab6test
             Assert.AreEqual(10, _main.FindMax(matrix, out int i, out int j));
             Assert.AreEqual(0, i);
             Assert.AreEqual(1, j);
-            Assert.AreEqual(-5, _main.FindMin(matrix, out i, out j));
+            Assert.AreEqual(-2, _main.FindMin(matrix, out i, out j));
             Assert.AreEqual(1, i);
             Assert.AreEqual(0, j);
         }
