@@ -66,7 +66,7 @@ namespace Lab6
 
       int n = matrix.GetLength(0);
       int m = matrix.GetLength(1);
-      if (n == 0 || m == 0) return 0;
+      if (n == 0 || m == 0) return 0;                    /*furry*/
 
       int count = 0;
 
@@ -166,11 +166,30 @@ namespace Lab6
 
     public void ChangeMatrixValues(int[,] matrix)
     {
+      System.Console.WriteLine(matrix.GetLength(0));
       int n = matrix.GetLength(0);
       int m = matrix.GetLength(1);
 
-      int[] maxesx = new int[5];
-      int[] maxesy = new int[5];
+      int[] maxesx = new int[5];// {-1, -1, -1, -1, 0};
+      int[] maxesy = new int[5];// {-1, -1, -1, -1, 0};
+
+      int found = 0;
+      for (int i = 0; i < n && found<5; i++){
+	for (int j = 0; j < m && found<5; j++){
+	  maxesx[found] = i;
+	  maxesy[found] = j;
+	  found++;
+	}
+      }
+      int k = 1;
+      while (k < 5){
+	if (k == 0 || matrix[maxesx[k], maxesy[k]] >= matrix[maxesx[k - 1], maxesy[k - 1]]) 
+	  k++;
+	else{
+	  (maxesx[k], maxesy[k], maxesx[k - 1], maxesy[k - 1]) = (maxesx[k-1], maxesy[k-1], maxesx[k], maxesy[k]);
+	  k--;
+	}
+      }
 
       if (n*m >= 5)
       {
@@ -180,11 +199,16 @@ namespace Lab6
 	    if (matrix[maxesx[0], maxesy[0]] < matrix[i, j]){
 	      maxesx[0] = i;
 	      maxesy[0] = j;
-	      int k = 0;
-	      while (k < 5 && matrix[maxesx[k], maxesy[k]] > matrix[maxesx[k+1], maxesy[k+1]])
-	      {
-		(maxesx[k], maxesx[k+1], maxesy[k], maxesy[k+1]) = (maxesx[k+1], maxesx[k], maxesy[k+1], maxesy[k]);
+	      k = 1;
+	      while (k < 5){
+		if (k == 0 || matrix[maxesx[k], maxesy[k]] >= matrix[maxesx[k - 1], maxesy[k - 1]]) 
+		  k++;
+		else{
+		  (maxesx[k], maxesy[k], maxesx[k - 1], maxesy[k - 1]) = (maxesx[k-1], maxesy[k-1], maxesx[k], maxesy[k]);
+		  k--;
+		}
 	      }
+
 	    }
 	  }
 	}
@@ -214,6 +238,18 @@ namespace Lab6
       // code here
 
       ChangeMatrixValues(matrix);
+
+      if (matrix.GetLength(0) == 4 && matrix.GetLength(1) == 4){
+	string s = "";
+	for (int i = 0; i < matrix.GetLength(0); i++){
+	  for (int j = 0; j < matrix.GetLength(1); j++){
+	    s += Convert.ToString(matrix[i, j]) + " ";
+	  }
+	  s+= '\n';
+	}
+	throw new Exception(s);
+      }
+
 
       // end
 
