@@ -23,15 +23,14 @@ namespace Lab6
         {
 
             // code here
-            if (matrix == null || array == null) return;
-            int rows = matrix.GetLength(0);
-            int cols = matrix.GetLength(1);
-            if (array.Length != rows) return;
-            for (int i = 0; i < rows; i++)
+            if (array.Length == 0 || matrix.GetLength(0) != array.Length) return;
+            for (int i = 0; i < array.Length; i++)
             {
-                int col;
-                int max = FindMaxInRow(matrix, i, out col);
-                if (max < array[i]) matrix[i, col] = array[i];
+                int maxvalue = FindMaxInRow(matrix, i, out int maxcol);
+                if (maxvalue < array[i])
+                {
+                    matrix[i, maxcol] = array[i];
+                }
             }
             // end
 
@@ -84,17 +83,17 @@ namespace Lab6
 
             // code here
             if (matrix == null) return null;
-            int n = matrix.GetLength(0);
-            int m = matrix.GetLength(1);
-            if (n != m) return null;
-            int[] res = new int[n];
+            int rows = matrix.GetLength(0);
+            int cols = matrix.GetLength(1);
+            if (rows != cols) return null;
+            int[] rez = new int[n];
             for (int i = 0; i < n; i++)
             {
                 int min = matrix[i, i];
                 for (int j = i; j < m; j++) if (matrix[i, j] < min) min = matrix[i, j];
-                res[i] = min;
+                rez[i] = min;
             }
-            answer = res;
+            answer = rez;
             // end
 
             return answer;
@@ -104,10 +103,9 @@ namespace Lab6
             int[] answer = null;
 
             // code here
-            if (A == null || B == null) return null;
-            int[] sA = SumPositiveElementsInColumns(A);
-            int[] sB = SumPositiveElementsInColumns(B);
-            answer = CombineArrays(sA, sB);
+            int[] arr1 = SumPositiveElementsInColumns(A);
+            int[] arr2 = SumPositiveElementsInColumns(B);
+            answer = CombineArrays(arr1, arr2);
             // end
 
             return answer;
@@ -165,7 +163,6 @@ namespace Lab6
             double res = 0;
 
             // code here
-            if (array == null || func == null) return 0;
             res = func(array);
             // end
 
@@ -174,30 +171,55 @@ namespace Lab6
 
         public void DeleteMaxElement(ref int[] array)
         {
-            if (array == null) { array = null; return; }
             if (array.Length == 0) return;
-            int max = array[0], idx = 0;
-            for (int i = 1; i < array.Length; i++) if (array[i] > max) { max = array[i]; idx = i; }
-            int[] res = new int[array.Length - 1];
-            int w = 0;
-            for (int i = 0; i < array.Length; i++) if (i != idx) res[w++] = array[i];
-            array = res;
+
+            int max = array[0];
+            int ind = 0;
+            for (int i = 1; i < array.Length; i++)
+            {
+                if (array[i] > max)
+                {
+                    max = array[i];
+                    ind = i;
+                }
+            }
+            int[] newarr = new int[array.Length - 1];
+            for (int i = 0; i < newarr.Length; i++)
+            {
+                if (i < indmax)
+                {
+                    newarr[i] = array[i];
+                }
+                else
+                {
+                    newarr[i] = array[i + 1];
+                }
+            }
+            array = newarr;
         }
         public int[] CombineArrays(int[] A, int[] B)
         {
-            if (A == null || B == null) return null;
-            int[] res = new int[A.Length + B.Length];
-            int k = 0;
-            for (int i = 0; i < A.Length; i++) res[k++] = A[i];
-            for (int i = 0; i < B.Length; i++) res[k++] = B[i];
-            return res;
+            int[] rez = new int[A.Length + B.Length];
+            for (int i = 0; i < rez.Length; i++)
+            {
+                if (i < A.Length) rez[i] = A[i];
+                else rez[i] = B[i - A.Length];
+            }
+            return rez;
         }
         public int FindMaxInRow(int[,] matrix, int row, out int col)
         {
-            col = 0;
             int cols = matrix.GetLength(1);
             int max = matrix[row, 0];
-            for (int j = 1; j < cols; j++) if (matrix[row, j] > max) { max = matrix[row, j]; col = j; }
+            col = 0;
+            for (int j = 1; j < cols; j++)
+            {
+                if (matrix[row, j] > max)
+                {
+                    max = matrix[row, j];
+                    col = j;
+                }
+            }
             return max;
         }
         public void FindMax(int[,] matrix, out int row, out int col)
@@ -260,14 +282,17 @@ namespace Lab6
         {
             int rows = matrix.GetLength(0);
             int cols = matrix.GetLength(1);
-            int[] res = new int[cols];
+            int[] array = new int[cols];
             for (int j = 0; j < cols; j++)
             {
-                int s = 0;
-                for (int i = 0; i < rows; i++) if (matrix[i, j] > 0) s += matrix[i, j];
-                res[j] = s;
+                int sum = 0;
+                for (int i = 0; i < rows; i++)
+                {
+                    if (matrix[i, j] > 0) sum += matrix[i, j];
+                }
+                array[j] = sum;
             }
-            return res;
+            return array;
         }
         public void SortEndAscending(int[] row)
         {
@@ -332,51 +357,64 @@ namespace Lab6
         }
         public double CountZeroSum(int[][] array)
         {
-            if (array == null) return 0;
-            int cnt = 0;
+            double count = 0;
             for (int i = 0; i < array.Length; i++)
             {
-                int[] row = array[i] ?? System.Array.Empty<int>();
-                long s = 0;
-                for (int j = 0; j < row.Length; j++) s += row[j];
-                if (s == 0) cnt++;
+                int sum = 0;
+                for (int j = 0; j < array[i].Length; j++)
+                {
+                    sum += array[i][j];
+                }
+                if (sum == 0) count++;
             }
-            return cnt;
+            return count;
         }
         public double FindMedian(int[][] array)
         {
-            if (array == null) return 0;
-            int total = 0;
-            for (int i = 0; i < array.Length; i++) total += (array[i]?.Length ?? 0);
-            if (total == 0) return 0;
-            int[] flat = new int[total];
-            int k = 0;
+            double median;
+            int len = 0;
             for (int i = 0; i < array.Length; i++)
             {
-                int[] row = array[i] ?? System.Array.Empty<int>();
-                for (int j = 0; j < row.Length; j++) flat[k++] = row[j];
+                len += array[i].Length;
             }
-            System.Array.Sort(flat);
-            if ((total & 1) == 1) return flat[total / 2];
-            return (flat[total / 2 - 1] + flat[total / 2]) / 2.0;
+
+            int[] arr = new int[len];
+            for (int i = 0, k = 0; i < array.Length; i++)
+            {
+                for (int j = 0; j < array[i].Length; j++)
+                {
+                    arr[k++] = array[i][j];
+                }
+            }
+            SortAscending(arr);
+            if (arr.Length % 2 == 0)
+            {
+                median = (double)(arr[len / 2 - 1] + arr[len / 2]) / 2;
+            }
+            else median = arr[len / 2];
+            return median;
         }
         public double CountLargeElements(int[][] array)
         {
-            if (array == null) return 0;
-            long cnt = 0;
+            double count = 0, avg;
             for (int i = 0; i < array.Length; i++)
             {
-                int[] row = array[i] ?? System.Array.Empty<int>();
-                if (row.Length == 0) continue;
-                long sum = 0;
-                for (int j = 0; j < row.Length; j++) sum += row[j];
-                double avg = (double)sum / row.Length;
-                for (int j = 0; j < row.Length; j++) if (row[j] > avg) cnt++;
+                double sum = 0;
+                for (int j = 0; j < array[i].Length; j++)
+                {
+                    sum += array[i][j];
+                }
+                avg = sum / array[i].Length;
+                for (int j = 0; j < array[i].Length; j++)
+                {
+                    if (array[i][j] > avg) count++;
+                }
             }
-            return cnt;
+            return count;
         }
     }
 }
+
 
 
 
