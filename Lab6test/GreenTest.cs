@@ -646,7 +646,7 @@ namespace Lab6test
                 new double[] { 5, 10, 8 }
             };
             var answer = new int[10] { 2, 1, 1, 1, 2, 2, 1, 2, 1, 2};
-            var test = new int[answer.Length];
+            var test = new int[answer.Length];  
             // Act
             for (int i = 0; i < answer.Length; i++)
             {
