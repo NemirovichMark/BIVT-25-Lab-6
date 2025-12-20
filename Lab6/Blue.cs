@@ -1,6 +1,6 @@
 ﻿namespace Lab6
 { 
-   public class blue
+   public class Blue
  {
     //    public void task1(ref int[,] matrix)
     //    {
@@ -91,3 +91,4 @@
     //        return res;
  }
 }
+
