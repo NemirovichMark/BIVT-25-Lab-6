@@ -1,1029 +1,510 @@
 using System.Linq;
 using System.Runtime.InteropServices;
 
-namespace Lab6test
+namespace Lab6
 {
-    [TestClass]
-    public sealed class GreenTest
+    public class Green
     {
-        Lab6.Green _main = new Lab6.Green();
-        const double E = 0.0001;
-        Data _data = new Data();
+        public void Task1(ref int[] A, ref int[] B)
+        {
+            // code here
+            DeleteMaxElement(ref A);
+            DeleteMaxElement(ref B);
+            A = CombineArrays(A, B);
+            // end
+        }
 
-        [TestMethod]
-        public void Test01()
+        public void DeleteMaxElement(ref int[] arr)
         {
-            // Arrange
-            var inputA = new int[][] {
-                new int[] { -2, -1, -3, -4 },
-                new int[] { 2, 1, 3, 4 },
-                new int[] { 0, 2, 4, 6, 8 },
-                new int[] { 2, 1, 3, 3, 5, 6, 3, 4 },
-                new int[] { 5, 2, -8, 1, 9, 3, 7, 4, 6 },
-                new int[] { 12, 1, 3, 3, 5, 6, 3, 4 },
-                new int[] { -2, -1, -3, -4 },
-                new int[] { 0, 2, 4, 6, 8 },
-                new int[] { 2, 1, 3, 3, 5, 6, 3, 4 },
-                new int[] { 5, 2, 8, 1, 9, 0, 7, 4, 6 }
-            };
-            var inputB = new int[][] {
-                new int[] { 0, 0, 0, 0, 0 },
-                new int[] { 5 },
-                new int[] { 0, 2, 4, 6, 8 },
-                new int[] { 5, 2, -8, 1, 9, 3, 7, 4, 6 },
-                new int[] { 5, 2, 8, 1, 4, 3, 7, 4, 6, 0 },
-                new int[] { 0, 0, 0, 0, 0 },
-                new int[] { 5 },
-                new int[] { 0, 2, 4, 6, 8 },
-                new int[] { 5, 2, -8, 1, 9, 3, 7, 4, 6 },
-                new int[] { 5, 2, 8, 1, 4, 3, 7, 4, 6, 0 }
-            };
-            var answerA = new int[][] {
-                new int[] { -2, -3, -4, 0, 0, 0, 0 },
-                new int[] { 2, 1, 3 },
-                new int[] { 0, 2, 4, 6, 0, 2, 4, 6 },
-                new int[] { 2, 1, 3, 3, 5, 3, 4, 5, 2, -8, 1, 3, 7, 4, 6 },
-                new int[] { 5, 2, -8, 1, 3, 7, 4, 6, 5, 2, 1, 4, 3, 7, 4, 6, 0 },
-                new int[] { 1, 3, 3, 5, 6, 3, 4, 0, 0, 0, 0 },
-                new int[] { -2, -3, -4 },
-                new int[] { 0, 2, 4, 6, 0, 2, 4, 6 },
-                new int[] { 2, 1, 3, 3, 5, 3, 4, 5, 2, -8, 1, 3, 7, 4, 6 },
-                new int[] { 5, 2, 8, 1, 0, 7, 4, 6, 5, 2, 1, 4, 3, 7, 4, 6, 0 }
-            };
-            var answerB = new int[][] {
-                new int[] { 0, 0, 0, 0 },
-                new int[] { },
-                new int[] { 0, 2, 4, 6 },
-                new int[] { 5, 2, -8, 1, 3, 7, 4, 6 },
-                new int[] { 5, 2, 1, 4, 3, 7, 4, 6, 0 },
-                new int[] { 0, 0, 0, 0 },
-                new int[] { },
-                new int[] { 0, 2, 4, 6 },
-                new int[] { 5, 2, -8, 1, 3, 7, 4, 6 },
-                new int[] { 5, 2, 1, 4, 3, 7, 4, 6, 0 }
-            };
-            // Act
-            for (int i = 0; i < answerA.Length; i++)
+            int idxMax = 0;
+            for (int k = 1; k < arr.Length; k++)
             {
-                _main.Task1(ref inputA[i], ref inputB[i]);
-            }
-            // Assert
-            for (int i = 0; i < answerA.Length; i++)
-            {
-                Assert.AreEqual(answerA[i].Length, inputA[i].Length);
-                for (int j = 0; j < answerA[i].Length; j++)
+                if (arr[k] > arr[idxMax])
                 {
-                    Assert.AreEqual(answerA[i][j], inputA[i][j], E);
+                    idxMax = k;
                 }
-                Assert.AreEqual(answerB[i].Length, inputB[i].Length);
-                for (int j = 0; j < answerB[i].Length; j++)
+            }
+
+            int[] updatedArr = new int[arr.Length - 1];
+            int pos = 0;
+
+            for (int m = 0; m < arr.Length; m++)
+            {
+                if (m != idxMax)
                 {
-                    Assert.AreEqual(answerB[i][j], inputB[i][j], E);
+                    updatedArr[pos] = arr[m];
+                    pos++;
+                }
+            }
+
+            arr = updatedArr;
+        }
+
+        public int[] CombineArrays(int[] X, int[] Y)
+        {
+            int[] combined = new int[X.Length + Y.Length];
+            for (int p = 0; p < X.Length; p++)
+            {
+                combined[p] = X[p];
+            }
+
+            for (int q = 0; q < Y.Length; q++)
+            {
+                combined[X.Length + q] = Y[q];
+            }
+
+            return combined;
+        }
+
+        public void Task2(int[,] matrix, int[] array)
+        {
+            if (matrix == null || array.Length == 0 || matrix.GetLength(0) != array.Length)
+            {
+                return;
+            }
+
+            for (int r = 0; r < matrix.GetLength(0); r++)
+            {
+                int maxVal = FindMaxInRow(matrix, r, out int c);
+                if (maxVal < array[r])
+                {
+                    matrix[r, c] = array[r];
                 }
             }
         }
-        [TestMethod]
-        public void Test02()
+
+        public int FindMaxInRow(int[,] mat, int rowIdx, out int colIdx)
         {
-            // Arrange
-            var inputA = _data.GetMatrixes();
-            var inputB = new int[][] {
-                new int[] { -2, -1, -3, -4 },
-                new int[] { 2, 1, 3, 4 },
-                new int[] { 0, 2, 4, 6, 8, -2 },
-                new int[] { 3, 3, 3, 3 },
-                new int[] { 5, 2, -8, 1, 9, 4, 6 },
-                new int[] { 12, 1, 3, 3, 5, 6, 3, 4 },
-                new int[] { -2, -1, -3 },
-                new int[] { 0, 2, 4, 6, 8, 11, 25 },
-                new int[] { 2, 1, 3, 3, 5, 6, 3 },
-                new int[] { 50, 20, 8, 1, 9 }
-            };
-            var answerA = new int[][,] {
-                new int[,] {
-                    {1, 2, 3, 4, 5, 6, 7},
-                    {5, 6, 7, 8, 9, 10, 11},
-                    {9, 10, 11, 12, 13, 14, 15},
-                    {13, 14, 15, 16, 17, 18, 19},
-                    {0, 1, 2, 3, 4, 5, 6},
-                },
-                new int[,] {
-                    {2},
-                    {5},
-                    {9},
-                    {13},
-                },
-                new int[,] {
-                    {1, 2, 3, 4, 5, 6},
-                    {5, 6, 7, 8, 9, 11},
-                    {0, 2, 3, 4, 5, 6},
-                },
-                new int[,] {
-                    {1, 2, 4, 6},
-                    {5, -6, 7, 11},
-                    {-1, 4, -5, 6},
-                    {1, 4, 5, 6},
-                },
-                new int[,] {
-                    {1, 2, 3, 4, 5, 6, 7},
-                    {5, 6, 7, 8, -9, 10, 11},
-                    {9, 10, -11, -12, -13, -14, -15},
-                    {-13, -14, 15, 16, 17, 18, -19},
-                },
-                new int[,] {
-                    {1, 2, 3},
-                    {5, 11, -17},
-                    {0, -2, -3},
-                },
-                new int[,] {
-                    {-9, -10, -11, -14, -15, 6},
-                },
-                new int[,] {
-                    {1, 2, 3, 4, -5, -6, -7},
-                    {5, 11, -17, 11, -10, 6, 5},
-                    {-9, -10, -11, -14, -15, -16, 1},
-                    {-9, -10, -11, -14, -15, -6, -2},
-                    {-9, -10, -11, -14, -15, 6, 4},
-                },
-                new int[,] {
-                    {1, 2, 3, 4, -5, -6, -7},
-                    {5, 11, -17, 11, -10, 6, 5},
-                    {-9, -10, -11, -14, -15, -16, 1},
-                    {-9, -10, -11, -14, 15, -6, -2},
-                    {-9, -10, -11, -14, -15, 6, 4},
-                    {5, 11, -17, 11, -10, 6, -5},
-                    {1, 1, -2, 3, -4, 0, 0},
-                    {0, -2, -3, -4, -5, 0, 5},
-                },
-                new int[,] {
-                    {1, 2, 3, 50, -5},
-                    {5, 20, -17, 11, 7},
-                    {8, -10, -11, -14, -15},
-                    {-9, -10, -11, -14, 1},
-                    {9, -2, -3, -4, -5},
-                }
-            };
-            var answerB = new int[][] {
-                new int[] { -2, -1, -3, -4 },
-                new int[] { 2, 1, 3, 4 },
-                new int[] { 0, 2, 4, 6, 8, -2 },
-                new int[] { 3, 3, 3, 3 },
-                new int[] { 5, 2, -8, 1, 9, 4, 6 },
-                new int[] { 12, 1, 3, 3, 5, 6, 3, 4 },
-                new int[] { -2, -1, -3 },
-                new int[] { 0, 2, 4, 6, 8, 11, 25 },
-                new int[] { 2, 1, 3, 3, 5, 6, 3 },
-                new int[] { 50, 20, 8, 1, 9 }
-            };
-            // Act
-            for (int i = 0; i < inputA.Length; i++)
+            int maxVal = int.MinValue;
+            colIdx = 0;
+            for (int j = 0; j < mat.GetLength(1); j++)
             {
-                _main.Task2(inputA[i], inputB[i]);
-            }
-            // Assert
-            for (int i = 0; i < inputA.Length; i++)
-            {
-                Assert.AreEqual(answerA[i].GetLength(0), inputA[i].GetLength(0));
-                for (int j = 0; j < inputA[i].GetLength(0); j++)
+                if (mat[rowIdx, j] > maxVal)
                 {
-                    Assert.AreEqual(answerA[i].GetLength(1), inputA[i].GetLength(1));
-                    for (int k = 0; k < inputA[i].GetLength(1); k++)
-                    {
-                        Assert.AreEqual(answerA[i][j, k], inputA[i][j, k]);
-                    }
-                }
-                Assert.AreEqual(answerB[i].Length, inputB[i].Length);
-                for (int j = 0; j < answerB[i].Length; j++)
-                {
-                    Assert.AreEqual(answerB[i][j], inputB[i][j], E);
+                    maxVal = mat[rowIdx, j];
+                    colIdx = j;
                 }
             }
+            return maxVal;
         }
-        [TestMethod]
-        public void Test03()
+
+        public void Task3(int[,] matrix)
         {
-            // Arrange
-            var input = _data.GetMatrixes();
-            var answer = new int[][,] {
-                new int[,] {
-                    {1, 2, 3, 4, 5, 6, 7},
-                    {5, 6, 7, 8, 9, 10, 11},
-                    {9, 10, 11, 12, 13, 14, 15},
-                    {13, 14, 15, 16, 17, 18, 19},
-                    {0, 1, 2, 3, 4, 5, 6},
-                },
-                new int[,] {
-                    {1},
-                    {5},
-                    {9},
-                    {13},
-                },
-                new int[,] {
-                    {1, 2, 3, 4, 5, 6},
-                    {5, 6, 7, 8, 9, 11},
-                    {0, 2, 3, 4, 5, 6},
-                },
-                new int[,] {
-                    {6, 2, 4, 1},
-                    {5, 11, 7, -6},
-                    {-1, 4, 6, -5},
-                    {1, 4, 5, 6},
-                },
-                new int[,] {
-                    {1, 2, 3, 4, 5, 6, 7},
-                    {5, 6, 7, 8, -9, 10, 11},
-                    {9, 10, -11, -12, -13, -14, -15},
-                    {-13, -14, 15, 16, 17, 18, -19},
-                },
-                new int[,] {
-                    {2, 1, 3},
-                    {5, 11, -17},
-                    {0, -3, -2},
-                },
-                new int[,] {
-                    {-9, -10, -11, -14, -15, 6},
-                },
-                new int[,] {
-                    {1, 2, 3, 4, -5, -6, -7},
-                    {5, 11, -17, 11, -10, 6, 5},
-                    {-9, -10, -11, -14, -15, -16, 1},
-                    {-9, -10, -11, -14, -15, -6, -2},
-                    {-9, -10, -11, -14, -15, 6, 4},
-                },
-                new int[,] {
-                    {1, 2, 3, 4, -5, -6, -7},
-                    {5, 11, -17, 11, -10, 6, 5},
-                    {-9, -10, -11, -14, -15, -16, 1},
-                    {-9, -10, -11, -14, 15, -6, -2},
-                    {-9, -10, -11, -14, -15, 6, 4},
-                    {5, 11, -17, 11, -10, 6, -5},
-                    {1, 1, -2, 3, -4, 0, 0},
-                    {0, -2, -3, -4, -5, 0, 5},
-                },
-                new int[,] {
-                    {2, 1, 3, 4, -5},
-                    {5, 11, -17, 11, 7},
-                    {-9, -11, -10, -14, -15},
-                    {-9, -14, -11, -10, -6},
-                    {0, -5, -3, -4, -2},
-                }
-            };
-            // Act
-            for (int i = 0; i < answer.Length; i++)
+            // code here
+            if (matrix.GetLength(0) != matrix.GetLength(1))
             {
-                _main.Task3(input[i]);
+                return;
             }
-            // Assert
-            for (int i = 0; i < answer.Length; i++)
+            FindMax(matrix, out int rowMax, out int colMax);
+            int targetCol = colMax;
+            SwapColWithDiagonal(matrix, targetCol);
+            // end
+        }
+
+        public void FindMax(int[,] mat, out int maxRow, out int maxCol)
+        {
+            int maxValue = int.MinValue;
+            int rMax = 0;
+            int cMax = 0;
+            for (int i = 0; i < mat.GetLength(0); i++)
             {
-                Assert.AreEqual(answer[i].GetLength(0), input[i].GetLength(0));
-                for (int j = 0; j < answer[i].GetLength(0); j++)
+                for (int j = 0; j < mat.GetLength(1); j++)
                 {
-                    Assert.AreEqual(answer[i].GetLength(1), input[i].GetLength(1));
-                    for (int k = 0; k < answer[i].GetLength(1); k++)
+                    if (mat[i, j] > maxValue)
                     {
-                        Assert.AreEqual(answer[i][j, k], input[i][j, k]);
+                        maxValue = mat[i, j];
+                        rMax = i;
+                        cMax = j;
                     }
                 }
             }
+            maxRow = rMax;
+            maxCol = cMax;
         }
-        [TestMethod]
-        public void Test04()
+
+        public void SwapColWithDiagonal(int[,] mat, int column)
         {
-            // Arrange
-            var input = _data.GetMatrixes();
-            var answer = new int[][,] {
-                new int[,] {
-                    {1, 2, 3, 4, 5, 6, 7},
-                    {5, 6, 7, 8, 9, 10, 11},
-                    {9, 10, 11, 12, 13, 14, 15},
-                    {13, 14, 15, 16, 17, 18, 19},
-                },
-                new int[,] {
-                    {1},
-                    {5},
-                    {9},
-                    {13},
-                },
-                new int[,] {
-                    {1, 2, 3, 4, 5, 6},
-                    {5, 6, 7, 8, 9, 11},
-                },
-                new int[,] {
-                    {1, 2, 4, 6},
-                    {5, -6, 7, 11},
-                    {-1, 4, -5, 6},
-                    {1, 4, 5, 6},
-                },
-                new int[,] {
-                    {1, 2, 3, 4, 5, 6, 7},
-                    {5, 6, 7, 8, -9, 10, 11},
-                    {9, 10, -11, -12, -13, -14, -15},
-                    {-13, -14, 15, 16, 17, 18, -19},
-                },
-                new int[,] {
-                    {1, 2, 3},
-                    {5, 11, -17},
-                },
-                new int[,] {
-                    {-9, -10, -11, -14, -15, 6},
-                },
-                new int[,] {
-                    {1, 2, 3, 4, -5, -6, -7},
-                    {5, 11, -17, 11, -10, 6, 5},
-                    {-9, -10, -11, -14, -15, -16, 1},
-                    {-9, -10, -11, -14, -15, -6, -2},
-                    {-9, -10, -11, -14, -15, 6, 4},
-                },
-                new int[,] {
-                    {1, 2, 3, 4, -5, -6, -7},
-                    {5, 11, -17, 11, -10, 6, 5},
-                    {-9, -10, -11, -14, -15, -16, 1},
-                    {-9, -10, -11, -14, 15, -6, -2},
-                    {-9, -10, -11, -14, -15, 6, 4},
-                    {5, 11, -17, 11, -10, 6, -5},
-                },
-                new int[,] {
-                    {1, 2, 3, 4, -5},
-                    {5, 11, -17, 11, 7},
-                    {-9, -10, -11, -14, -15},
-                    {-9, -10, -11, -14, -6},
-                }
-            };
-            // Act
-            for (int i = 0; i < answer.Length; i++)
+            int colToSwap = column;
+            for (int idx = 0; idx < mat.GetLength(0); idx++)
             {
-                _main.Task4(ref input[i]);
+                (mat[idx, idx], mat[idx, colToSwap]) = (mat[idx, colToSwap], mat[idx, idx]);
             }
-            // Assert
-            for (int i = 0; i < answer.Length; i++)
+        }
+
+        public void Task4(ref int[,] matrix)
+        {
+            // code here
+            for (int r = matrix.GetLength(0) - 1; r >= 0; r--)
             {
-                Assert.AreEqual(answer[i].GetLength(0), input[i].GetLength(0));
-                for (int j = 0; j < answer[i].GetLength(0); j++)
+                bool foundZero = false;
+                for (int c = 0; c < matrix.GetLength(1); c++)
                 {
-                    Assert.AreEqual(answer[i].GetLength(1), input[i].GetLength(1));
-                    for (int k = 0; k < answer[i].GetLength(1); k++)
+                    if (matrix[r, c] == 0)
                     {
-                        Assert.AreEqual(answer[i][j, k], input[i][j, k]);
+                        foundZero = true;
+                        break;
+                    }
+                }
+
+                if (foundZero)
+                {
+                    RemoveRow(ref matrix, r);
+                }
+            }
+            // end
+        }
+
+        public void RemoveRow(ref int[,] mat, int rowToRemove)
+        {
+            if (mat == null)
+                return;
+
+            int rowsCount = mat.GetLength(0);
+            int colsCount = mat.GetLength(1);
+
+            if (rowToRemove < 0 || rowToRemove >= rowsCount)
+                return;
+
+            if (rowsCount == 1)
+            {
+                mat = new int[0, colsCount];
+                return;
+            }
+
+            int[,] newMat = new int[rowsCount - 1, colsCount];
+
+            int newRowIdx = 0;
+
+            for (int i = 0; i < rowsCount; i++)
+            {
+                if (i != rowToRemove)
+                {
+                    for (int j = 0; j < colsCount; j++)
+                    {
+                        newMat[newRowIdx, j] = mat[i, j];
+                    }
+                    newRowIdx++;
+                }
+            }
+            mat = newMat;
+        }
+
+        public int[] Task5(int[,] matrix)
+        {
+            int[] answer = null;
+
+            // code here
+            answer = GetRowsMinElements(matrix);
+            // end
+
+            return answer;
+        }
+
+        public int[] GetRowsMinElements(int[,] mat)
+        {
+            if (mat == null) return null;
+            if (mat.GetLength(0) != mat.GetLength(1))
+            {
+                return null;
+            }
+
+            int[] mins = new int[mat.GetLength(0)];
+            for (int i = 0; i < mat.GetLength(0); i++)
+            {
+                int currentMin = mat[i, i];
+                for (int j = i + 1; j < mat.GetLength(1); j++)
+                {
+                    if (mat[i, j] < currentMin)
+                    {
+                        currentMin = mat[i, j];
+                    }
+                }
+
+                mins[i] = currentMin;
+            }
+
+            return mins;
+        }
+
+        public int[] Task6(int[,] A, int[,] B)
+        {
+            int[] answer = null;
+
+            // code here
+            int[] c = SumPositiveElementsInColumns(A);
+            int[] d = SumPositiveElementsInColumns(B);
+            // end
+            answer = CombineArrays(c, d);
+            return answer;
+        }
+
+        public int[] SumPositiveElementsInColumns(int[,] mat)
+        {
+            if (mat == null) return null;
+            int[] sums = new int[mat.GetLength(1)];
+            for (int col = 0; col < mat.GetLength(1); col++)
+            {
+                int sum = 0;
+                for (int row = 0; row < mat.GetLength(0); row++)
+                {
+                    if (mat[row, col] > 0)
+                    {
+                        sum += mat[row, col];
+                    }
+                }
+                sums[col] = sum;
+            }
+            return sums;
+        }
+
+        public void Task7(int[,] matrix, Sorting sort)
+        {
+            // code here
+            sort(matrix);
+            // end
+        }
+
+        public delegate void Sorting(int[,] matrix);
+
+        public void SortEndAscending(int[,] mat)
+        {
+            if (mat == null) return;
+            for (int i = 0; i < mat.GetLength(0); i++)
+            {
+                int idxMax = 0;
+                int valMax = mat[i, 0];
+                for (int j = 1; j < mat.GetLength(1); j++)
+                {
+                    if (mat[i, j] > valMax)
+                    {
+                        valMax = mat[i, j];
+                        idxMax = j;
+                    }
+                }
+
+                if (idxMax < mat.GetLength(1) - 1)
+                {
+                    for (int k = idxMax + 1; k < mat.GetLength(1); k++)
+                    {
+                        for (int l = idxMax + 1; l < mat.GetLength(1) - 1; l++)
+                        {
+                            if (mat[i, l] > mat[i, l + 1])
+                            {
+                                (mat[i, l], mat[i, l + 1]) = (mat[i, l + 1], mat[i, l]);
+                            }
+                        }
                     }
                 }
             }
         }
-        [TestMethod]
-        public void Test05()
+
+        public void SortEndDescending(int[,] mat)
         {
-            // Arrange
-            var input = _data.GetMatrixes();
-            var answer = new int[][] {
-                null,
-                null,
-                null,
-                new int[] { 1, -6, -5, 6 },
-                null,
-                new int[] { 1, -17, -3 },
-                null,
-                null,
-                null,
-                new int[] { -5, -17, -15, -14, -5 }
-            };
-            var test = new int[answer.Length][];
-            // Act
-            for (int i = 0; i < answer.Length; i++)
+            if (mat == null) return;
+            for (int i = 0; i < mat.GetLength(0); i++)
             {
-                test[i] = _main.Task5(input[i]);
-            }
-            // Assert
-            for (int i = 0; i < answer.Length; i++)
-            {
-                if (answer[i] == null)
+                int idxMax = 0;
+                int valMax = mat[i, 0];
+                for (int j = 1; j < mat.GetLength(1); j++)
                 {
-                    Assert.IsNull(test[i]);
-                    continue;
-                }
-                Assert.AreEqual(answer[i].Length, test[i].Length);
-                for (int j = 0; j < answer[i].GetLength(0); j++)
-                {
-                    Assert.AreEqual(answer[i][j], test[i][j]);
-                }
-            }
-        }
-        [TestMethod]
-        public void Test06()
-        {
-            // Arrange
-            var inputA = _data.GetMatrixes();
-            var inputB = _data.GetMatrixes();
-            Array.Reverse(inputB);
-            var answer = new int[][] {
-                new int[] { 28, 33, 38, 43, 48, 53, 58, 6, 13, 3, 15, 7 },
-                new int[] { 28, 12, 25, 3, 29, 15, 18, 15 },
-                new int[] { 6, 10, 13, 16, 19, 23, 6, 13, 3, 15, 0, 12, 10 },
-                new int[] { 7, 10, 16, 29, 0, 0, 0, 0, 0, 6 },
-                new int[] { 15, 18, 25, 28, 22, 34, 18, 6, 13, 3 },
-                new int[] { 6, 13, 3, 15, 18, 25, 28, 22, 34, 18 },
-                new int[] { 0, 0, 0, 0, 0, 6, 7, 10, 16, 29 },
-                new int[] { 6, 13, 3, 15, 0, 12, 10, 6, 10, 13, 16, 19, 23 },
-                new int[] { 12, 25, 3, 29, 15, 18, 15, 28 },
-                new int[] { 6, 13, 3, 15, 7, 28, 33, 38, 43, 48, 53, 58 }
-            };
-            var test = new int[answer.Length][];
-            // Act
-            for (int i = 0; i < answer.Length; i++)
-            {
-                test[i] = _main.Task6(inputA[i], inputB[i]);
-            }
-            // Assert
-            for (int i = 0; i < answer.Length; i++)
-            {
-                Assert.AreEqual(answer[i].Length, test[i].Length);
-                for (int j = 0; j < answer[i].GetLength(0); j++)
-                {
-                    Assert.AreEqual(answer[i][j], test[i][j]);
-                }
-            }
-        }
-        [TestMethod]
-        public void Test07A()
-        {
-            // Arrange
-            var input = _data.GetMatrixes();
-            var answer = new int[][,] {
-                new int[,] {
-                    {1, 2, 3, 4, 5, 6, 7},
-                    {5, 6, 7, 8, 9, 10, 11},
-                    {9, 10, 11, 12, 13, 14, 15},
-                    {13, 14, 15, 16, 17, 18, 19},
-                    {0, 1, 2, 3, 4, 5, 6},
-                },
-                new int[,] {
-                    {1},
-                    {5},
-                    {9},
-                    {13},
-                },
-                new int[,] {
-                    {1, 2, 3, 4, 5, 6},
-                    {5, 6, 7, 8, 9, 11},
-                    {0, 2, 3, 4, 5, 6},
-                },
-                new int[,] {
-                    {1, 2, 4, 6},
-                    {5, -6, 7, 11},
-                    {-1, 4, -5, 6},
-                    {1, 4, 5, 6},
-                },
-                new int[,] {
-                    {1, 2, 3, 4, 5, 6, 7},
-                    {5, 6, 7, 8, -9, 10, 11},
-                    {9, 10, -15, -14, -13, -12, -11},
-                    {-13, -14, 15, 16, 17, 18, -19},
-                },
-                new int[,] {
-                    {1, 2, 3},
-                    {5, 11, -17},
-                    {0, -3, -2},
-                },
-                new int[,] {
-                    {-9, -10, -11, -14, -15, 6},
-                },
-                new int[,] {
-                    {1, 2, 3, 4, -7, -6, -5},
-                    {5, 11, -17, -10, 5, 6, 11},
-                    {-9, -10, -11, -14, -15, -16, 1},
-                    {-9, -10, -11, -14, -15, -6, -2},
-                    {-9, -10, -11, -14, -15, 6, 4},
-                },
-                new int[,] {
-                    {1, 2, 3, 4, -7, -6, -5},
-                    {5, 11, -17, -10, 5, 6, 11},
-                    {-9, -10, -11, -14, -15, -16, 1},
-                    {-9, -10, -11, -14, 15, -6, -2},
-                    {-9, -10, -11, -14, -15, 6, 4},
-                    {5, 11, -17, -10, -5, 6, 11},
-                    {1, 1, -2, 3, -4, 0, 0},
-                    {0, -2, -3, -4, -5, 0, 5},
-                },
-                new int[,] {
-                    {1, 2, 3, 4, -5},
-                    {5, 11, -17, 7, 11},
-                    {-9, -15, -14, -11, -10},
-                    {-9, -10, -11, -14, -6},
-                    {0, -5, -4, -3, -2},
-                }
-            };
-            // Act
-            for (int i = 0; i < answer.Length; i++)
-            {
-                _main.Task7(input[i], _main.SortEndAscending);
-            }
-            // Assert
-            for (int i = 0; i < answer.Length; i++)
-            {
-                Assert.AreEqual(answer[i].GetLength(0), input[i].GetLength(0));
-                for (int j = 0; j < answer[i].GetLength(0); j++)
-                {
-                    Assert.AreEqual(answer[i].GetLength(1), input[i].GetLength(1));
-                    for (int k = 0; k < answer[i].GetLength(1); k++)
+                    if (mat[i, j] > valMax)
                     {
-                        Assert.AreEqual(answer[i][j, k], input[i][j, k]);
+                        valMax = mat[i, j];
+                        idxMax = j;
+                    }
+                }
+
+                if (idxMax < mat.GetLength(1) - 1)
+                {
+                    for (int k = idxMax + 1; k < mat.GetLength(1); k++)
+                    {
+                        for (int l = idxMax + 1; l < mat.GetLength(1) - 1; l++)
+                        {
+                            if (mat[i, l] < mat[i, l + 1])
+                            {
+                                (mat[i, l], mat[i, l + 1]) = (mat[i, l + 1], mat[i, l]);
+                            }
+                        }
                     }
                 }
             }
         }
-        [TestMethod]
-        public void Test07B()
+
+        public int Task8(double[] A, double[] B)
         {
-            // Arrange
-            var input = _data.GetMatrixes();
-            var answer = new int[][,] {
-                new int[,] {
-                    {1, 2, 3, 4, 5, 6, 7},
-                    {5, 6, 7, 8, 9, 10, 11},
-                    {9, 10, 11, 12, 13, 14, 15},
-                    {13, 14, 15, 16, 17, 18, 19},
-                    {0, 1, 2, 3, 4, 5, 6},
-                },
-                new int[,] {
-                    {1},
-                    {5},
-                    {9},
-                    {13},
-                },
-                new int[,] {
-                    {1, 2, 3, 4, 5, 6},
-                    {5, 6, 7, 8, 9, 11},
-                    {0, 2, 3, 4, 5, 6},
-                },
-                new int[,] {
-                    {1, 2, 4, 6},
-                    {5, -6, 7, 11},
-                    {-1, 4, -5, 6},
-                    {1, 4, 5, 6},
-                },
-                new int[,] {
-                    {1, 2, 3, 4, 5, 6, 7},
-                    {5, 6, 7, 8, -9, 10, 11},
-                    {9, 10, -11, -12, -13, -14, -15},
-                    {-13, -14, 15, 16, 17, 18, -19},
-                },
-                new int[,] {
-                    {1, 2, 3},
-                    {5, 11, -17},
-                    {0, -2, -3},
-                },
-                new int[,] {
-                    {-9, -10, -11, -14, -15, 6},
-                },
-                new int[,] {
-                    {1, 2, 3, 4, -5, -6, -7},
-                    {5, 11, 11, 6, 5, -10, -17},
-                    {-9, -10, -11, -14, -15, -16, 1},
-                    {-9, -10, -11, -14, -15, -6, -2},
-                    {-9, -10, -11, -14, -15, 6, 4},
-                },
-                new int[,] {
-                    {1, 2, 3, 4, -5, -6, -7},
-                    {5, 11, 11, 6, 5, -10, -17},
-                    {-9, -10, -11, -14, -15, -16, 1},
-                    {-9, -10, -11, -14, 15, -2, -6},
-                    {-9, -10, -11, -14, -15, 6, 4},
-                    {5, 11, 11, 6, -5, -10, -17},
-                    {1, 1, -2, 3, 0, 0, -4},
-                    {0, -2, -3, -4, -5, 0, 5},
-                },
-                new int[,] {
-                    {1, 2, 3, 4, -5},
-                    {5, 11, 11, 7, -17},
-                    {-9, -10, -11, -14, -15},
-                    {-9, -10, -11, -14, -6},
-                    {0, -2, -3, -4, -5},
-                }
-            };
-            // Act
-            for (int i = 0; i < answer.Length; i++)
+            int answer = 0;
+            double area1 = GeronArea(A[0], A[1], A[2]);
+            double area2 = GeronArea(B[0], B[1], B[2]);
+
+            if (area1 > area2) answer = 1;
+            else answer = 2;
+            return answer;
+        }
+
+        public double GeronArea(double side1, double side2, double side3)
+        {
+            if (side1 <= 0 || side2 <= 0 || side3 <= 0)
             {
-                _main.Task7(input[i], _main.SortEndDescending);
+                return 0;
             }
-            // Assert
-            for (int i = 0; i < answer.Length; i++)
+            if (side1 + side2 <= side3 || side1 + side3 <= side2 || side2 + side3 <= side1)
             {
-                Assert.AreEqual(answer[i].GetLength(0), input[i].GetLength(0));
-                for (int j = 0; j < answer[i].GetLength(0); j++)
+                return 0;
+            }
+            double p = (side1 + side2 + side3) / 2;
+            return Math.Sqrt(p * (p - side1) * (p - side2) * (p - side3));
+        }
+
+        public void Task9(int[,] matrix, Action<int[]> sorter)
+        {
+            for (int r = 0; r < matrix.GetLength(0); r++)
+            {
+                if (r % 2 == 0)
                 {
-                    Assert.AreEqual(answer[i].GetLength(1), input[i].GetLength(1));
-                    for (int k = 0; k < answer[i].GetLength(1); k++)
+                    SortMatrixRow(matrix, r, sorter);
+                }
+            }
+        }
+
+        public void SortMatrixRow(int[,] mat, int rowIdx, Action<int[]> sortFunc)
+        {
+            int[] rowVals = new int[mat.GetLength(1)];
+            for (int c = 0; c < mat.GetLength(1); c++)
+            {
+                rowVals[c] = mat[rowIdx, c];
+            }
+
+            sortFunc(rowVals);
+            ReplaceRow(mat, rowIdx, rowVals);
+        }
+
+        public void ReplaceRow(int[,] mat, int rowIdx, int[] vals)
+        {
+            for (int c = 0; c < mat.GetLength(1); c++)
+            {
+                mat[rowIdx, c] = vals[c];
+            }
+        }
+
+        public void SortDescending(int[] arr)
+        {
+            for (int i = 0; i < arr.Length; i++)
+            {
+                for (int j = 0; j < arr.Length - i - 1; j++)
+                {
+                    if (arr[j] < arr[j + 1])
                     {
-                        Assert.AreEqual(answer[i][j, k], input[i][j, k]);
+                        (arr[j], arr[j + 1]) = (arr[j + 1], arr[j]);
                     }
                 }
             }
         }
-        [TestMethod]
-        public void Test08()
+
+        public void SortAscending(int[] arr)
         {
-            // Arrange
-            var inputA = new double[][] {
-                new double[] { 2, 1.5, 3 },
-                new double[] { 1.9, 3, 4 },
-                new double[] { 4, 6, 8 },
-                new double[] { 2, 3, 3 },
-                new double[] { 5, 6, 8 },
-                new double[] { 12, 13, 35 },
-                new double[] { 13, 14, 15 },
-                new double[] { 12, 12, 12 },
-                new double[] { 15, 15, 15 },
-                new double[] { 5, 10, 8 }
-            };
-            var inputB = new double[][] {
-                new double[] { 5, 6, 8 },
-                new double[] { 1.7, 3, 4 },
-                new double[] { 2, 1.5, 3 },
-                new double[] { 12, 13, 35 },
-                new double[] { 13, 14, 15 },
-                new double[] { 15, 15, 15 },
-                new double[] { 4, 6, 8 },
-                new double[] { 12, 12, 12 },
-                new double[] { 2, 3, 3 },
-                new double[] { 5, 10, 8 }
-            };
-            var answer = new int[10] { 2, 1, 1, 1, 2, 2, 1, 2, 1, 2};
-            var test = new int[answer.Length];
-            // Act
-            for (int i = 0; i < answer.Length; i++)
+            for (int i = 0; i < arr.Length; i++)
             {
-                test[i] = _main.Task8(inputA[i], inputB[i]);
-            }
-            // Assert
-            Assert.AreEqual(answer.Length, test.Length);
-            for (int i = 0; i < answer.Length; i++)
-            {
-                Assert.AreEqual(answer[i], test[i], E);
-            }
-        }
-        [TestMethod]
-        public void Test09B()
-        {
-            // Arrange
-            var input = _data.GetMatrixes();
-            var answer = new int[][,] {
-                new int[,] {
-                    {7, 6, 5, 4, 3, 2, 1},
-                    {5, 6, 7, 8, 9, 10, 11},
-                    {15, 14, 13, 12, 11, 10, 9},
-                    {13, 14, 15, 16, 17, 18, 19},
-                    {6, 5, 4, 3, 2, 1, 0},
-                },
-                new int[,] {
-                    {1},
-                    {5},
-                    {9},
-                    {13},
-                },
-                new int[,] {
-                    {6, 5, 4, 3, 2, 1},
-                    {5, 6, 7, 8, 9, 11},
-                    {6, 5, 4, 3, 2, 0},
-                },
-                new int[,] {
-                    {6, 4, 2, 1},
-                    {5, -6, 7, 11},
-                    {6, 4, -1, -5},
-                    {1, 4, 5, 6},
-                },
-                new int[,] {
-                    {7, 6, 5, 4, 3, 2, 1},
-                    {5, 6, 7, 8, -9, 10, 11},
-                    {10, 9, -11, -12, -13, -14, -15},
-                    {-13, -14, 15, 16, 17, 18, -19},
-                },
-                new int[,] {
-                    {3, 2, 1},
-                    {5, 11, -17},
-                    {0, -2, -3},
-                },
-                new int[,] {
-                    {6, -9, -10, -11, -14, -15},
-                },
-                new int[,] {
-                    {4, 3, 2, 1, -5, -6, -7},
-                    {5, 11, -17, 11, -10, 6, 5},
-                    {1, -9, -10, -11, -14, -15, -16},
-                    {-9, -10, -11, -14, -15, -6, -2},
-                    {6, 4, -9, -10, -11, -14, -15},
-                },
-                new int[,] {
-                    {4, 3, 2, 1, -5, -6, -7},
-                    {5, 11, -17, 11, -10, 6, 5},
-                    {1, -9, -10, -11, -14, -15, -16},
-                    {-9, -10, -11, -14, 15, -6, -2},
-                    {6, 4, -9, -10, -11, -14, -15},
-                    {5, 11, -17, 11, -10, 6, -5},
-                    {3, 1, 1, 0, 0, -2, -4},
-                    {0, -2, -3, -4, -5, 0, 5},
-                },
-                new int[,] {
-                    {4, 3, 2, 1, -5},
-                    {5, 11, -17, 11, 7},
-                    {-9, -10, -11, -14, -15},
-                    {-9, -10, -11, -14, -6},
-                    {0, -2, -3, -4, -5},
-                },
-            };
-            // Act
-            for (int i = 0; i < answer.Length; i++)
-            {
-                _main.Task9(input[i], _main.SortDescending);
-            }
-            // Assert
-            for (int i = 0; i < answer.Length; i++)
-            {
-                Assert.AreEqual(answer[i].GetLength(0), input[i].GetLength(0));
-                for (int j = 0; j < answer[i].GetLength(0); j++)
+                for (int j = 0; j < arr.Length - i - 1; j++)
                 {
-                    Assert.AreEqual(answer[i].GetLength(1), input[i].GetLength(1));
-                    for (int k = 0; k < answer[i].GetLength(1); k++)
+                    if (arr[j] > arr[j + 1])
                     {
-                        Assert.AreEqual(answer[i][j, k], input[i][j, k]);
+                        (arr[j], arr[j + 1]) = (arr[j + 1], arr[j]);
                     }
                 }
             }
         }
-        [TestMethod]
-        public void Test09A()
+
+        public delegate void Sort();
+
+        public double Task10(int[][] array, Func<int[][], double> func)
         {
-            // Arrange
-            var input = _data.GetMatrixes();
-            var answer = new int[][,] {
-                new int[,] {
-                    {1, 2, 3, 4, 5, 6, 7},
-                    {5, 6, 7, 8, 9, 10, 11},
-                    {9, 10, 11, 12, 13, 14, 15},
-                    {13, 14, 15, 16, 17, 18, 19},
-                    {0, 1, 2, 3, 4, 5, 6},
-                },
-                new int[,] {
-                    {1},
-                    {5},
-                    {9},
-                    {13},
-                },
-                new int[,] {
-                    {1, 2, 3, 4, 5, 6},
-                    {5, 6, 7, 8, 9, 11},
-                    {0, 2, 3, 4, 5, 6},
-                },
-                new int[,] {
-                    {1, 2, 4, 6},
-                    {5, -6, 7, 11},
-                    {-5, -1, 4, 6},
-                    {1, 4, 5, 6},
-                },
-                new int[,] {
-                    {1, 2, 3, 4, 5, 6, 7},
-                    {5, 6, 7, 8, -9, 10, 11},
-                    {-15, -14, -13, -12, -11, 9, 10},
-                    {-13, -14, 15, 16, 17, 18, -19},
-                },
-                new int[,] {
-                    {1, 2, 3},
-                    {5, 11, -17},
-                    {-3, -2, 0},
-                },
-                new int[,] {
-                    {-15, -14, -11, -10, -9, 6},
-                },
-                new int[,] {
-                    {-7, -6, -5, 1, 2, 3, 4},
-                    {5, 11, -17, 11, -10, 6, 5},
-                    {-16, -15, -14, -11, -10, -9, 1},
-                    {-9, -10, -11, -14, -15, -6, -2},
-                    {-15, -14, -11, -10, -9, 4, 6},
-                },
-                new int[,] {
-                    {-7, -6, -5, 1, 2, 3, 4},
-                    {5, 11, -17, 11, -10, 6, 5},
-                    {-16, -15, -14, -11, -10, -9, 1},
-                    {-9, -10, -11, -14, 15, -6, -2},
-                    {-15, -14, -11, -10, -9, 4, 6},
-                    {5, 11, -17, 11, -10, 6, -5},
-                    {-4, -2, 0, 0, 1, 1, 3},
-                    {0, -2, -3, -4, -5, 0, 5},
-                },
-                new int[,] {
-                    {-5, 1, 2, 3, 4},
-                    {5, 11, -17, 11, 7},
-                    {-15, -14, -11, -10, -9},
-                    {-9, -10, -11, -14, -6},
-                    {-5, -4, -3, -2, 0},
-                }
-            };
-            // Act
-            for (int i = 0; i < answer.Length; i++)
+            double res = 0;
+            res = func(array);
+            return res;
+        }
+
+        public double CountZeroSum(int[][] arr)
+        {
+            int zeroSumCount = 0;
+            for (int i = 0; i < arr.Length; i++)
             {
-                _main.Task9(input[i], _main.SortAscending);
-            }
-            // Assert
-            for (int i = 0; i < answer.Length; i++)
-            {
-                Assert.AreEqual(answer[i].GetLength(0), input[i].GetLength(0));
-                for (int j = 0; j < answer[i].GetLength(0); j++)
+                if (SumArray(arr[i]) == 0)
                 {
-                    Assert.AreEqual(answer[i].GetLength(1), input[i].GetLength(1));
-                    for (int k = 0; k < answer[i].GetLength(1); k++)
+                    zeroSumCount++;
+                }
+            }
+
+            return zeroSumCount;
+        }
+
+        public static int SumArray(int[] arr)
+        {
+            int total = 0;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                total += arr[i];
+            }
+
+            return total;
+        }
+
+        public double FindMedian(int[][] arr)
+        {
+            int totalCount = 0;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                totalCount += arr[i].Length;
+            }
+
+            int[] allValues = new int[totalCount];
+            int pos = 0;
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                for (int j = 0; j < arr[i].Length; j++)
+                {
+                    allValues[pos] = arr[i][j];
+                    pos++;
+                }
+            }
+
+            SortAscending(allValues);
+
+            double median;
+            if (allValues.Length % 2 != 0)
+            {
+                median = allValues[allValues.Length / 2];
+            }
+            else
+            {
+                int midIdx = allValues.Length / 2;
+                double val1 = allValues[midIdx - 1];
+                double val2 = allValues[midIdx];
+                median = (val1 + val2) / 2.0;
+            }
+
+            return median;
+        }
+
+        public double CountLargeElements(int[][] arr)
+        {
+            int counter = 0;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i].Length == 0) continue;
+                double avg = (double)SumArray(arr[i]) / arr[i].Length;
+                for (int j = 0; j < arr[i].Length; j++)
+                {
+                    if (arr[i][j] > avg)
                     {
-                        Assert.AreEqual(answer[i][j, k], input[i][j, k]);
+                        counter++;
                     }
                 }
             }
-        }
-        [TestMethod]
-        public void Test10A()
-        {
-            // Arrange
-            var input = _data.GetArrayArrays();
-            var answer = new double[5] { 1, 1, 0, 1, 0 };
-            var test = new double[answer.Length];
-            // Act
-            for (int i = 0; i < answer.Length; i++)
-            {
-                test[i] = _main.Task10(input[i], _main.CountZeroSum);
-            }
-            // Assert
-            Assert.AreEqual(answer.Length, test.Length);
-            for (int i = 0; i < answer.Length; i++)
-            {
-                Assert.AreEqual(answer[i], test[i], E);
-            }
-        }
-        [TestMethod]
-        public void Test10B()
-        {
-            // Arrange
-            var input = _data.GetArrayArrays();
-            var answer = new double[5] { 3, 2, 3, 1, 3 };
-            var test = new double[answer.Length];
-            // Act
-            for (int i = 0; i < answer.Length; i++)
-            {
-                test[i] = _main.Task10(input[i], _main.FindMedian);
-            }
-            // Assert
-            Assert.AreEqual(answer.Length, test.Length);
-            for (int i = 0; i < answer.Length; i++)
-            {
-                Assert.AreEqual(answer[i], test[i], E);
-            }
-        }
-        [TestMethod]
-        public void Test10C()
-        {
-            // Arrange
-            var input = _data.GetArrayArrays();
-            var answer = new double[5] { 32, 20, 5, 0, 26 };
-            var test = new double[answer.Length];
-            // Act
-            for (int i = 0; i < answer.Length; i++)
-            {
-                test[i] = _main.Task10(input[i], _main.CountLargeElements);
-            }
-            // Assert
-            Assert.AreEqual(answer.Length, test.Length);
-            for (int i = 0; i < answer.Length; i++)
-            {
-                Assert.AreEqual(answer[i], test[i], E);
-            }
-        }
-        [TestMethod]
-        public void Test_DeleteMaxElement()
-        {
-            int[] array = { 1, 5, 3, 9, 2 };
-            int[] expected = { 1, 5, 3, 2 };
-            _main.DeleteMaxElement(ref array);
-            CollectionAssert.AreEqual(expected, array);
+
+            return counter;
         }
 
-        [TestMethod]
-        public void Test_CombineArrays()
-        {
-            int[] A = { 1, 2 };
-            int[] B = { 3, 4 };
-            int[] expected = { 1, 2, 3, 4 };
-            int[] actual = _main.CombineArrays(A, B);
-            CollectionAssert.AreEqual(expected, actual);
-        }
-
-        [TestMethod]
-        public void Test_FindMaxInRow()
-        {
-            int[,] matrix = {
-            { 1, 2, -33 },
-            { 4, 0, 6 },
-            { 17, 8, 9 }
-        };
-            int expected = 6;
-            int actual = _main.FindMaxInRow(matrix, 1, out int col);
-            Assert.AreEqual(expected, actual);
-            Assert.AreEqual(col, 2);
-        }
-
-        [TestMethod]
-        public void Test_FindMax_Matrix()
-        {
-            int[,] matrix = {
-            { 1, 2 },
-            { 3, 4 }
-        };
-            _main.FindMax(matrix, out int row, out int col);
-            Assert.AreEqual(1, row);
-            Assert.AreEqual(1, col);
-        }
-
-        [TestMethod]
-        public void Test_SwapColWithDiagonal()
-        {
-            int[,] matrix = {
-            { 1, 2, 7 },
-            { 3, 4, 3 },
-            { 0, 8, 2 }
-        };
-            _main.SwapColWithDiagonal(matrix, 1);
-            int[,] expected = {
-            { 2, 1, 7 },
-            { 3, 4, 3 },
-            { 0, 2, 8 }
-        }; // здесь пример, где результат совпадает с исходным (для 2x2)
-            CollectionAssert.AreEqual(expected.Cast<int>().ToArray(), matrix.Cast<int>().ToArray());
-        }
-
-        [TestMethod]
-        public void Test_RemoveRow()
-        {
-            int[,] matrix = {
-            { 1, 0 },
-            { 2, 3 }
-        };
-            _main.RemoveRow(ref matrix, 0);
-            int[,] expected = { { 2, 3 } };
-            CollectionAssert.AreEqual(expected.Cast<int>().ToArray(), matrix.Cast<int>().ToArray());
-        }
-
-        [TestMethod]
-        public void Test_GetRowsMinElements()
-        {
-            int[,] matrix = {
-            { 1, 2, 3 },
-            { 4, 0, 6 },
-            { 7, 8, 9 }
-        };
-            int[] expected = { 1, 0, 9 };
-            int[] actual = _main.GetRowsMinElements(matrix);
-            CollectionAssert.AreEqual(expected, actual);
-        }
-
-        [TestMethod]
-        public void Test_SumPositiveElementsInColumns()
-        {
-            int[,] matrix = {
-            { 1, -2 },
-            { 3, 4 }
-        };
-            int[] expected = { 4, 4 };
-            int[] actual = _main.SumPositiveElementsInColumns(matrix);
-            CollectionAssert.AreEqual(expected, actual);
-        }
-
-        [TestMethod]
-        public void Test_GeronArea()
-        {
-            double area = _main.GeronArea(3, 4, 5);
-            Assert.AreEqual(6, area, 0.0001);
-        }
-        [TestMethod]
-        public void Test_CountZeroSum()
-        {
-            int[][] array = {
-            new[] { 1, -1, 0 },
-            new[] { 2, 2, 2 }
-        };
-            Assert.AreEqual(1, _main.CountZeroSum(array), E);
-        }
-        [TestMethod]
-        public void Test_FindMedian()
-        {
-            int[][] array = {
-            new[] { 1, -1, 0 },
-            new[] { 2, 2, 2 }
-        };
-            Assert.AreEqual(1.5, _main.FindMedian(array), E); // median: -1,0,1,2,2,2 => 1.5
-        }
-        [TestMethod]
-        public void Test_CountLargeElements()
-        {
-            int[][] array = {
-            new[] { 1, -1, 0 },
-            new[] { 2, 2, 2 }
-        };
-            Assert.AreEqual(1, _main.CountLargeElements(array), E);
-        }
+        public delegate double Func(int[][] array);
     }
 }
