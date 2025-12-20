@@ -210,20 +210,7 @@ namespace Lab6
             }
             return a;
         }
-        public int[] CombineArrays(int[] A, int[] B)
-        {
-            int[] res = new int[A.Length + B.Length];
-            for (int i = 0; i < A.Length; i++)
-            {
-                res[i] = A[i];
-            }
-            int k = A.Length;
-            for (int j = 0; j < B.Length; j++)
-            {
-                res[k + j] = B[j];
-            }
-            return res;
-        }
+
         public void Task7(int[,] matrix, Sorting sort)
         {
 
