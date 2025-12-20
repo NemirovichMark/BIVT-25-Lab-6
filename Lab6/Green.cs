@@ -5,6 +5,9 @@ namespace Lab6
 {
     public class Green
     {
+        public delegate void Sorting(int[] array);
+        // public delegate void Action(int[] array);
+        // public delegate int Func(int[][] array);
         public void Task1(ref int[] A, ref int[] B)
         {
 

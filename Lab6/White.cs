@@ -5,6 +5,10 @@ namespace Lab6
 {
     public class White
     {
+        public delegate void Sorting(int[] array);
+        public delegate void BikeRide(double v, double a);
+        // public delegate void Swapper(double[] array);
+        // public delegate int Func(int[][] array);
         public void Task1(double[] A, double[] B)
         {
 
