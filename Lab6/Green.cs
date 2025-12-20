@@ -5,6 +5,7 @@ namespace Lab6
 {
     public class Green
     {
+        /*
         public void Task1(ref int[] A, ref int[] B)
         {
 
@@ -93,5 +94,6 @@ namespace Lab6
 
             return res;
         }
+        */
     }
 }

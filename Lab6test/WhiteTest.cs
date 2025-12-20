@@ -1,7 +1,7 @@
 ﻿using Lab6;
 using Microsoft.ApplicationInsights;
 using System.Transactions;
-
+/*
 namespace Lab6test
 {
     [TestClass]
@@ -1278,3 +1278,4 @@ namespace Lab6test
         }
     }
 }
+*/

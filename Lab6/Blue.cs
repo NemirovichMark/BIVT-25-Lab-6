@@ -2,6 +2,7 @@
 {
     public class Blue
     {
+        /*
         public void Task1(ref int[,] matrix)
         {
 
@@ -90,5 +91,6 @@
 
             return res;
         }
+        */
     }
 }
