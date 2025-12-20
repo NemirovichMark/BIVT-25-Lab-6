@@ -459,6 +459,16 @@ namespace Lab6
                 }
             }
         }
+        public int GetRowMax(int[,] matrix, int row)
+        {
+            int max = int.MinValue;
+            for (int i = 0; i < matrix.GetLength(1); i++)
+            {
+                if (matrix[row, i] > max)
+                    max = matrix[row, i];
+            }
+            return max;
+        }
         public int[] Task7(int[,] matrix, FindNegatives find)
         {
             int[] negatives = null;
