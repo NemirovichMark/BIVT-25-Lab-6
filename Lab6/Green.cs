@@ -20,11 +20,15 @@ namespace Lab6
         {
 
             // code here
+            if (matrix == null || array == null)
+                return;
+
             int rows = matrix.GetLength(0);
 
-            int limit = Math.Min(rows, array.Length);
+            if (rows != array.Length)
+                return;
 
-            for (int i = 0; i < limit; i++)
+            for (int i = 0; i < rows; i++)
             {
                 int maxCol;
                 int max = FindMaxInRow(matrix, i, out maxCol);
@@ -121,9 +125,9 @@ namespace Lab6
             double areaA = GeronArea(A[0], A[1], A[2]);
             double areaB = GeronArea(B[0], B[1], B[2]);
 
-            if (areaA == 0 && areaB == 0) return 0;
+            
             if (areaA > areaB) return 1;
-            if (areaB > areaA) return 2;
+            if (areaB >= areaA) return 2;
 
             return 0;
         }
@@ -132,20 +136,29 @@ namespace Lab6
         {
 
             // code here
+            if (matrix == null || sorter == null)
+                return;
 
+            int rows = matrix.GetLength(0);
+
+            for (int i = 0; i < rows; i += 2)
+            {
+                SortMatrixRow(matrix, i, sorter);
+            }
             // end
 
         }
 
         public double Task10(int[][] array, Func<int[][], double> func)
         {
-            double res = 0;
 
             // code here
+            if (array == null || func == null)
+                return 0;
 
+            return func(array);
             // end
 
-            return res;
         }
 
 
@@ -366,33 +379,129 @@ namespace Lab6
 
         public double GeronArea(double a, double b, double c)
         {
+            if (a + b <= c || a + c <= b || b + c <= a)
+                return 0;
+
             double p = (a + b + c) / 2;
             return Math.Sqrt(p * (p - a) * (p - b) * (p - c));
         }
-        public void SortMatrixRow(int[,] matrix, int row, Action<int[]> sorter){
+
+         public void SortMatrixRow(int[,] matrix, int row, Action<int[]> sorter)
+        {
+            if (matrix == null || sorter == null)
+                return;
+
+            int rows = matrix.GetLength(0);
+            int cols = matrix.GetLength(1);
+
+            if (row < 0 || row >= rows)
+                return;
+
+            int[] temp = new int[cols];
+            for (int j = 0; j < cols; j++)
+                temp[j] = matrix[row, j];
+
+            sorter(temp);                
+            ReplaceRow(matrix, row, temp); 
+        }
+
+        public void ReplaceRow(int[,] matrix, int row, int[] array)
+        {
+            if (matrix == null || array == null)
+                return;
+
+            int rows = matrix.GetLength(0);
+            int cols = matrix.GetLength(1);
+
+            if (row < 0 || row >= rows)
+                return;
+
+            int len = Math.Min(cols, array.Length);
+            for (int j = 0; j < len; j++)
+                matrix[row, j] = array[j];
         }
 
         public void SortAscending(int[] array)
         {
-            
+            if (array == null)
+                return;
+
+            Array.Sort(array);
         }
 
         public void SortDescending(int[] array)
         {
+            if (array == null)
+                return;
+
+            Array.Sort(array);
+            Array.Reverse(array);
         }
+
 
         public double CountZeroSum(int[][] array)
         {
-            return 0.0;
+            if (array == null)
+                return 0;
+
+            int count = 0;
+            foreach (var row in array)
+            {
+                if (row == null)
+                    continue;
+
+                if (row.Sum() == 0)
+                    count++;
+            }
+
+            return count;
         }
 
         public double FindMedian(int[][] array)
         {
-            return 0.0;
+            if (array == null)
+                return 0;
+
+            List<int> list = new List<int>();
+            foreach (var row in array)
+            {
+                if (row != null)
+                    list.AddRange(row);
+            }
+
+            if (list.Count == 0)
+                return 0;
+
+            list.Sort();
+            int n = list.Count;
+            if (n % 2 == 1)
+                return list[n / 2];
+
+            return (list[n / 2 - 1] + list[n / 2]) / 2.0;
         }
+
         public double CountLargeElements(int[][] array)
         {
-            return 0.0;
+            if (array == null)
+                return 0;
+
+            int count = 0;
+
+            foreach (var row in array)
+            {
+                if (row == null || row.Length == 0)
+                    continue;
+
+                double avg = row.Average();
+                foreach (var x in row)
+                {
+                    if (x > avg)
+                        count++;
+                }
+            }
+
+            return count;
         }
     }
+    
 }

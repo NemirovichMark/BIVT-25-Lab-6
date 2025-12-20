@@ -8,19 +8,19 @@
     "net8.0": []
   },
   "packageFolders": {
-    "/Users/lukapuhlak/.nuget/packages/": {}
+    "/home/error/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/lukapuhlak/code/misis/BIVT-25-Lab-6/Lab6/Lab6.csproj",
+      "projectUniqueName": "/home/error/code/misis/BIVT-25-Lab-6/Lab6/Lab6.csproj",
       "projectName": "Lab6",
-      "projectPath": "/Users/lukapuhlak/code/misis/BIVT-25-Lab-6/Lab6/Lab6.csproj",
-      "packagesPath": "/Users/lukapuhlak/.nuget/packages/",
-      "outputPath": "/Users/lukapuhlak/code/misis/BIVT-25-Lab-6/Lab6/obj/",
+      "projectPath": "/home/error/code/misis/BIVT-25-Lab-6/Lab6/Lab6.csproj",
+      "packagesPath": "/home/error/.nuget/packages/",
+      "outputPath": "/home/error/code/misis/BIVT-25-Lab-6/Lab6/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/lukapuhlak/.nuget/NuGet/NuGet.Config"
+        "/home/error/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -43,8 +43,7 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "9.0.300"
+      }
     },
     "frameworks": {
       "net8.0": {
@@ -60,26 +59,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[8.0.20, 8.0.20]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Host.osx-x64",
-            "version": "[8.0.20, 8.0.20]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[8.0.20, 8.0.20]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.305/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/nix/store/5xhm1wszv1jzj9bpiggfl1h2lmdzaghr-dotnet-sdk-8.0.416/share/dotnet/sdk/8.0.416/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
