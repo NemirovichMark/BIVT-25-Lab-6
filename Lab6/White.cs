@@ -315,41 +315,22 @@ namespace Lab6
             }
             for (int i = 0; i < array.Length; i++)
             {
-                double[] newArray = new double[array[i].Length];
-                for (int j = 0; j < array[i].Length; j++)
-                {
-                    newArray[j] = array[i][j];
-                }
-                swap(newArray);
-                answer += (int)Sum(newArray);
+                swap(array[i]);
+                answer += GetSum(array[i]);
             }
             // end
 
             return answer;
         }
-        public delegate void Swapper(double[] array);
-        public double Sum(double[] array)
+        public delegate void Swapper(int[] array);
+        public int GetSum(int[] array)
         {
-            double sum = 0;
+            int sum = 0;
             for (int i = 1; i < array.Length; i += 2)
             {
                 sum += array[i];
             }
             return sum;
-        }
-        public void SwapFromLeft(double[] array)
-        {
-            for (int i = 1; i < array.Length - 1; i += 2)
-            {
-                (array[i], array[i - 1]) = (array[i - 1], array[i]);
-            }
-        }
-        public void SwapFromRight(double[] array)
-        {
-            for (int i = array.Length - 1; i > 0; i -= 2)
-            {
-                (array[i], array[i - 1]) = (array[i - 1], array[i]);
-            }
         }
         public void SwapFromLeft(int[] array)
         {
