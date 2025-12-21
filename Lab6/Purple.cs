@@ -1,3 +1,4 @@
+using System.Data;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 
@@ -319,19 +320,42 @@ namespace Lab6 {
 
         public int[] Task7(int[,] matrix, FindNegatives find) {
             int[] negatives = null;
-
             // code here
-
+            negatives = find(matrix);
             // end
-
             return negatives;
         }
 
         public delegate int[] FindNegatives(int[,] matrix);
 
-        public int[] FindNegativeCountPerRow(int[,] matrix) { return []; }
+        public int[] FindNegativeCountPerRow(int[,] matrix) {
+            var negatives = new int[matrix.GetLength(0)];
 
-        public int[] FindMaxNegativePerColumn(int[,] matrix) { return []; }
+            ForRange(delegate (int i) {
+                var count = 0;
+
+                ForRange(delegate (int j) { if (matrix[i, j] < 0) { count += 1; } }, matrix.GetLength(1));
+
+                negatives[i] = count;
+            }, matrix.GetLength(0));
+
+            return negatives;
+        }
+        public int[] FindMaxNegativePerColumn(int[,] matrix) {
+            int[] target_negatives = new int[matrix.GetLength(1)];
+
+            ForRange(delegate (int j) {
+                var max = int.MinValue;
+
+                ForRange(delegate (int i) { if (IsOutOfRange(matrix[i, j], 0, max)) { max = matrix[i, j]; } }, matrix.GetLength(0));
+
+                target_negatives[j] = max == int.MinValue ? 0 : max;
+            }, matrix.GetLength(1));
+
+            return target_negatives;
+        }
+
+        static bool IsOutOfRange(int x, int min, int max) => x < min && x > max;
 
         //
 
