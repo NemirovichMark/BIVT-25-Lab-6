@@ -284,7 +284,7 @@ namespace Lab6
             return answer;
         }
         public delegate void Swapper(int[] array);
-        public double Sum(double[] array)
+        public double GetSum(double[] array)
         {
             double sum = 0;
             for(int i = 1; i < array.Length; i += 2)
@@ -342,7 +342,7 @@ namespace Lab6
                 swapper(ARRAY);
                 
                 double[] dARRAY = Array.ConvertAll(ARRAY, x => (double)x);
-                answer += (int)Sum(dARRAY);
+                answer += (int)GetSum(dARRAY);
             }
             
             // end
