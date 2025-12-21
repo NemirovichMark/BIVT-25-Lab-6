@@ -3,177 +3,218 @@ using System.Runtime.InteropServices;
 
 namespace Lab6
 @@ -9,91 +9,395 @@ public void Task1(double[] A, double[] B)
-        {
+       {
 
             // code here
+            int imaxA = FindMaxIndex(A);
+            int imaxB = FindMaxIndex(B);
+            if (imaxA != A.Length - 1 && imaxB != B.Length - 1)
+            {
+                if (A.Length - 1 - imaxA >= B.Length - 1 - imaxB)
+                {
+                    double tb = 0;
+                    int count = 0;
+                    for (int i = imaxA + 1; i < A.Length; i++)
+                    {
+                        tb += A[i];
+                        count++;
+                    }
 
-            int maxA = FindMaxIndex(A);
-            int maxB = FindMaxIndex(B);
-            double sum = 0;
-            double m = 0;
-            double count = 0;
-            if (((A.Length - maxA) >= (B.Length - maxB)) && maxA != A.Length)
-            {
-                for (int i = maxA + 1; i < A.Length; i++)
-                {
-                    sum += A[i];
-                    count++;
+                    tb = tb / count;
+                    A[imaxA] = tb;
                 }
-                m = sum / count;
-                A[maxA] = m;
+                else
+                {
+                    double tb = 0;
+                    int count = 0;
+                    for (int i = imaxB + 1; i < B.Length; i++)
+                    {
+                        tb += B[i];
+                        count++;
+                    }
+
+                    tb = tb / count;
+                    B[imaxB] = tb;
+                }
             }
-            else if (((A.Length - maxA) >= (B.Length - maxB)) && maxB != B.Length)
+            else if (imaxA != A.Length - 1)
             {
-                for (int i = maxB + 1; i < B.Length; i++)
+                double tb = 0;
+                int count = 0;
+                for (int i = imaxA + 1; i < A.Length; i++)
                 {
-                    sum += B[i];
+                    tb += A[i];
                     count++;
                 }
-                m = sum / count;
-                B[maxB] = m;
+
+                tb = tb / count;
+                A[imaxA] = tb;
+            }
+            else if (imaxB != B.Length - 1)
+            {
+                double tb = 0;
+                int count = 0;
+                for (int i = imaxB + 1; i < B.Length; i++)
+                {
+                    tb += B[i];
+                    count++;
+                }
+
+                tb = tb / count;
+                B[imaxB] = tb;
             }
             // end
 
         }
+
         public int FindMaxIndex(double[] array)
         {
-            double max = double.MinValue;
-            int maxi = 0;
-            for (int i = 0; i < array.Length; i++)
+            int imax = 0;
+            for (int i = 1; i < array.Length; i++)
             {
-                if (array[i] > max)
+                if (array[i] > array[imax])
                 {
-                    max = array[i];
-                    maxi = i;
+                    imax = i;
                 }
             }
-            return maxi;
-        }
 
+            return imax;
+        }
         public void Task2(int[,] A, int[,] B)
         {
 
             // code here
 
-            int rowA = FindMaxRowIndexInColumn(A, 1);
-            int rowB = FindMaxRowIndexInColumn(B, 1);
-            if (A.GetLength(0) == B.GetLength(0) && A.GetLength(1) == B.GetLength(1))
+            if (A.GetLength(1) == B.GetLength(1))
             {
+                int imaxA = FindMaxRowIndexInColumn(A, 0);
+                int imaxB = FindMaxRowIndexInColumn(B, 0);
                 for (int j = 0; j < A.GetLength(1); j++)
                 {
-                    (A[rowA, j], B[rowB, j]) = (B[rowB, j], A[rowA, j]);
+                    int tmp = A[imaxA, j];
+                    A[imaxA, j] = B[imaxB, j];
+                    B[imaxB, j] = tmp;
                 }
             }
             // end
 
         }
+
         public int FindMaxRowIndexInColumn(int[,] matrix, int col)
         {
-            int max = int.MinValue;
-            int maxi = 0;
-            for (int i = 0; i < matrix.GetLength(0); i++)
+            int imax = 0;
+            for (int i = 1; i < matrix.GetLength(0); i++)
             {
-                if (matrix[i, col] > matrix[maxi, col])
+                if (matrix[i, col] > matrix[imax, col])
                 {
-                    max = matrix[i, col];
-                    maxi = i;
+                    imax = i;
                 }
             }
-            return maxi;
+
+            return imax;
         }
         public int Task3(int[,] matrix)
         {
             int answer = 0;
 
             // code here
-
-            int[] negative = GetNegativeCountPerRow(matrix);
-            int maxi = 0;
-            for (int i = 0; i < negative.Length; i++)
+            int[] array = GetNegativeCountPerRow(matrix);
+            int imax = 0;
+            for (int i = 1; i < array.Length; i++)
             {
-                if (negative[i] > negative[maxi])
+                if (array[i] > array[imax])
                 {
-                    maxi = i;
+                    imax = i;
                 }
             }
-            answer = maxi;
+
+            answer = imax;
             // end
 
             return answer;
         }
+
         public int[] GetNegativeCountPerRow(int[,] matrix)
         {
-            int[] newMatrix = new int[matrix.GetLength(0)];
-            int count = 0;
-            int n = matrix.GetLength(0);
-            int m = matrix.GetLength(1);
-            for (int i = 0; i < n; i++)
+            int[] array = new int[matrix.GetLength(0)];
+            for (int i = 0; i < matrix.GetLength(0); i++)
             {
-                for (int j = 0; j < m; j++)
+                int count = 0;
+                for (int j = 0; j < matrix.GetLength(1); j++)
                 {
                     if (matrix[i, j] < 0)
                     {
                         count++;
                     }
                 }
-                newMatrix[i] = count;
+
+                array[i] = count;
             }
-            return newMatrix;
+
+            return array;
         }
         public void Task4(int[,] A, int[,] B)
         {
 
             // code here
 
-            int rowA, colA;
-            int colB, rowB;
-            int maxA = FindMax(A, out rowA, out colA);
-            int maxB = FindMax(B, out rowB, out colB);
-            (A[rowA, colA], B[rowB, colB]) = (B[rowB, colB], A[rowA, colA]);
+            int max_elemA, rowA, colA;
+            max_elemA = FindMax(A, out rowA, out colA);
+            int max_elemB, rowB, colB;
+            max_elemB = FindMax(B, out rowB, out colB);
+            if (rowA != -1 && colA != -1 && rowB != -1 && colB != -1)
+            {
+                int tmp = A[rowA, colA];
+                A[rowA, colA] = B[rowB, colB];
+                B[rowB, colB] = tmp;
+            }
             // end
 
         }
+
         public int FindMax(int[,] matrix, out int row, out int col)
         {
-            row = 0;
-            col = 0;
-            int max = int.MinValue;
-            int n = matrix.GetLength(0);
-            int m = matrix.GetLength(1);
-            for (int i = 0; i < n; i++)
+            int max_elem = int.MinValue;
+            row = -1;
+            col = -1;
+            for (int i = 0; i < matrix.GetLength(0); i++)
             {
-                for (int j = 0; j < m; j++)
+                for (int j = 0; j < matrix.GetLength(1); j++)
                 {
-                    if (matrix[i, j] > matrix[row, col])
+                    if (matrix[i, j] > max_elem)
                     {
+                        max_elem = matrix[i, j];
                         row = i;
                         col = j;
-                        max = matrix[i, j];
                     }
                 }
             }
-            return max;
+            return max_elem;
         }
         public void Task5(int[,] A, int[,] B)
         {
 
             // code here
 
-            int rowA, rowB, colA, colB;
-            int maxA = FindMax(A, out rowA, out colA);
-            int maxB = FindMax(B, out rowB, out colB);
             if (A.GetLength(0) == B.GetLength(0))
             {
+                int max_elemA = int.MinValue, rowA, colA;
+                max_elemA = FindMax(A, out rowA, out colA);
+                int max_elemB = int.MinValue, rowB, colB;
+                max_elemB = FindMax(B, out rowB, out colB);
                 SwapColumns(A, colA, B, colB);
             }
             // end
 
         }
+
         public void SwapColumns(int[,] A, int colIndexA, int[,] B, int colIndexB)
         {
             for (int i = 0; i < A.GetLength(0); i++)
             {
-                (A[i, colIndexA], B[i, colIndexB]) = (B[i, colIndexB], A[i, colIndexA]);
+                int tmp = A[i, colIndexA];
+                A[i, colIndexA] = B[i, colIndexB];
+                B[i, colIndexB] = tmp;
             }
         }
         public void Task6(int[,] matrix, Sorting sort)
@@ -181,60 +222,50 @@ namespace Lab6
 
             // code here
 
-            sort(matrix);
+            if (matrix.GetLength(0) == matrix.GetLength(1))
+            {
+                sort(matrix);
+            }
             // end
 
         }
+
         public delegate void Sorting(int[,] matrix);
+
         public void SortDiagonalAscending(int[,] matrix)
         {
-            int[] newMatrix = new int[matrix.GetLength(0)];
-            if (matrix.GetLength(0) == matrix.GetLength(1))
+            int i = 0;
+            while (i < matrix.GetLength(0))
             {
-                for (int i = 0; i < matrix.GetLength(0); i++)
+                if (i == 0 || matrix[i, i] >= matrix[i - 1, i - 1])
                 {
-                    newMatrix[i] = matrix[i, i];
+                    i++;
                 }
-                for (int i = 0; i < matrix.GetLength(0) - 1; i++)
+                else
                 {
-                    for (int j = 0; i < matrix.GetLength(0) - i - 1; j++)
-                    {
-                        if (newMatrix[j] > newMatrix[j + 1])
-                        {
-                            int temp = newMatrix[j];
-                            newMatrix[j] = newMatrix[j + 1];
-                            newMatrix[j + 1] = temp;
-                        }
-                    }
-                }
-                for (int i = 0; i < matrix.GetLength(0); i++)
-                {
-                    matrix[i, i] = newMatrix[i];
+                    int tmp = matrix[i, i];
+                    matrix[i, i] = matrix[i - 1, i - 1];
+                    matrix[i - 1, i - 1] = tmp;
+                    i--;
                 }
             }
         }
+
         public void SortDiagonalDescending(int[,] matrix)
         {
-            int[] newMatrix = new int[matrix.GetLength(0)];
-            if (matrix.GetLength(0) == matrix.GetLength(1))
+            int i = 0;
+            while (i < matrix.GetLength(0))
             {
-                for (int i = 0; i < matrix.GetLength(0); i++)
+                if (i == 0 || matrix[i, i] <= matrix[i - 1, i - 1])
                 {
-                    newMatrix[i] = matrix[i, i];
+                    i++;
                 }
-                for (int i = 0; i < matrix.GetLength(0) - 1; i++)
+                else
                 {
-                    for (int j = 0; i < matrix.GetLength(0) - i - 1; j++)
-                    {
-                        if (newMatrix[j] > newMatrix[j + 1])
-                        {
-                            (newMatrix[j], newMatrix[j + 1]) = (newMatrix[j + 1], newMatrix[i]);
-                        }
-                    }
-                }
-                for (int i = 0; i < matrix.GetLength(0); i++)
-                {
-                    matrix[i, i] = newMatrix[i];
+                    int tmp = matrix[i, i];
+                    matrix[i, i] = matrix[i - 1, i - 1];
+                    matrix[i - 1, i - 1] = tmp;
+                    i--;
                 }
             }
         }
@@ -244,26 +275,16 @@ namespace Lab6
 
             // code here
 
-            if (n >= k)
-            {
-                answer = Factorial(n) / ((Factorial(k) * Factorial(n - k)));
-            }
-            else
-                answer = 0;
+            answer = Factorial(n) / (Factorial(k) * Factorial(n - k));
             // end
 
             return answer;
         }
+
         public long Factorial(int n)
         {
-            if (n <= 1)
-            {
-                return 1;
-            }
-            else
-            {
-                return n * Factorial(n - 1);
-            }
+            if (n <= 1) return 1;
+            return n * Factorial(n - 1);
         }
         public double Task8(double v, double a, BikeRide ride)
         {
@@ -271,57 +292,53 @@ namespace Lab6
 
             // code here
 
-            if (v == 0 && a == 0)
-            {
-                return 0;
-            }
-            else
-            {
-                answer = ride(v, a);
-            }
+            answer = ride(v, a);
             // end
 
             return answer;
         }
+
         public delegate double BikeRide(double v, double a);
+
         public double GetDistance(double v, double a)
         {
-            double distance = 0;
-            for (int i = 0; i < 10; i++)
+            double s = 0;
+            double gt = 0;
+            for (int i = 1; i <= 10; i++)
             {
-                distance += v + a * i;
+                s += v + gt;
+                gt += a;
             }
-            return distance;
+
+            return s;
         }
+
         public double GetTime(double v, double a)
         {
-            double distance = v;
-            double time = 0;
-            while (distance < 100)
+            double s = 0, gt = 0;
+            double t = 0;
+            while (s < 100)
             {
-                distance += v + a * distance;
-                time++;
+                s += v + gt;
+                t++;
+                gt += a;
             }
-            return time;
+
+            return t;
         }
         public int Task9(int[][] array)
         {
             int answer = 0;
 
             // code here
-
-            Swapper swap;
-            if (array.Length % 2 == 0)
-            {
-                swap = SwapFromLeft;
-            }
-            else
-            {
-                swap = SwapFromRight;
-            }
+            Swapper swap = (array.Length % 2 == 0) ? SwapFromLeft : SwapFromRight;
             for (int i = 0; i < array.Length; i++)
             {
                 swap(array[i]);
+            }
+
+            for (int i = 0; i < array.Length; i++)
+            {
                 answer += GetSum(array[i]);
             }
             // end
@@ -329,6 +346,7 @@ namespace Lab6
             return answer;
         }
         public delegate void Swapper(int[] array);
+
         public int GetSum(int[] array)
         {
             int sum = 0;
@@ -336,20 +354,26 @@ namespace Lab6
             {
                 sum += array[i];
             }
+
             return sum;
         }
         public void SwapFromLeft(int[] array)
         {
-            for (int i = 1; i < array.Length - 1; i += 2)
+            for (int i = 0; i < array.Length - 1; i += 2)
             {
-                (array[i], array[i - 1]) = (array[i - 1], array[i]);
+                int tmp = array[i];
+                array[i] = array[i + 1];
+                array[i + 1] = tmp;
             }
         }
+
         public void SwapFromRight(int[] array)
         {
             for (int i = array.Length - 1; i > 0; i -= 2)
             {
-                (array[i], array[i - 1]) = (array[i - 1], array[i]);
+                int tmp = array[i];
+                array[i] = array[i - 1];
+                array[i - 1] = tmp;
             }
         }
         public int Task10(int[][] array, Func<int[][], int> func)
@@ -363,7 +387,7 @@ namespace Lab6
 
             return answer;
         }
-        public delegate int Func(int[][] array);
+
         public int CountPositive(int[][] array)
         {
             int count = 0;
@@ -377,34 +401,39 @@ namespace Lab6
                     }
                 }
             }
+
             return count;
         }
+
         public int FindMax(int[][] array)
         {
-            int max = int.MinValue;
+            int max_elem = int.MinValue;
             for (int i = 0; i < array.Length; i++)
             {
                 for (int j = 0; j < array[i].Length; j++)
                 {
-                    if (array[i][j] > max)
+                    if (array[i][j] > max_elem)
                     {
-                        max = array[i][j];
+                        max_elem = array[i][j];
                     }
                 }
             }
-            return max;
+
+            return max_elem;
         }
+
         public int FindMaxRowLength(int[][] array)
         {
-            int maxl = 0;
-            for (int i = 0; i < array[0].Length; i++)
+            int max = array[0].Length;
+            for (int i = 1; i < array.Length; i++)
             {
-                if (array[i].Length > maxl)
+                if (array[i].Length > max)
                 {
-                    maxl = array[i].Length;
+                    max = array[i].Length;
                 }
             }
-            return maxl;
+
+            return max;
         }
     }
 }
