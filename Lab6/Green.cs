@@ -202,16 +202,15 @@ namespace Lab6
         }
         public int[] Task5(int[,] matrix)
         {
-
+            int[] answer = null;
 
             // code here
             if (matrix.GetLength(0) == matrix.GetLength(1))
             {
-                return GetRowsMinElements(matrix);
+                answer= GetRowsMinElements(matrix);
             }
-
             // end
-            return null;
+            return answer;
         }
         public int[] GetRowsMinElements(int[,] matrix)
         {
@@ -237,14 +236,14 @@ namespace Lab6
             int[] answer = null;
 
             // code here
-            int[] resA = SumPositiveElementsColumns(A);
-            int[] resB = SumPositiveElementsColumns(B);
+            int[] resA = SumPositiveElementsInColumns(A);
+            int[] resB = SumPositiveElementsInColumns(B);
             answer = CombineArrays(resA, resB);
             // end
 
             return answer;
         }
-        public int[] SumPositiveElementsColumns(int[,] matrix)
+        public int[] SumPositiveElementsInColumns(int[,] matrix)
         {
             int n = matrix.GetLength(0);
             int m = matrix.GetLength(1);
@@ -375,7 +374,7 @@ namespace Lab6
             // code here
 
             int n = matrix.GetLength(0);
-            for (int i = 0; i < n; i += 2) // i = 0 - первая строка (четная по индексу)
+            for (int i = 0; i < n; i += 2) 
             {
                 SortMatrixRow(matrix, i, sorter);
             }
