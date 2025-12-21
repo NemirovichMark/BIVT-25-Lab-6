@@ -361,21 +361,150 @@ namespace Lab6 {
 
         public int[,] Task8(int[,] matrix, MathInfo info) {
             int[,] answer = null;
-
             // code here
-
-            // end
-
+            answer = info(matrix);
+            // end      
             return answer;
         }
 
         public delegate int[,] MathInfo(int[,] matrix);
 
-        public int[,] DefineSeq(int[,] matrix) { return null; }
+        public int[,] DefineSeq(int[,] matrix) {
+            var y_eq_flag = true;
+            var n = matrix.GetLength(1);
 
-        public int[,] FindAllSeq(int[,] matrix) { return null; }
+            for (var j = 1; j < n; j += 1) {
+                if (matrix[1, j] == matrix[1, j + 1]) { continue; }
+                y_eq_flag = false;
+                break;
+            }
 
-        public int[,] FindLongestSeq(int[,] matrix) { return null; }
+            if (y_eq_flag) {
+                return new int[0, 0];
+            }
+
+            var s = 0;
+            n -= 1;
+
+            for (var j = 0; j < n; j += 1) {
+                var y1 = matrix[1, j];
+                var y2 = matrix[1, j + 1];
+
+                if (y1 < y2) {
+                    s = 1;
+                    break;
+                }
+                else if (y1 > y2) {
+                    s = -1;
+                    break;
+                }
+            }
+
+            for (var j = 0; j < n; j += 1) {
+                var y1 = matrix[1, j];
+                var y2 = matrix[1, j + 1];
+
+                if (s == 1) {
+                    if (y1 > y2) {
+                        return new int[1, 1] { { 0 } };
+                    }
+                }
+                else if (s == -1) {
+                    if (y1 < y2) {
+                        return new int[1, 1] { { 0 } };
+                    }
+                }
+            }
+
+            return new int[1, 1] {
+                { s }
+            };
+        }
+        public int[,] FindAllSeq(int[,] matrix) {
+            var y_eq_flag = true;
+            var n = matrix.GetLength(1);
+            for (var j = 1; j < n; j += 1) {
+                if (matrix[1, j] != matrix[1, j + 1]) {
+                    y_eq_flag = false;
+                    break;
+                }
+            }
+
+            if (y_eq_flag) {
+                return new int[0, 0];
+            }
+
+            var count = 0;
+            var s_prev = 0;
+            var s_cur = 0;
+
+            n -= 1;
+
+            for (var j = 0; j < n; j += 1) {
+                if (matrix[1, j] < matrix[1, j + 1]) s_cur = 1;
+                else if (matrix[1, j] > matrix[1, j + 1]) s_cur = -1;
+
+                if (s_cur != s_prev) {
+                    count += 1;
+                    s_prev = s_cur;
+                }
+                else if (s_prev == 0) {
+                    s_prev = s_cur;
+                }
+            }
+
+            var si = 0;
+            var first_index = 0;
+
+            s_prev = 0;
+
+            var ss = new int[count, 2];
+
+            ForRange(delegate (int j) {
+                if (matrix[1, j] < matrix[1, j + 1]) s_cur = 1;
+                else if (matrix[1, j] > matrix[1, j + 1]) s_cur = -1;
+
+                if (s_prev == 0) {
+                    s_prev = s_cur;
+                    first_index = j;
+                }
+                else if (s_cur != s_prev) {
+
+                    ss[si, 0] = matrix[0, first_index];
+                    ss[si, 1] = matrix[0, j];
+                    si += 1;
+
+                    first_index = j;
+                    s_prev = s_cur;
+                }
+            }, n);
+
+            ss[si, 0] = matrix[0, first_index];
+            ss[si, 1] = matrix[0, n];
+
+            return ss;
+        }
+        public int[,] FindLongestSeq(int[,] matrix) {
+            var asq = FindAllSeq(matrix);
+
+            if (asq.GetLength(0) == 0) return new int[0, 0];
+
+            var l_len = asq[0, 1] - asq[0, 0];
+            var l_index = 0;
+
+            ForRange(delegate (int i) {
+                var len = asq[i, 1] - asq[i, 0];
+
+                if (len > l_len) {
+                    l_len = len;
+                    l_index = i;
+                }
+
+            }, asq.GetLength(0));
+
+
+            return new int[1, 2] { { asq[l_index, 0], asq[l_index, 1] } };
+        }
 
         //
 
