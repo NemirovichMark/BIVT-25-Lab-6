@@ -22,7 +22,6 @@ namespace Lab6
         {
 
             // code here
-
             int max_in_a = FindMaxIndex(A), max_in_b = FindMaxIndex(B);
             if (A.Length - max_in_a >= B.Length - max_in_b && max_in_a != A.Length)
             {
@@ -65,13 +64,12 @@ namespace Lab6
         {
 
             // code here
-
             if (A.GetLength(0) == B.GetLength(0) && A.GetLength(1) == B.GetLength(1))
             {
-                int h_for_a = FindMaxRowIndexInColumn(A, 1), h_for_b = FindMaxRowIndexInColumn(B, 1);
+                int h_a = FindMaxRowIndexInColumn(A, 1), h_b = FindMaxRowIndexInColumn(B, 1);
                 for (int j = 0; j < A.GetLength(1); j++)
                 {
-                    (A[h_for_a, j], B[h_for_b, j]) = (B[h_for_b, j], A[h_for_a, j]);
+                    (A[h_a, j], B[h_b, j]) = (B[h_b, j], A[h_a, j]);
                 }
             }
             // end
@@ -85,7 +83,8 @@ namespace Lab6
                 int cnt = 0;
                 for (int j = 0; j < matrix.GetLength(1); j++)
                 {
-                    if (matrix[i, j] < 0) cnt++;
+                    if (matrix[i, j] < 0)
+                        cnt++;
                 }
                 ans[i] = cnt;
             }
@@ -96,17 +95,16 @@ namespace Lab6
             int answer = 0;
 
             // code here
-
             int[] row = GetNegativeCountPerRow(matrix);
-            int max_i = 0;
+            int maxi = 0;
             for (int i = 0; i < row.Length; i++)
             {
-                if (row[i] > row[max_i])
+                if (row[i] > row[maxi])
                 {
-                    max_i = i;
+                    maxi = i;
                 }
             }
-            answer = max_i;
+            answer = maxi;
             // end
 
             return answer;
@@ -133,10 +131,9 @@ namespace Lab6
         {
 
             // code here
-
-            int row_a, col_a, col_b, row_b;
-            int maxi_a = FindMax(A, out row_a, out col_a), maxi_b = FindMax(B, out row_b, out col_b);
-            (A[row_a, col_a], B[row_b, col_b]) = (B[row_b, col_b], A[row_a, col_a]);
+            int i_a, j_a, j_b, i_b;
+            int maxi_a = FindMax(A, out i_a, out j_a), maxi_b = FindMax(B, out i_b, out j_b);
+            (A[i_a, j_a], B[i_b, j_b]) = (B[i_b, j_b], A[i_a, j_a]);
             // end
 
         }
@@ -152,12 +149,11 @@ namespace Lab6
         {
 
             // code here
-
-            int row_a, col_a, row_b, col_b;
+            int i_a, j_a, i_b, j_b;
             if (A.GetLength(0) == B.GetLength(0))
             {
-                int max_A = FindMax(A, out row_a, out col_a), max_B = FindMax(B, out row_b, out col_b);
-                SwapColumns(A, col_a, B, col_b);
+                int max_A = FindMax(A, out i_a, out j_a), max_B = FindMax(B, out i_b, out j_b);
+                SwapColumns(A, j_a, B, j_b);
             }
             // end
 
@@ -198,7 +194,6 @@ namespace Lab6
         {
 
             // code here
-
             if (matrix.GetLength(0) == matrix.GetLength(1))
             {
                 sort(matrix);
@@ -209,10 +204,8 @@ namespace Lab6
 
         public long Factorial(long n)
         {
-            if (n <= 1)
-            {
+            if (n < 2)
                 return 1;
-            }
             return n * Factorial(n - 1);
         }
         public long Task7(int n, int k)
@@ -220,7 +213,6 @@ namespace Lab6
             long answer = 0;
 
             // code here
-
             answer = Factorial(n) / Factorial(n - k) / Factorial(k);
             // end
 
@@ -229,19 +221,19 @@ namespace Lab6
 
         public double GetDistance(double v, double a)
         {
-            double ans = 5 * (2 * v + 9 * a);
+            double ans = 10 * v + 45 * a;
             return ans;
         }
 
         public double GetTime(double v, double a)
         {
-            double s = v, t = 1;
+            double s = v, ans = 1;
             while (s < 100)
             {
-                s += v + a * t;
-                ++t;
+                s += v + a * ans;
+                ++ans;
             }
-            return t;
+            return ans;
         }
 
         public delegate double BikeRide(double v, double a);
@@ -251,7 +243,6 @@ namespace Lab6
             double answer = 0;
 
             // code here
-
             if (v == 0 && a == 0)
                 return 0;
             answer = ride(v, a);
@@ -293,16 +284,11 @@ namespace Lab6
             int answer = 0;
 
             // code here
-
             Swapper op;
-            if (array.Length % 2 == 0)
-            {
-                op = SwapFromLeft;
-            }
-            else
-            {
+            if (array.Length % 2 == 1)
                 op = SwapFromRight;
-            }
+            else
+                op = SwapFromLeft;
             for (int i = 0; i < array.Length; ++i)
             {
                 op(array[i]);
@@ -322,7 +308,8 @@ namespace Lab6
             {
                 for (int j = 0; j < array[i].Length; j++)
                 {
-                    ans += (array[i][j] > 0 ? 1 : 0);
+                    if (array[i][j] > 0)
+                        ans++;
                 }
             }
             return ans;
@@ -360,7 +347,6 @@ namespace Lab6
             int answer = 0;
 
             // code here
-
             answer = func(array);
             // end
 
@@ -368,3 +354,4 @@ namespace Lab6
         }
     }
 }
+
