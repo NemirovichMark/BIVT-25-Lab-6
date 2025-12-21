@@ -410,8 +410,8 @@ namespace Lab6
             // end
 
             return answer;
+        }
     }
-
-        
 }
+
 
