@@ -1,9 +1,9 @@
 ﻿using System.Linq;
-using System.Reflection.Metadata.Ecma335;
 using System.Runtime.InteropServices;
 
 namespace Lab6
 {
+    
     public class White
     {
         public void Task1(double[] A, double[] B)
@@ -18,45 +18,47 @@ namespace Lab6
                 return;
             }
 
-            int na = A.Length;
-            int nb = B.Length;
+            int na = A.Length; int nb = B.Length;
 
-            int AFromEnd = na - 1 - maxA;
-            int BFromEnd = nb - 1 - maxB;
+            int AFromEnd = na - 1 - maxA; int BFromEnd = nb - 1 - maxB;
 
-            if (AFromEnd == 0)
-            {
-                return;
-            }
-            if (BFromEnd == 0)
-            {
-                return;
-            }
+            
 
-            double srA = 0;
-            double srB = 0;
-            for (int i = maxA + 1; i < na; i++)
-            {
-                srA += A[i];
-
-            }
-            srA = srA / AFromEnd;
-            for (int i = maxB + 1; i < nb; i++)
-            {
-                srB += B[i];
-
-            }
-            srB = srB / BFromEnd;
             if (AFromEnd >= BFromEnd)
             {
+                if (AFromEnd == 0)
+                {
+                    return;
+                }
+
+                double sumA = 0;
+                for (int i = maxA + 1; i < na; i++)
+                {
+                    sumA += A[i];
+                }
+                double srA = sumA / AFromEnd;
+
                 A[maxA] = srA;
             }
+           
             else
             {
+                
+                if (BFromEnd == 0)
+                {
+                    return; 
+                }
+
+                double sumB = 0;
+                for (int i = maxB + 1; i < nb; i++)
+                {
+                    sumB += B[i];
+                }
+                double srB = sumB / BFromEnd;
+
                 B[maxB] = srB;
             }
             // end
-
         }
         public int FindMaxIndex(double[] array)
         {
@@ -76,6 +78,8 @@ namespace Lab6
 
             return x;
         }
+
+
         public void Task2(int[,] A, int[,] B)
         {
 
