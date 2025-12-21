@@ -232,18 +232,54 @@ namespace Lab6 {
 
         //
 
-        public void Task5(int[] matrix, Sorting sort) {
-
+        public void Task5(int[] array, Sorting sort) {
             // code here
-
+            sort(array);
             // end
-
         }
-        public delegate void Sorting(int[] matrix);
 
-        public void SortNegativeAscending(int[] matrix) { }
+        public delegate void Sorting(int[] array);
 
-        public void SortNegativeDescending(int[] matrix) { }
+        public void SortNegativeAscending(int[] array) =>
+            SortNegativeBy(array, delegate (int a, int b) { return a > b; });
+
+        public void SortNegativeDescending(int[] array) =>
+            SortNegativeBy(array, delegate (int a, int b) { return a < b; });
+        int CountNegatives(int[] array) {
+            var ret = 0;
+
+            ForRange(delegate (int i) {
+                if (array[i] < 0) {
+                    ret += 1;
+                }
+            }, array.Length);
+
+            return ret;
+        }
+
+        void SortNegativeBy(int[] array, Func<int, int, bool> comparator) {
+            var count = CountNegatives(array);
+            var negatives = new int[count];
+            var negatives_indices = new int[count];
+
+            var index = 0;
+            ForRange(delegate (int i) {
+                if (array[i] >= 0) { return; }
+                negatives[index] = array[i];
+                negatives_indices[index] = i;
+                index += 1;
+            }, array.Length);
+
+            for (var i = 0; i < negatives.Length - 1; i += 1) {
+                for (var j = 0; j < negatives.Length - 1 - i; j += 1) {
+                    if (comparator(negatives[j], negatives[j + 1])) {
+                        Swap(ref negatives[j], ref negatives[j + 1]);
+                    }
+                }
+            }
+
+            ForRange(delegate (int i) { array[negatives_indices[i]] = negatives[i]; }, negatives_indices.Length);
+        }
 
         //
 
