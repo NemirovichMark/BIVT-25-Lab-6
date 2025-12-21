@@ -4,23 +4,17 @@ namespace Lab6 {
 
         public void Task1(int[,] A, int[,] B) {
             // code here
-            if (!IsSameSize(A, B)) { return; }
-
-            if (!IsSquare(A)) { return; }
-            var a_max_item_index = FindDiagonalMaxIndex(A);
-
-            if (!IsSquare(B)) { return; }
-            var b_max_item_index = FindDiagonalMaxIndex(A);
-
-            SwapRowColumn(A, a_max_item_index, B, b_max_item_index);
+            if (IsSameSize(A, B) && IsSquare(A) && IsSquare(B)) {
+                SwapRowColumn(A, FindDiagonalMaxIndex(A), B, FindDiagonalMaxIndex(B));
+            }
             // end
         }
 
-        public int FindDiagonalMaxIndex<T>(T[,] matrix) where T : IComparable<T> {
-            int max_index = 0;
+        public int FindDiagonalMaxIndex(int[,] matrix) {
+            var max_index = 0;
 
             for (var i = 1; i < matrix.GetLength(0); i += 1) {
-                if (matrix[i, i].CompareTo(matrix[max_index, max_index]) > 0) {
+                if (matrix[i, i] > matrix[max_index, max_index]) {
                     max_index = i;
                 }
             }
@@ -32,7 +26,7 @@ namespace Lab6 {
             var size = matrix.GetLength(0);
 
             for (var i = 0; i < size; i += 1) {
-                Swap(ref matrix[rowIndex, i], ref matrix[i, columnIndex]);
+                Swap(ref matrix[rowIndex, i], ref B[i, columnIndex]);
             }
         }
 
