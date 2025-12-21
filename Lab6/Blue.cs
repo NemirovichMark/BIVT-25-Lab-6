@@ -88,7 +88,7 @@
             return 0;
             // end
 
-            return answer;
+            
         }
         public int FindUpperColIndex(int[,] matrix)
         {
@@ -395,7 +395,7 @@
         public double SumA(double x)
         {
             const double eps = 1e-12;
-            return SumARecursive(x, 0, 1.0, 1.0, eps); 
+            return SumARecursive(x, 0, 1.0, 1.0, eps);
         }
 
         private double SumARecursive(double x, int n, double term, double factorial, double eps)
