@@ -1,0 +1,12 @@
+C:\misisvscs\BIVT-25-Lab-6-Afanasev\Lab6test\bin\Debug\net8.0\.msCoverageSourceRootsMapping_Lab6test
+C:\misisvscs\BIVT-25-Lab-6-Afanasev\Lab6test\bin\Debug\net8.0\.msCoverageExtensionSourceRootsMapping_Lab6test
+C:\misisvscs\BIVT-25-Lab-6-Afanasev\Lab6test\obj\Debug\net8.0\Lab6test.csproj.AssemblyReference.cache
+C:\misisvscs\BIVT-25-Lab-6-Afanasev\Lab6test\obj\Debug\net8.0\Lab6test.GeneratedMSBuildEditorConfig.editorconfig
+C:\misisvscs\BIVT-25-Lab-6-Afanasev\Lab6test\obj\Debug\net8.0\Lab6test.AssemblyInfoInputs.cache
+C:\misisvscs\BIVT-25-Lab-6-Afanasev\Lab6test\obj\Debug\net8.0\Lab6test.AssemblyInfo.cs
+C:\misisvscs\BIVT-25-Lab-6-Afanasev\Lab6test\obj\Debug\net8.0\Lab6test.csproj.CoreCompileInputs.cache
+C:\misisvscs\BIVT-25-Lab-6-Afanasev\Lab6test\obj\Debug\net8.0\Lab6test.gentestingplatformentrypointinputcache.cache
+C:\misisvscs\BIVT-25-Lab-6-Afanasev\Lab6test\obj\Debug\net8.0\Lab6test.genautoregisteredextensionsinputcache.cache
+C:\misisvscs\BIVT-25-Lab-6-Afanasev\Lab6test\obj\Debug\net8.0\AutoRegisteredExtensions.cs
+C:\misisvscs\BIVT-25-Lab-6-Afanasev\Lab6test\obj\Debug\net8.0\TestPlatformEntryPoint.cs
+C:\misisvscs\BIVT-25-Lab-6-Afanasev\Lab6test\obj\Debug\net8.0\Lab6test.sourcelink.json
