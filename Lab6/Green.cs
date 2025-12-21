@@ -1,5 +1,6 @@
-using System;
-using Linq;
+using System.Linq;
+using System.Runtime.InteropServices;
+
 namespace Lab6
 {
     public delegate void Sorting(int[,] matrix);
@@ -448,5 +449,6 @@ namespace Lab6
         }
     }
 }
+
 
 
