@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Lab6
 {
@@ -366,6 +366,8 @@ namespace Lab6
             // end
 
         }
+
+
         public void SortRowAscending(int[,] matrix, int row)
         {
             int n = matrix.GetLength(0), m = matrix.GetLength(1);
@@ -624,19 +626,19 @@ namespace Lab6
         public bool CheckSumOrder(int[][] array)
         {
             int n = array.Length;
-            int[] mas = new int[n];
+            int[] bebeb = new int[n];
             for (int i = 0; i < n; i++)
                 for (int j = 0; j < array[i].Length; j++)
-                    mas[i] += array[i][j];
+                    bebeb[i] += array[i][j];
             int k = 0, m = 0;
-            for (int i = 0; i < mas.Length - 1; i++)
+            for (int i = 0; i < bebeb.Length - 1; i++)
             {
-                if (mas[i] > mas[i + 1])
+                if (bebeb[i] > bebeb[i + 1])
                     k++;
-                if (mas[i] < mas[i + 1])
+                if (bebeb[i] < bebeb[i + 1])
                     m++;
             }
-            if (k == mas.Length - 1 || m == mas.Length - 1)
+            if (k == bebeb.Length - 1 || m == bebeb.Length - 1)
                 return true;
             return false;
         }
@@ -644,18 +646,19 @@ namespace Lab6
         public bool CheckArraysOrder(int[][] array)
         {
             int n = array.Length;
-            int k = 0, m = 0;
+            int k = 0;
+            int c = 0;
             for (int i = 0; i < n; i++)
             {
-                k = 0; m = 0;
+                k = 0; c = 0;
                 for (int j = 0; j < array[i].Length - 1; j++)
                 {
                     if (array[i][j] >= array[i][j + 1])
                         k++;
                     if (array[i][j] <= array[i][j + 1])
-                        m++;
+                        c++;
                 }
-                if (k == array[i].Length - 1 || m == array[i].Length - 1)
+                if (k == array[i].Length - 1 || c == array[i].Length - 1)
                     return true;
             }
             return false;
