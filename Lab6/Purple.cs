@@ -105,15 +105,71 @@ namespace Lab6 {
         //
 
         public void Task3(int[,] matrix) {
-
             // code here
-
+            ChangeMatrixValues(matrix);
             // end
-
         }
 
+        public void ChangeMatrixValues(int[,] matrix) {
+            var rows = matrix.GetLength(0);
+            var cols = matrix.GetLength(1);
+            var index = (int)0;
+            var array = new int[matrix.Length];
+            var max_indices = new int[matrix.Length];
+            var is_max = new bool[array.Length];
 
-        public void ChangeMatrixValues(int[,] matrix) { }
+            void for_this_matrix_btw(Action<int, int> action) => ForMatrix(action, rows, cols);
+
+            if (matrix.Length <= 5) {
+                ForMatrix(delegate (int r, int c) { matrix[r, c] *= 2; }, rows, cols);
+                return;
+            }
+
+            index = 0;
+            for_this_matrix_btw(delegate (int r, int c) {
+                array[index] = matrix[r, c];
+                max_indices[index] = index;
+                index += 1;
+            });
+
+            var n = array.Length - 1;
+            ForRange(delegate (int i) {
+                ForRange(delegate (int j) {
+                    ref var a0 = ref array[j];
+                    ref var a1 = ref array[j + 1];
+                    ref var m0 = ref max_indices[j];
+                    ref var m1 = ref max_indices[j + 1];
+
+                    if ((a0 < a1) || (a0 == a1 && m0 > m1)) {
+                        Swap(ref a0, ref a1);
+                        Swap(ref m0, ref m1);
+                    }
+                }, n - i);
+            }, n);
+
+            ForRange(delegate (int i) { is_max[max_indices[i]] = true; }, 5);
+
+            index = 0;
+            for_this_matrix_btw(delegate (int r, int c) {
+                if (is_max[index]) { matrix[r, c] *= 2; }
+                else { matrix[r, c] /= 2; }
+                index += 1;
+            });
+        }
+
+        static void ForMatrix(Action<int, int> action, int rows, int cols) {
+            ForRange(
+                delegate (int r) {
+                    ForRange(
+                        delegate (int c) {
+                            action(r, c);
+                        },
+                        cols
+                    );
+                },
+                rows
+            );
+        }
 
         //
 
