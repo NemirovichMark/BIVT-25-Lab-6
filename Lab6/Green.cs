@@ -3,7 +3,9 @@ using System.Runtime.InteropServices;
 
 namespace Lab6
 {
-    public void DeleteMaxElement(ref int[] array)
+    public class Green
+    {
+        public void DeleteMaxElement(ref int[] array)
     {
         if (array == null || array.Length == 0)
         {
@@ -450,8 +452,6 @@ namespace Lab6
         }
         return totalLargeElements;
     }
-    public class Green
-    {
         public void Task1(ref int[] A, ref int[] B)
         {
 
@@ -628,4 +628,5 @@ namespace Lab6
     }
 
 }
+
 
