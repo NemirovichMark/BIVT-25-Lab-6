@@ -1,0 +1,15 @@
+C:\Users\Vera_Zorina\Source\Repos\BIVT-25-Lab-6\Lab6\obj\Debug\net8.0\Lab6.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Vera_Zorina\Source\Repos\BIVT-25-Lab-6\Lab6\obj\Debug\net8.0\Lab6.AssemblyInfoInputs.cache
+C:\Users\Vera_Zorina\Source\Repos\BIVT-25-Lab-6\Lab6\obj\Debug\net8.0\Lab6.AssemblyInfo.cs
+C:\Users\Vera_Zorina\Source\Repos\BIVT-25-Lab-6\Lab6\obj\Debug\net8.0\Lab6.csproj.CoreCompileInputs.cache
+C:\Users\Vera_Zorina\Source\Repos\BIVT-25-Lab-6\Lab6\obj\Debug\net8.0\Lab6.sourcelink.json
+C:\Users\Vera_Zorina\Source\Repos\BIVT-25-Lab-6\Lab6\bin\Debug\net8.0\Lab6.exe
+C:\Users\Vera_Zorina\Source\Repos\BIVT-25-Lab-6\Lab6\bin\Debug\net8.0\Lab6.deps.json
+C:\Users\Vera_Zorina\Source\Repos\BIVT-25-Lab-6\Lab6\bin\Debug\net8.0\Lab6.runtimeconfig.json
+C:\Users\Vera_Zorina\Source\Repos\BIVT-25-Lab-6\Lab6\bin\Debug\net8.0\Lab6.dll
+C:\Users\Vera_Zorina\Source\Repos\BIVT-25-Lab-6\Lab6\bin\Debug\net8.0\Lab6.pdb
+C:\Users\Vera_Zorina\Source\Repos\BIVT-25-Lab-6\Lab6\obj\Debug\net8.0\Lab6.dll
+C:\Users\Vera_Zorina\Source\Repos\BIVT-25-Lab-6\Lab6\obj\Debug\net8.0\refint\Lab6.dll
+C:\Users\Vera_Zorina\Source\Repos\BIVT-25-Lab-6\Lab6\obj\Debug\net8.0\Lab6.pdb
+C:\Users\Vera_Zorina\Source\Repos\BIVT-25-Lab-6\Lab6\obj\Debug\net8.0\Lab6.genruntimeconfig.cache
+C:\Users\Vera_Zorina\Source\Repos\BIVT-25-Lab-6\Lab6\obj\Debug\net8.0\ref\Lab6.dll
