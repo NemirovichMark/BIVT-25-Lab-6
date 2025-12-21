@@ -243,190 +243,181 @@ namespace Lab6
 
             return result;
         }
-    public delegate double BikeRide(double v, double a);
+        public delegate double BikeRide(double v, double a);
 
-    public double Task8(double v, double a, BikeRide ride)
-    {
-        return ride(v, a);
-    }
-
-    public double GetDistance(double v, double a)
-    {
-        double distance = 0;
-        double speed = v;
-
-        for (int hour = 1; hour <= 10; hour++)
+        public double Task8(double v, double a, BikeRide ride)
         {
-            distance += speed;
-            speed += a;
+            return ride(v, a);
         }
 
-        return distance;
-    }
-
-    public double GetTime(double v, double a)
-    {
-        double distance = 0;
-        double speed = v;
-        int hours = 0;
-
-        while (distance < 100)
+        public double GetDistance(double v, double a)
         {
-            distance += speed;
-            speed += a;
-            hours++;
-        }
+            double distance = 0;
+            double speed = v;
 
-        return hours;
-    }
-    public delegate void Swapper(double[] array);
-
-    public int Task9(int[][] array)
-    {
-        if (array == null) return 0;
-
-        Swapper swapper = (array.Length % 2 == 0) ? SwapFromLeft : SwapFromRight;
-
-
-        for (int r = 0; r < array.Length; r++)
-        {
-            if (array[r] == null || array[r].Length <= 1) continue;
-
-
-            double[] temp = new double[array[r].Length];
-            for (int i = 0; i < array[r].Length; i++)
-                temp[i] = array[r][i];
-
-            swapper(temp);
-
-
-            for (int i = 0; i < array[r].Length; i++)
-                array[r][i] = (int)temp[i];
-        }
-
-        long totalSum = 0;
-        long evenSum = 0;
-
-        for (int r = 0; r < array.Length; r++)
-        {
-            if (array[r] == null || array[r].Length == 0) continue;
-
-            double[] temp = new double[array[r].Length];
-            for (int i = 0; i < array[r].Length; i++)
+            for (int hour = 1; hour <= 10; hour++)
             {
-                temp[i] = array[r][i];
-                totalSum += array[r][i];
+                distance += speed;
+                speed += a;
             }
 
-            evenSum += (long)Sum(temp); 
+            return distance;
         }
 
-        long oddSum = totalSum - evenSum;
-        return (int)oddSum;
-    }
-
-    public double Sum(double[] array)
-    {
-        if (array == null) return 0;
-
-        double sum = 0;
-        for (int i = 0; i < array.Length; i += 2)
-            sum += array[i];
-
-        return sum;
-    }
-
-    public void SwapFromLeft(double[] array)
-    {
-        if (array == null) return;
-
-        for (int i = 0; i + 1 < array.Length; i += 2)
+        public double GetTime(double v, double a)
         {
-            double t = array[i];
-            array[i] = array[i + 1];
-            array[i + 1] = t;
-        }
-    }
+            double distance = 0;
+            double speed = v;
+            int hours = 0;
 
-    public void SwapFromRight(double[] array)
-    {
-        if (array == null) return;
-
-        for (int i = array.Length - 1; i - 1 >= 0; i -= 2)
-        {
-            double t = array[i];
-            array[i] = array[i - 1];
-            array[i - 1] = t;
-        }
-    }
-public int Task10(int[][] array, Func<int[][], int> func)
-    {
-        if (array == null || func == null) return 0;
-        return func(array);
-    }
-
-    public int CountPositive(int[][] array)
-    {
-        if (array == null) return 0;
-
-        int count = 0;
-        for (int i = 0; i < array.Length; i++)
-        {
-            if (array[i] == null) continue;
-
-            for (int j = 0; j < array[i].Length; j++)
+            while (distance < 100)
             {
-                if (array[i][j] > 0)
-                    count++;
+                distance += speed;
+                speed += a;
+                hours++;
             }
+
+            return hours;
         }
-        return count;
-    }
+        public delegate void Swapper(int[] array);
 
-    public int FindMax(int[][] array)
-    {
-        if (array == null || array.Length == 0) return 0;
-
-        int max = 0;
-        bool initialized = false;
-
-        for (int i = 0; i < array.Length && !initialized; i++)
+        public int Task9(int[][] array)
         {
-            if (array[i] != null && array[i].Length > 0)
+            if (array == null) return 0;
+
+            Swapper swapper = (array.Length % 2 == 0) ? SwapFromLeft : SwapFromRight;
+
+
+            for (int r = 0; r < array.Length; r++)
             {
-                max = array[i][0];
-                initialized = true;
+                if (array[r] == null || array[r].Length <= 1) continue;
+                swapper(array[r]);
+            }
+
+
+            int answer = 0;
+            for (int r = 0; r < array.Length; r++)
+            {
+                if (array[r] == null) continue;
+                answer += GetSum(array[r]); 
+            }
+
+            return answer;
+        }
+
+        public int Sum(int[] array)
+        {
+            if (array == null) return 0;
+
+            int sum = 0;
+            for (int i = 0; i < array.Length; i += 2)
+                sum += array[i];
+
+            return sum;
+        }
+
+        public int GetSum(int[] array)
+        {
+            if (array == null) return 0;
+
+            int sum = 0;
+            for (int i = 1; i < array.Length; i += 2)
+                sum += array[i];
+
+            return sum;
+        }
+
+        public void SwapFromLeft(int[] array)
+        {
+            if (array == null) return;
+
+            for (int i = 0; i + 1 < array.Length; i += 2)
+            {
+                int t = array[i];
+                array[i] = array[i + 1];
+                array[i + 1] = t;
             }
         }
 
-        if (!initialized) return 0;
-
-        for (int i = 0; i < array.Length; i++)
+        public void SwapFromRight(int[] array)
         {
-            if (array[i] == null) continue;
+            if (array == null) return;
 
-            for (int j = 0; j < array[i].Length; j++)
+            for (int i = array.Length - 1; i - 1 >= 0; i -= 2)
             {
-                if (array[i][j] > max)
-                    max = array[i][j];
+                int t = array[i];
+                array[i] = array[i - 1];
+                array[i - 1] = t;
             }
         }
+        public int Task10(int[][] array, Func<int[][], int> func)
+            {
+                if (array == null || func == null) return 0;
+                return func(array);
+            }
 
-        return max;
-    }
-
-    public int FindMaxRowLength(int[][] array)
-    {
-        if (array == null) return 0;
-
-        int maxLen = 0;
-        for (int i = 0; i < array.Length; i++)
+        public int CountPositive(int[][] array)
         {
-            int len = (array[i] == null) ? 0 : array[i].Length;
-            if (len > maxLen)
-                maxLen = len;
+            if (array == null) return 0;
+
+            int count = 0;
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i] == null) continue;
+
+                for (int j = 0; j < array[i].Length; j++)
+                {
+                    if (array[i][j] > 0)
+                        count++;
+                }
+            }
+            return count;
         }
-        return maxLen;
-    }
+
+        public int FindMax(int[][] array)
+        {
+            if (array == null || array.Length == 0) return 0;
+
+            int max = 0;
+            bool initialized = false;
+
+            for (int i = 0; i < array.Length && !initialized; i++)
+            {
+                if (array[i] != null && array[i].Length > 0)
+                {
+                    max = array[i][0];
+                    initialized = true;
+                }
+            }
+
+            if (!initialized) return 0;
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i] == null) continue;
+
+                for (int j = 0; j < array[i].Length; j++)
+                {
+                    if (array[i][j] > max)
+                        max = array[i][j];
+                }
+            }
+
+            return max;
+        }
+
+        public int FindMaxRowLength(int[][] array)
+        {
+            if (array == null) return 0;
+
+            int maxLen = 0;
+            for (int i = 0; i < array.Length; i++)
+            {
+                int len = (array[i] == null) ? 0 : array[i].Length;
+                if (len > maxLen)
+                    maxLen = len;
+            }
+            return maxLen;
+        }
     }
 }
