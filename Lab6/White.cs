@@ -1,10 +1,27 @@
 ﻿using System.Linq;
 using System.Runtime.InteropServices;
+using System.ComponentModel.DataAnnotations;
+
 
 namespace Lab6
 {
     public class White
     {
+        public int FindMaxIndex(double[] array)
+        {
+            int len = array.Length;
+            double maxValue = double.MinValue;
+            int maxIndex = 0;
+            for (int i = 0; i < len; i++)
+            {
+                if (array[i] > maxValue)
+                {
+                    maxValue = array[i];
+                    maxIndex = i;
+                }
+            }
+            return maxIndex;
+        }
         public void Task1(double[] A, double[] B)
         {
 
@@ -53,11 +70,6 @@ namespace Lab6
             }
             return maxIndex;
         }
-
-
-
-
-        
         public void Task2(int[,] A, int[,] B)
         {
 
@@ -90,12 +102,6 @@ namespace Lab6
             }
             return NegInRow;
         }
-
-
-
-
-
-        
         public int Task3(int[,] matrix)
         {
             int answer = 0;
@@ -128,10 +134,6 @@ namespace Lab6
             }
             return MaxValue;
         }
-
-
-
-        
         public void Task4(int[,] A, int[,] B)
         {
 
@@ -152,15 +154,11 @@ namespace Lab6
                 (A[i, colIndexA], B[i, colIndexB]) = (B[i, colIndexB], A[i, colIndexA]);
             }
         }
-
-
-
-
-        
         public void Task5(int[,] A, int[,] B)
         {
 
             // code here
+
             int rowA, rowB, colA, colB;
             int maxA = FindMax(A, out rowA, out colA);
             int maxB = FindMax(B, out rowB, out colB);
@@ -169,6 +167,7 @@ namespace Lab6
                 SwapColumns(A, colA, B, colB);
             }
             // end
+
         }
         public delegate void Sorting(int[,] matrix);
         public void SortDiagonalAscending(int[,] matrix)
@@ -231,13 +230,14 @@ namespace Lab6
             }
         }
 
-
-        
         public void Task6(int[,] matrix, Sorting sort)
         {
+
             // code here
+
             sort(matrix);
             // end
+
         }
         public long Factorial(int n)
         {
@@ -245,12 +245,6 @@ namespace Lab6
             else
                 return n * Factorial(n - 1);
         }
-
-
-
-
-
-        
         public long Task7(int n, int k)
         {
             long answer = 0;
@@ -291,12 +285,6 @@ namespace Lab6
             }
             return t;
         }
-
-
-
-
-
-        
         public double Task8(double v, double a, BikeRide ride)
         {
             double answer = 0;
@@ -335,11 +323,6 @@ namespace Lab6
             }
             return sum;
         }
-
-
-
-
-        
         public int Task9(int[][] array)
         {
             int answer = 0;
@@ -395,11 +378,6 @@ namespace Lab6
             }
             return maxLength;
         }
-
-
-
-
-        
         public int Task10(int[][] array, Func<int[][], int> func)
         {
             int answer = 0;
@@ -413,5 +391,3 @@ namespace Lab6
         }
     }
 }
-
-
