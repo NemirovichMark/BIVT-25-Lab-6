@@ -1,17 +1,20 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\misisvscs\\BIVT-25-Lab-6-Afanasev\\Lab6\\",
+  "WorkspaceRootPath": "C:\\MisisStudyCS\\BIVT-25-Lab-6-Afanasev\\Lab6\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A55E9E7D-F829-8764-014B-9CDE371B79A4}|Lab6.csproj|c:\\misisvscs\\bivt-25-lab-6-afanasev\\lab6\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A55E9E7D-F829-8764-014B-9CDE371B79A4}|Lab6.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A55E9E7D-F829-8764-014B-9CDE371B79A4}|Lab6.csproj|c:\\misisvscs\\bivt-25-lab-6-afanasev\\lab6\\purple.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A55E9E7D-F829-8764-014B-9CDE371B79A4}|Lab6.csproj|c:\\misisstudycs\\bivt-25-lab-6-afanasev\\lab6\\purple.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A55E9E7D-F829-8764-014B-9CDE371B79A4}|Lab6.csproj|solutionrelative:purple.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1A7D3CF2-F01B-EE3F-B407-2F27A8D69D0E}|..\\Lab6test\\Lab6test.csproj|c:\\misisvscs\\bivt-25-lab-6-afanasev\\lab6test\\purpletest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A55E9E7D-F829-8764-014B-9CDE371B79A4}|Lab6.csproj|c:\\misisstudycs\\bivt-25-lab-6-afanasev\\lab6\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A55E9E7D-F829-8764-014B-9CDE371B79A4}|Lab6.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A7D3CF2-F01B-EE3F-B407-2F27A8D69D0E}|..\\Lab6test\\Lab6test.csproj|c:\\misisstudycs\\bivt-25-lab-6-afanasev\\lab6test\\purpletest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A7D3CF2-F01B-EE3F-B407-2F27A8D69D0E}|..\\Lab6test\\Lab6test.csproj|c:\\misisstudycs\\bivt-25-lab-6-afanasev\\lab6test\\data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -21,38 +24,38 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\misisvscs\\BIVT-25-Lab-6-Afanasev\\Lab6\\Program.cs",
+              "DocumentMoniker": "C:\\MisisStudyCS\\BIVT-25-Lab-6-Afanasev\\Lab6\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\misisvscs\\BIVT-25-Lab-6-Afanasev\\Lab6\\Program.cs",
+              "ToolTip": "C:\\MisisStudyCS\\BIVT-25-Lab-6-Afanasev\\Lab6\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAuwBIAAAAjAAAAAAAAAA==",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAgwCgAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-21T12:34:38.779Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Purple.cs",
-              "DocumentMoniker": "C:\\misisvscs\\BIVT-25-Lab-6-Afanasev\\Lab6\\Purple.cs",
+              "DocumentMoniker": "C:\\MisisStudyCS\\BIVT-25-Lab-6-Afanasev\\Lab6\\Purple.cs",
               "RelativeDocumentMoniker": "Purple.cs",
-              "ToolTip": "C:\\misisvscs\\BIVT-25-Lab-6-Afanasev\\Lab6\\Purple.cs",
-              "RelativeToolTip": "Purple.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAwwDwAAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\MisisStudyCS\\BIVT-25-Lab-6-Afanasev\\Lab6\\Purple.cs*",
+              "RelativeToolTip": "Purple.cs*",
+              "ViewState": "AgIAADcAAAAAAAAAAADwv0YAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-21T12:34:37.513Z",
               "EditorCaption": ""
@@ -61,13 +64,26 @@
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "PurpleTest.cs",
-              "DocumentMoniker": "C:\\misisvscs\\BIVT-25-Lab-6-Afanasev\\Lab6test\\PurpleTest.cs",
+              "DocumentMoniker": "C:\\MisisStudyCS\\BIVT-25-Lab-6-Afanasev\\Lab6test\\PurpleTest.cs",
               "RelativeDocumentMoniker": "..\\Lab6test\\PurpleTest.cs",
-              "ToolTip": "C:\\misisvscs\\BIVT-25-Lab-6-Afanasev\\Lab6test\\PurpleTest.cs",
+              "ToolTip": "C:\\MisisStudyCS\\BIVT-25-Lab-6-Afanasev\\Lab6test\\PurpleTest.cs",
               "RelativeToolTip": "..\\Lab6test\\PurpleTest.cs",
-              "ViewState": "AgIAAKYAAAAAAAAAAAAQwGoAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAJsBAAAAAAAAAAAQwKkBAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-21T12:45:44.409Z",
+              "WhenOpened": "2025-12-21T18:56:04.916Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Data.cs",
+              "DocumentMoniker": "C:\\MisisStudyCS\\BIVT-25-Lab-6-Afanasev\\Lab6test\\Data.cs",
+              "RelativeDocumentMoniker": "..\\Lab6test\\Data.cs",
+              "ToolTip": "C:\\MisisStudyCS\\BIVT-25-Lab-6-Afanasev\\Lab6test\\Data.cs",
+              "RelativeToolTip": "..\\Lab6test\\Data.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T19:05:35.251Z",
               "EditorCaption": ""
             }
           ]
