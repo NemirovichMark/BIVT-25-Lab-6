@@ -1,0 +1,173 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\xaewq\\source\\repos\\BIVT-25-Lab-6\\Lab6\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A55E9E7D-F829-8764-014B-9CDE371B79A4}|Lab6.csproj|c:\\users\\xaewq\\source\\repos\\bivt-25-lab-6\\lab6\\purple.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A55E9E7D-F829-8764-014B-9CDE371B79A4}|Lab6.csproj|solutionrelative:purple.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A7D3CF2-F01B-EE3F-B407-2F27A8D69D0E}|..\\Lab6test\\Lab6test.csproj|c:\\users\\xaewq\\source\\repos\\bivt-25-lab-6\\lab6test\\purpletest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A55E9E7D-F829-8764-014B-9CDE371B79A4}|Lab6.csproj|c:\\users\\xaewq\\source\\repos\\bivt-25-lab-6\\lab6\\blue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A55E9E7D-F829-8764-014B-9CDE371B79A4}|Lab6.csproj|solutionrelative:blue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A55E9E7D-F829-8764-014B-9CDE371B79A4}|Lab6.csproj|c:\\users\\xaewq\\source\\repos\\bivt-25-lab-6\\lab6\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A55E9E7D-F829-8764-014B-9CDE371B79A4}|Lab6.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A55E9E7D-F829-8764-014B-9CDE371B79A4}|Lab6.csproj|c:\\users\\xaewq\\source\\repos\\bivt-25-lab-6\\lab6\\white.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A55E9E7D-F829-8764-014B-9CDE371B79A4}|Lab6.csproj|solutionrelative:white.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A55E9E7D-F829-8764-014B-9CDE371B79A4}|Lab6.csproj|c:\\users\\xaewq\\source\\repos\\bivt-25-lab-6\\lab6\\green.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A55E9E7D-F829-8764-014B-9CDE371B79A4}|Lab6.csproj|solutionrelative:green.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A7D3CF2-F01B-EE3F-B407-2F27A8D69D0E}|..\\Lab6test\\Lab6test.csproj|c:\\users\\xaewq\\source\\repos\\bivt-25-lab-6\\lab6test\\greentest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A7D3CF2-F01B-EE3F-B407-2F27A8D69D0E}|..\\Lab6test\\Lab6test.csproj|c:\\users\\xaewq\\source\\repos\\bivt-25-lab-6\\lab6test\\whitetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A7D3CF2-F01B-EE3F-B407-2F27A8D69D0E}|..\\Lab6test\\Lab6test.csproj|c:\\users\\xaewq\\source\\repos\\bivt-25-lab-6\\lab6test\\bluetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 9,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PurpleTest.cs",
+              "DocumentMoniker": "C:\\Users\\xaewq\\source\\repos\\BIVT-25-Lab-6\\Lab6test\\PurpleTest.cs",
+              "RelativeDocumentMoniker": "..\\Lab6test\\PurpleTest.cs",
+              "ToolTip": "C:\\Users\\xaewq\\source\\repos\\BIVT-25-Lab-6\\Lab6test\\PurpleTest.cs",
+              "RelativeToolTip": "..\\Lab6test\\PurpleTest.cs",
+              "ViewState": "AgIAAEsGAAAAAAAAAAAowFgGAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T09:01:49.394Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\xaewq\\source\\repos\\BIVT-25-Lab-6\\Lab6\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\xaewq\\source\\repos\\BIVT-25-Lab-6\\Lab6\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T08:54:12.078Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Blue.cs",
+              "DocumentMoniker": "C:\\Users\\xaewq\\source\\repos\\BIVT-25-Lab-6\\Lab6\\Blue.cs",
+              "RelativeDocumentMoniker": "Blue.cs",
+              "ToolTip": "C:\\Users\\xaewq\\source\\repos\\BIVT-25-Lab-6\\Lab6\\Blue.cs",
+              "RelativeToolTip": "Blue.cs",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAcwF0AAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T08:54:00.515Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Green.cs",
+              "DocumentMoniker": "C:\\Users\\xaewq\\source\\repos\\BIVT-25-Lab-6\\Lab6\\Green.cs",
+              "RelativeDocumentMoniker": "Green.cs",
+              "ToolTip": "C:\\Users\\xaewq\\source\\repos\\BIVT-25-Lab-6\\Lab6\\Green.cs",
+              "RelativeToolTip": "Green.cs",
+              "ViewState": "AgIAAE0AAAAAAAAAAAAcwFQAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T08:53:58.048Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "White.cs",
+              "DocumentMoniker": "C:\\Users\\xaewq\\source\\repos\\BIVT-25-Lab-6\\Lab6\\White.cs",
+              "RelativeDocumentMoniker": "White.cs",
+              "ToolTip": "C:\\Users\\xaewq\\source\\repos\\BIVT-25-Lab-6\\Lab6\\White.cs",
+              "RelativeToolTip": "White.cs",
+              "ViewState": "AgIAAE8AAAAAAAAAAAAcwGIAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T08:53:54.442Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "BlueTest.cs",
+              "DocumentMoniker": "C:\\Users\\xaewq\\source\\repos\\BIVT-25-Lab-6\\Lab6test\\BlueTest.cs",
+              "RelativeDocumentMoniker": "..\\Lab6test\\BlueTest.cs",
+              "ToolTip": "C:\\Users\\xaewq\\source\\repos\\BIVT-25-Lab-6\\Lab6test\\BlueTest.cs",
+              "RelativeToolTip": "..\\Lab6test\\BlueTest.cs",
+              "ViewState": "AgIAAKEEAAAAAAAAAAAIwLMEAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T08:53:40.513Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "GreenTest.cs",
+              "DocumentMoniker": "C:\\Users\\xaewq\\source\\repos\\BIVT-25-Lab-6\\Lab6test\\GreenTest.cs",
+              "RelativeDocumentMoniker": "..\\Lab6test\\GreenTest.cs",
+              "ToolTip": "C:\\Users\\xaewq\\source\\repos\\BIVT-25-Lab-6\\Lab6test\\GreenTest.cs",
+              "RelativeToolTip": "..\\Lab6test\\GreenTest.cs",
+              "ViewState": "AgIAAPEDAAAAAAAAAAAcwAQEAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T08:53:34.97Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "WhiteTest.cs",
+              "DocumentMoniker": "C:\\Users\\xaewq\\source\\repos\\BIVT-25-Lab-6\\Lab6test\\WhiteTest.cs",
+              "RelativeDocumentMoniker": "..\\Lab6test\\WhiteTest.cs",
+              "ToolTip": "C:\\Users\\xaewq\\source\\repos\\BIVT-25-Lab-6\\Lab6test\\WhiteTest.cs",
+              "RelativeToolTip": "..\\Lab6test\\WhiteTest.cs",
+              "ViewState": "AgIAAO0EAAAAAAAAAAAcwPkEAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T08:53:31.337Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Purple.cs",
+              "DocumentMoniker": "C:\\Users\\xaewq\\source\\repos\\BIVT-25-Lab-6\\Lab6\\Purple.cs",
+              "RelativeDocumentMoniker": "Purple.cs",
+              "ToolTip": "C:\\Users\\xaewq\\source\\repos\\BIVT-25-Lab-6\\Lab6\\Purple.cs",
+              "RelativeToolTip": "Purple.cs",
+              "ViewState": "AgIAAI0CAAAAAAAAAAAQwJMCAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T08:49:56.142Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
