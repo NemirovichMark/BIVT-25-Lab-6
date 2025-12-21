@@ -47,14 +47,14 @@ namespace Lab6
             // end
 
         }
-        public void Task6(int[,] matrix, Sorting sort)
-        {
+        // public void Task6(int[,] matrix, Sorting sort)
+        // {
 
-            // code here
+        //     // code here
 
-            // end
+        //     // end
 
-        }
+        // }
         public long Task7(int n, int k)
         {
             long answer = 0;
@@ -65,16 +65,16 @@ namespace Lab6
 
             return answer;
         }
-        public double Task8(double v, double a, BikeRide ride)
-        {
-            double answer = 0;
+        // public double Task8(double v, double a, BikeRide ride)
+        // {
+        //     double answer = 0;
 
-            // code here
+        //     // code here
 
-            // end
+        //     // end
 
-            return answer;
-        }
+        //     return answer;
+        // }
         public int Task9(int[][] array)
         {
             int answer = 0;
@@ -96,4 +96,5 @@ namespace Lab6
             return answer;
         }
     }
+
 }
