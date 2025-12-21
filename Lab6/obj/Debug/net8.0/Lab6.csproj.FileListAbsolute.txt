@@ -1,0 +1,15 @@
+D:\UNIK\2025\Proga\Lab\Lab2\BIVT-25-Lab-6\Lab6\obj\Debug\net8.0\Lab6.GeneratedMSBuildEditorConfig.editorconfig
+D:\UNIK\2025\Proga\Lab\Lab2\BIVT-25-Lab-6\Lab6\obj\Debug\net8.0\Lab6.AssemblyInfoInputs.cache
+D:\UNIK\2025\Proga\Lab\Lab2\BIVT-25-Lab-6\Lab6\obj\Debug\net8.0\Lab6.AssemblyInfo.cs
+D:\UNIK\2025\Proga\Lab\Lab2\BIVT-25-Lab-6\Lab6\obj\Debug\net8.0\Lab6.csproj.CoreCompileInputs.cache
+D:\UNIK\2025\Proga\Lab\Lab2\BIVT-25-Lab-6\Lab6\obj\Debug\net8.0\Lab6.sourcelink.json
+D:\UNIK\2025\Proga\Lab\Lab2\BIVT-25-Lab-6\Lab6\bin\Debug\net8.0\Lab6.exe
+D:\UNIK\2025\Proga\Lab\Lab2\BIVT-25-Lab-6\Lab6\bin\Debug\net8.0\Lab6.deps.json
+D:\UNIK\2025\Proga\Lab\Lab2\BIVT-25-Lab-6\Lab6\bin\Debug\net8.0\Lab6.runtimeconfig.json
+D:\UNIK\2025\Proga\Lab\Lab2\BIVT-25-Lab-6\Lab6\bin\Debug\net8.0\Lab6.dll
+D:\UNIK\2025\Proga\Lab\Lab2\BIVT-25-Lab-6\Lab6\bin\Debug\net8.0\Lab6.pdb
+D:\UNIK\2025\Proga\Lab\Lab2\BIVT-25-Lab-6\Lab6\obj\Debug\net8.0\Lab6.dll
+D:\UNIK\2025\Proga\Lab\Lab2\BIVT-25-Lab-6\Lab6\obj\Debug\net8.0\refint\Lab6.dll
+D:\UNIK\2025\Proga\Lab\Lab2\BIVT-25-Lab-6\Lab6\obj\Debug\net8.0\Lab6.pdb
+D:\UNIK\2025\Proga\Lab\Lab2\BIVT-25-Lab-6\Lab6\obj\Debug\net8.0\Lab6.genruntimeconfig.cache
+D:\UNIK\2025\Proga\Lab\Lab2\BIVT-25-Lab-6\Lab6\obj\Debug\net8.0\ref\Lab6.dll
