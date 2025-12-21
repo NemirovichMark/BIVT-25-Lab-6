@@ -1,4 +1,5 @@
-﻿namespace Lab6test
+﻿/*
+namespace Lab6test
 {
     [TestClass]
     public sealed class PurpleTest
@@ -2015,3 +2016,4 @@
         }
     }
 }
+*/

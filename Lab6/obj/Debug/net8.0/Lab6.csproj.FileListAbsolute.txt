@@ -1,0 +1,15 @@
+/Users/mknd/RiderProjects/BIVT-25-Lab-6/Lab6/bin/Debug/net8.0/Lab6
+/Users/mknd/RiderProjects/BIVT-25-Lab-6/Lab6/bin/Debug/net8.0/Lab6.deps.json
+/Users/mknd/RiderProjects/BIVT-25-Lab-6/Lab6/bin/Debug/net8.0/Lab6.runtimeconfig.json
+/Users/mknd/RiderProjects/BIVT-25-Lab-6/Lab6/bin/Debug/net8.0/Lab6.dll
+/Users/mknd/RiderProjects/BIVT-25-Lab-6/Lab6/bin/Debug/net8.0/Lab6.pdb
+/Users/mknd/RiderProjects/BIVT-25-Lab-6/Lab6/obj/Debug/net8.0/Lab6.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mknd/RiderProjects/BIVT-25-Lab-6/Lab6/obj/Debug/net8.0/Lab6.AssemblyInfoInputs.cache
+/Users/mknd/RiderProjects/BIVT-25-Lab-6/Lab6/obj/Debug/net8.0/Lab6.AssemblyInfo.cs
+/Users/mknd/RiderProjects/BIVT-25-Lab-6/Lab6/obj/Debug/net8.0/Lab6.csproj.CoreCompileInputs.cache
+/Users/mknd/RiderProjects/BIVT-25-Lab-6/Lab6/obj/Debug/net8.0/Lab6.sourcelink.json
+/Users/mknd/RiderProjects/BIVT-25-Lab-6/Lab6/obj/Debug/net8.0/Lab6.dll
+/Users/mknd/RiderProjects/BIVT-25-Lab-6/Lab6/obj/Debug/net8.0/refint/Lab6.dll
+/Users/mknd/RiderProjects/BIVT-25-Lab-6/Lab6/obj/Debug/net8.0/Lab6.pdb
+/Users/mknd/RiderProjects/BIVT-25-Lab-6/Lab6/obj/Debug/net8.0/Lab6.genruntimeconfig.cache
+/Users/mknd/RiderProjects/BIVT-25-Lab-6/Lab6/obj/Debug/net8.0/ref/Lab6.dll

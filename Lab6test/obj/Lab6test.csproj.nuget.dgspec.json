@@ -1,0 +1,144 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/mknd/RiderProjects/BIVT-25-Lab-6/Lab6test/Lab6test.csproj": {}
+  },
+  "projects": {
+    "/Users/mknd/RiderProjects/BIVT-25-Lab-6/Lab6/Lab6.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/mknd/RiderProjects/BIVT-25-Lab-6/Lab6/Lab6.csproj",
+        "projectName": "Lab6",
+        "projectPath": "/Users/mknd/RiderProjects/BIVT-25-Lab-6/Lab6/Lab6.csproj",
+        "packagesPath": "/Users/mknd/.nuget/packages/",
+        "outputPath": "/Users/mknd/RiderProjects/BIVT-25-Lab-6/Lab6/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/mknd/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.100"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/mknd/RiderProjects/BIVT-25-Lab-6/Lab6test/Lab6test.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/mknd/RiderProjects/BIVT-25-Lab-6/Lab6test/Lab6test.csproj",
+        "projectName": "Lab6test",
+        "projectPath": "/Users/mknd/RiderProjects/BIVT-25-Lab-6/Lab6test/Lab6test.csproj",
+        "packagesPath": "/Users/mknd/.nuget/packages/",
+        "outputPath": "/Users/mknd/RiderProjects/BIVT-25-Lab-6/Lab6test/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/mknd/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/Users/mknd/RiderProjects/BIVT-25-Lab-6/Lab6/Lab6.csproj": {
+                "projectPath": "/Users/mknd/RiderProjects/BIVT-25-Lab-6/Lab6/Lab6.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.100"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "MSTest": {
+              "target": "Package",
+              "version": "[3.6.4, )"
+            },
+            "Microsoft.Testing.Extensions.CodeCoverage": {
+              "target": "Package",
+              "version": "[17.12.6, )"
+            },
+            "Microsoft.Testing.Extensions.TrxReport": {
+              "target": "Package",
+              "version": "[1.4.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
