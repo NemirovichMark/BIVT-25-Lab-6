@@ -1,0 +1,17 @@
+2025-12-21T20:15:48.4962297+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Version: 1.4.3+c252b64ad913ea9411fc5d17bfd5580d2d061497
+2025-12-21T20:15:48.5056207+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Logging mode: asynchronous
+2025-12-21T20:15:48.5067317+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Logging level: Information
+2025-12-21T20:15:48.5067349+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION CreateBuilderAsync entry time: 20:15:48.474
+2025-12-21T20:15:48.5079874+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION PID: 12324
+2025-12-21T20:15:48.5080949+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Runtime information: win-x64 - .NET 8.0.22
+2025-12-21T20:15:48.5081056+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Runtime location: C:\Program Files\dotnet\shared\Microsoft.NETCore.App\8.0.22\System.Private.CoreLib.dll
+2025-12-21T20:15:48.5081130+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION IsDynamicCodeSupported: True
+2025-12-21T20:15:48.5081152+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Test module: D:\UNIK\2025\Proga\Lab\Lab2\BIVT-25-Lab-6\Lab6test\bin\Debug\net8.0\Lab6test.dll
+2025-12-21T20:15:48.5082592+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Command line arguments: '--server --diagnostic --diagnostic-verbosity Information --diagnostic-output-directory D:\UNIK\2025\Proga\Lab\Lab2\BIVT-25-Lab-6\Lab6test\bin\Debug\net8.0\Log --client-port 52861'
+2025-12-21T20:15:48.5092842+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION TESTINGPLATFORM_DEFAULT_HANG_TIMEOUT: ''
+2025-12-21T20:15:48.5288670+00:00 Microsoft.Testing.Platform.Hosts.TestHostBuilder INFORMATION Setting RegisterEnvironmentVariablesConfigurationSource: 'True'
+2025-12-21T20:15:48.5319987+00:00 Microsoft.Testing.Platform.Configurations.JsonConfigurationSource+JsonConfigurationProvider INFORMATION Config file 'D:\UNIK\2025\Proga\Lab\Lab2\BIVT-25-Lab-6\Lab6test\bin\Debug\net8.0\Lab6test.testconfig.json' not found.
+2025-12-21T20:15:48.5331032+00:00 Microsoft.Testing.Platform.Hosts.TestHostBuilder INFORMATION Setting PlatformExitProcessOnUnhandledException: 'False', config file: False environment variable:  VSTest mode: False
+2025-12-21T20:15:48.6453339+00:00 Microsoft.Testing.Platform.Requests.TestHostTestFrameworkInvoker INFORMATION Test framework UID: 'MSTestExtension' Version: '3.6.4' DisplayName: 'MSTest' Description: 'MSTest Framework for Microsoft Testing Platform'
+2025-12-21T20:15:48.6547352+00:00 Microsoft.Testing.Extensions.VSTestBridge.ObjectModel.MessageLoggerAdapter WARNING Сборщики данных Runsettings не поддерживаются в Microsoft.Testing.Platform и будут пропущены
+2025-12-21T20:15:48.7242899+00:00 Microsoft.Testing.Extensions.VSTestBridge.ObjectModel.MessageLoggerAdapter INFORMATION Test Parallelization enabled for D:\UNIK\2025\Proga\Lab\Lab2\BIVT-25-Lab-6\Lab6test\bin\Debug\net8.0\Lab6test.dll (Workers: 1, Scope: MethodLevel)

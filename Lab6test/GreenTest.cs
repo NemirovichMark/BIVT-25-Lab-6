@@ -895,8 +895,8 @@ namespace Lab6test
         [TestMethod]
         public void Test_DeleteMaxElement()
         {
-            int[] array = { 1, 5, 3, 9, 2 };
-            int[] expected = { 1, 5, 3, 2 };
+            int[] array = { 1, 5, 3, 9, 2, 10 };
+            int[] expected = { 1, 5, 3, 9, 2 };
             _main.DeleteMaxElement(ref array);
             CollectionAssert.AreEqual(expected, array);
         }
@@ -921,6 +921,7 @@ namespace Lab6test
         };
             int expected = 6;
             int actual = _main.FindMaxInRow(matrix, 1, out int col);
+            System.Console.WriteLine(actual);
             Assert.AreEqual(expected, actual);
             Assert.AreEqual(col, 2);
         }
