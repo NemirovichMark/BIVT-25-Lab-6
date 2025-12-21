@@ -2,10 +2,14 @@ using System.Linq;
 using System.Runtime.InteropServices;
 
 namespace Lab6
-@@ -9,91 +9,395 @@ public void Task1(double[] A, double[] B)
-       {
+{
+    public class White
+    {
+        public void Task1(double[] A, double[] B)
+        {
 
             // code here
+
             int imaxA = FindMaxIndex(A);
             int imaxB = FindMaxIndex(B);
             if (imaxA != A.Length - 1 && imaxB != B.Length - 1)
@@ -66,7 +70,6 @@ namespace Lab6
             // end
 
         }
-
         public int FindMaxIndex(double[] array)
         {
             int imax = 0;
@@ -99,7 +102,6 @@ namespace Lab6
             // end
 
         }
-
         public int FindMaxRowIndexInColumn(int[,] matrix, int col)
         {
             int imax = 0;
@@ -118,6 +120,7 @@ namespace Lab6
             int answer = 0;
 
             // code here
+
             int[] array = GetNegativeCountPerRow(matrix);
             int imax = 0;
             for (int i = 1; i < array.Length; i++)
@@ -230,6 +233,12 @@ namespace Lab6
 
         }
 
+        public long Factorial(long n)
+        {
+            if (n < 2)
+                return 1;
+            return n * Factorial(n - 1);
+        }
         public delegate void Sorting(int[,] matrix);
 
         public void SortDiagonalAscending(int[,] matrix)
@@ -331,6 +340,7 @@ namespace Lab6
             int answer = 0;
 
             // code here
+
             Swapper swap = (array.Length % 2 == 0) ? SwapFromLeft : SwapFromRight;
             for (int i = 0; i < array.Length; i++)
             {
@@ -345,6 +355,7 @@ namespace Lab6
 
             return answer;
         }
+
         public delegate void Swapper(int[] array);
 
         public int GetSum(int[] array)
@@ -387,7 +398,6 @@ namespace Lab6
 
             return answer;
         }
-
         public int CountPositive(int[][] array)
         {
             int count = 0;
