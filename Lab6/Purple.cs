@@ -1,4 +1,5 @@
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
 
 namespace Lab6 {
     public class Purple {
@@ -284,20 +285,35 @@ namespace Lab6 {
         //
 
         public void Task6(int[,] matrix, SortRowsByMax sort) {
-
             // code here
-
+            sort(matrix);
             // end
-
         }
 
         public delegate void SortRowsByMax(int[,] matirx);
 
-        public void SortRowsByMaxAscending(int[,] matrix) { }
+        public void SortRowsByMaxAscending(int[,] matrix) =>
+            SortRowsByMaxBy(matrix, delegate (int a, int b) { return a > b; });
 
-        public void SortRowsByMaxDescending(int[,] matrix) { }
+        public void SortRowsByMaxDescending(int[,] matrix) =>
+            SortRowsByMaxBy(matrix, delegate (int a, int b) { return a < b; });
 
-        public int GetRowMax(int[,] matrix, int row) { return 0; }
+        void SortRowsByMaxBy(int[,] matrix, Func<int, int, bool> comparator) {
+            var n = matrix.GetLength(0) - 1;
+            ForRange(delegate (int i) {
+                ForRange(delegate (int j) {
+                    if (comparator(GetRowMax(matrix, j), GetRowMax(matrix, j + 1))) {
+                        ForRange(delegate (int c) { Swap(ref matrix[j, c], ref matrix[j + 1, c]); }, matrix.GetLength(1));
+                    }
+                }, n - i);
+            }, n);
+        }
+
+        public int GetRowMax(int[,] matrix, int row) {
+            var ret = matrix[row, 0];
+            ForRange(delegate (int i) { if (matrix[row, i] > ret) { ret = matrix[row, i]; } }, matrix.GetLength(1));
+            return ret;
+        }
 
         //
 
