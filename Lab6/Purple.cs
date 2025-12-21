@@ -1,96 +1,66 @@
-﻿using System;
-using System.Security.Cryptography;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+﻿//using system;
+//using system.security.cryptography;
+//using static system.runtime.interopservices.javascript.jstype;
 
-namespace Lab6
-{
-    public class Purple
-    {
-        public void Task1(int[,] A, int[,] B)
-        {
+//namespace lab6
+//{
+ //   public class purple
+ //   {
+       // public void task1(int[,] a, int[,] b)
+     //   {
 
-            // code here
+           
 
-            // end
+     //   }
+  //      public void task2(ref int[,] a, int[,] b)
+  //      {
 
-        }
-        public void Task2(ref int[,] A, int[,] B)
-        {
+       
 
-            // code here
+     //   }
+      //  public void task3(int[,] matrix)
+       // {
 
-            // end
+      //  }
+   //     public void task4(int[,] a, int[,] b)
+   //     {
 
-        }
-        public void Task3(int[,] matrix)
-        {
+     //   }
+      //  public void task5(int[] matrix, sorting sort)
+      //  {
 
-            // code here
+      //  }
+     //   public void task6(int[,] matrix, sortrowsbymax sort)
+   //     {
 
-            // end
+         
+  //      }
+   //     public int[] task7(int[,] matrix, findnegatives find)
+ //       {
+ //           int[] negatives = null;
 
-        }
-        public void Task4(int[,] A, int[,] B)
-        {
+          
+//
+   //         return negatives;
+  //      }
+  //      public int[,] task8(int[,] matrix, mathinfo info)
+   //     {
+   //         int[,] answer = null;
 
-            // code here
 
-            // end
+    //        return answer;
+     //   }
+ //       public int task9(double a, double b, double h, func<double, double> func)
+  //      {
+   //         int answer = 0;
+//
 
-        }
-        public void Task5(int[] matrix, Sorting sort)
-        {
+  //          return answer;
+   //     }
+   //     public void task10(int[][] array, action<int[][]> func)
+    //    {
 
-            // code here
-
-            // end
-
-        }
-        public void Task6(int[,] matrix, SortRowsByMax sort)
-        {
-
-            // code here
-
-            // end
-
-        }
-        public int[] Task7(int[,] matrix, FindNegatives find)
-        {
-            int[] negatives = null;
-
-            // code here
-
-            // end
-
-            return negatives;
-        }
-        public int[,] Task8(int[,] matrix, MathInfo info)
-        {
-            int[,] answer = null;
-
-            // code here
-
-            // end
-
-            return answer;
-        }
-        public int Task9(double a, double b, double h, Func<double, double> func)
-        {
-            int answer = 0;
-
-            // code here
-
-            // end
-
-            return answer;
-        }
-        public void Task10(int[][] array, Action<int[][]> func)
-        {
-
-            // code here
-
-            // end
-
-        }
-    }
-}
+//
+     //   }
+ //   }
+//}

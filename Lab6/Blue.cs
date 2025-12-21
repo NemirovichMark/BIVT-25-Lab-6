@@ -1,94 +1,94 @@
-﻿namespace Lab6
-{
-    public class Blue
-    {
-        public void Task1(ref int[,] matrix)
-        {
+﻿//namespace lab6
+//{
+//    public class blue
+//    {
+//        public void task1(ref int[,] matrix)
+//        {
 
-            // code here
+//            code here
 
-            // end
+//             end
 
-        }
-        public int Task2(int[,] A, int[,] B, int[,] C)
-        {
-            int answer = 0; // 1 - increasing   0 - no sequence   -1 - decreasing
+//        }
+//        public int task2(int[,] a, int[,] b, int[,] c)
+//        {
+//            int answer = 0; // 1 - increasing   0 - no sequence   -1 - decreasing
 
-            // code here
+//            code here
 
-            // end
+//             end
 
-            return answer;
-        }
-        public void Task3(ref int[,] matrix, Func<int[,], int> method)
-        {
+//            return answer;
+//        }
+//        public void task3(ref int[,] matrix, func<int[,], int> method)
+//        {
 
-            // code here
+//            code here
 
-            // end
+//             end
 
-        }
-        public void Task4(ref int[,] matrix)
-        {
+//        }
+//        public void task4(ref int[,] matrix)
+//        {
 
-            // code here
+//            code here
 
-            // end
+//             end
 
-        }
-        public void Task5(ref int[,] matrix, Finder find)
-        {
+//        }
+//        public void task5(ref int[,] matrix, finder find)
+//        {
 
-            // code here
+//            code here
 
-            // end
+//             end
 
-        }
-        public void Task6(int[,] matrix, SortRowsStyle sort)
-        {
+//        }
+//        public void task6(int[,] matrix, sortrowsstyle sort)
+//        {
 
-            // code here
+//            code here
 
-            // end
+//             end
 
-        }
-        public void Task7(int[,] matrix, ReplaceMaxElements transform)
-        {
+//        }
+//        public void task7(int[,] matrix, replacemaxelements transform)
+//        {
 
-            // code here
+//            code here
 
-            // end
+//             end
 
-        }
-        public double[,] Task8(double a, double b, double h, Func<double, double> getSum, Func<double, double> getY)
-        {
-            double[,] answer = null;
+//        }
+//        public double[,] task8(double a, double b, double h, func<double, double> getsum, func<double, double> gety)
+//        {
+//            double[,] answer = null;
 
-            // code here
+//            code here
 
-            // end
+//             end
 
-            return answer;
-        }
-        public int Task9(int[,] matrix, GetTriangle triangle)
-        {
-            int answer = 0;
+//            return answer;
+//        }
+//        public int task9(int[,] matrix, gettriangle triangle)
+//        {
+//            int answer = 0;
 
-            // code here
+//            code here
 
-            // end
+//             end
 
-            return answer;
-        }
-        public bool Task10(int[][] array, Predicate<int[][]> func)
-        {
-            bool res = false;
+//            return answer;
+//        }
+//        public bool task10(int[][] array, predicate<int[][]> func)
+//        {
+//            bool res = false;
 
-            // code here
+//            code here
 
-            // end
+//             end
 
-            return res;
-        }
-    }
-}
+//            return res;
+//        }
+//    }
+//}
