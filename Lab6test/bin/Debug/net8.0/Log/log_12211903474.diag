@@ -1,0 +1,17 @@
+2025-12-21T19:17:03.4802074+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Version: 1.4.3+c252b64ad913ea9411fc5d17bfd5580d2d061497
+2025-12-21T19:17:03.5024262+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Logging mode: asynchronous
+2025-12-21T19:17:03.5075910+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Logging level: Information
+2025-12-21T19:17:03.5076038+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION CreateBuilderAsync entry time: 19:17:03.449
+2025-12-21T19:17:03.5097883+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION PID: 1812
+2025-12-21T19:17:03.5099283+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Runtime information: win-x64 - .NET 8.0.21
+2025-12-21T19:17:03.5099376+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Runtime location: C:\Program Files\dotnet\shared\Microsoft.NETCore.App\8.0.21\System.Private.CoreLib.dll
+2025-12-21T19:17:03.5099510+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION IsDynamicCodeSupported: True
+2025-12-21T19:17:03.5099542+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Test module: C:\Users\retin\OneDrive\Рабочий стол\Progects\works\labs\BIVT-25-Lab-6\Lab6test\bin\Debug\net8.0\Lab6test.dll
+2025-12-21T19:17:03.5102318+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Command line arguments: '--server --diagnostic --diagnostic-verbosity Information --diagnostic-output-directory C:\Users\retin\OneDrive\Рабочий стол\Progects\works\labs\BIVT-25-Lab-6\Lab6test\bin\Debug\net8.0\Log --client-port 59030'
+2025-12-21T19:17:03.5118356+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION TESTINGPLATFORM_DEFAULT_HANG_TIMEOUT: ''
+2025-12-21T19:17:03.5443151+00:00 Microsoft.Testing.Platform.Hosts.TestHostBuilder INFORMATION Setting RegisterEnvironmentVariablesConfigurationSource: 'True'
+2025-12-21T19:17:03.5486626+00:00 Microsoft.Testing.Platform.Configurations.JsonConfigurationSource+JsonConfigurationProvider INFORMATION Config file 'C:\Users\retin\OneDrive\Рабочий стол\Progects\works\labs\BIVT-25-Lab-6\Lab6test\bin\Debug\net8.0\Lab6test.testconfig.json' not found.
+2025-12-21T19:17:03.5504370+00:00 Microsoft.Testing.Platform.Hosts.TestHostBuilder INFORMATION Setting PlatformExitProcessOnUnhandledException: 'False', config file: False environment variable:  VSTest mode: False
+2025-12-21T19:17:03.7672310+00:00 Microsoft.Testing.Platform.Requests.TestHostTestFrameworkInvoker INFORMATION Test framework UID: 'MSTestExtension' Version: '3.6.4' DisplayName: 'MSTest' Description: 'MSTest Framework for Microsoft Testing Platform'
+2025-12-21T19:17:03.7886385+00:00 Microsoft.Testing.Extensions.VSTestBridge.ObjectModel.MessageLoggerAdapter WARNING Сборщики данных Runsettings не поддерживаются в Microsoft.Testing.Platform и будут пропущены
+2025-12-21T19:17:03.9381908+00:00 Microsoft.Testing.Extensions.VSTestBridge.ObjectModel.MessageLoggerAdapter INFORMATION Включена параллелизация тестов для C:\Users\retin\OneDrive\Рабочий стол\Progects\works\labs\BIVT-25-Lab-6\Lab6test\bin\Debug\net8.0\Lab6test.dll (рабочие роли: 1, область: MethodLevel)
