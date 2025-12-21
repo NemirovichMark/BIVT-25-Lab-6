@@ -5,7 +5,7 @@ namespace Lab6
 {
     public class White
     {
-        public void Task1(double[] A, double[] B)
+        /*public void Task1(double[] A, double[] B)
         {
 
             // code here
@@ -94,6 +94,6 @@ namespace Lab6
             // end
 
             return answer;
-        }
+        }*/
     }
 }
