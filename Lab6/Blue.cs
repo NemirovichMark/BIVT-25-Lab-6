@@ -36,32 +36,32 @@ namespace Lab6
 
             return maxIndex;
         }
-        public void RemoveRow(ref int[,] matrix, int rowIndex)
-        {
-            int rows = matrix.GetLength(0);
-            int cols = matrix.GetLength(1);
+        //public void RemoveRow(ref int[,] matrix, int rowIndex)
+        //{
+        //    int rows = matrix.GetLength(0);
+        //    int cols = matrix.GetLength(1);
 
 
-            int[,] newMatrix = new int[rows - 1, cols];
+        //    int[,] newMatrix = new int[rows - 1, cols];
 
-            for (int i = 0; i < rowIndex; i++)
-            {
-                for (int j = 0; j < cols; j++)
-                {
-                    newMatrix[i, j] = matrix[i, j];
-                }
-            }
+        //    for (int i = 0; i < rowIndex; i++)
+        //    {
+        //        for (int j = 0; j < cols; j++)
+        //        {
+        //            newMatrix[i, j] = matrix[i, j];
+        //        }
+        //    }
 
-            for (int i = rowIndex + 1; i < rows; i++)
-            {
-                for (int j = 0; j < cols; j++)
-                {
-                    newMatrix[i - 1, j] = matrix[i, j];
-                }
-            }
+        //    for (int i = rowIndex + 1; i < rows; i++)
+        //    {
+        //        for (int j = 0; j < cols; j++)
+        //        {
+        //            newMatrix[i - 1, j] = matrix[i, j];
+        //        }
+        //    }
 
-            matrix = newMatrix;
-        }
+        //    matrix = newMatrix;
+        //}
 
         public int Task2(int[,] A, int[,] B, int[,] C)
         {
@@ -257,31 +257,31 @@ namespace Lab6
 
             return false;
         }
-        public void RemoveColumn(ref int[,] matrix, int col)
-        {
-            if (matrix == null || col < 0 || col >= matrix.GetLength(1))
-                return;
+        //public void RemoveColumn(ref int[,] matrix, int col)
+        //{
+        //    if (matrix == null || col < 0 || col >= matrix.GetLength(1))
+        //        return;
 
-            int rows = matrix.GetLength(0);
-            int cols = matrix.GetLength(1);
+        //    int rows = matrix.GetLength(0);
+        //    int cols = matrix.GetLength(1);
 
-            int[,] newMatrix = new int[rows, cols - 1];
+        //    int[,] newMatrix = new int[rows, cols - 1];
 
-            for (int i = 0; i < rows; i++)
-            {
-                int newCol = 0;
-                for (int j = 0; j < cols; j++)
-                {
-                    if (j != col)
-                    {
-                        newMatrix[i, newCol] = matrix[i, j];
-                        newCol++;
-                    }
-                }
-            }
+        //    for (int i = 0; i < rows; i++)
+        //    {
+        //        int newCol = 0;
+        //        for (int j = 0; j < cols; j++)
+        //        {
+        //            if (j != col)
+        //            {
+        //                newMatrix[i, newCol] = matrix[i, j];
+        //                newCol++;
+        //            }
+        //        }
+        //    }
 
-            matrix = newMatrix;
-        }
+        //    matrix = newMatrix;
+        //}
         public void Task5(ref int[,] matrix, Finder find)
         {
 
@@ -582,15 +582,15 @@ namespace Lab6
             return answer;
         }
         public delegate int[] GetTriangle(int[,] matrix);
-        public int Sum(int[] array)
-        {
-            int sum = 0;
-            for (int i = 0; i < array.Length; i++)
-            {
-                sum += array[i] * array[i];
-            }
-            return sum;
-        }
+        //public int Sum(int[] array)
+        //{
+        //    int sum = 0;
+        //    for (int i = 0; i < array.Length; i++)
+        //    {
+        //        sum += array[i] * array[i];
+        //    }
+        //    return sum;
+        //}
         public int[] GetSum(GetTriangle transformer, int[,] matrix)
         {
             int[] res = transformer(matrix);
