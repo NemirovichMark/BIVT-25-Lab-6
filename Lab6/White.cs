@@ -1,8 +1,5 @@
 ﻿using System.Linq;
 using System.Runtime.InteropServices;
-using System.ComponentModel.DataAnnotations;
-
-
 namespace Lab6
 {
     public class White
@@ -86,6 +83,7 @@ namespace Lab6
             // end
 
         }
+
         public int[] GetNegativeCountPerRow(int[,] matrix)
         {
             int rows = matrix.GetLength(0), cols = matrix.GetLength(1);
@@ -111,7 +109,6 @@ namespace Lab6
             int count = -1;
             int[] negativeData = GetNegativeCountPerRow(matrix);
             int maxStr = negativeData.Max();
-            //// code here
             answer = Array.IndexOf(negativeData, maxStr);
             // end
 
@@ -137,9 +134,9 @@ namespace Lab6
         public void Task4(int[,] A, int[,] B)
         {
 
-            int rowA, rowB, colA, colB;
             // code here
 
+            int rowA, rowB, colA, colB;
             int maxA = FindMax(A, out rowA, out colA);
             int maxB = FindMax(B, out rowB, out colB);
             A[rowA, colA] = maxB;
@@ -229,7 +226,6 @@ namespace Lab6
                 }
             }
         }
-
         public void Task6(int[,] matrix, Sorting sort)
         {
 
@@ -239,6 +235,7 @@ namespace Lab6
             // end
 
         }
+
         public long Factorial(int n)
         {
             if (n <= 1) return 1;
