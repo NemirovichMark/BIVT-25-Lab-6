@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using System.Runtime.InteropServices;
 namespace Lab6
 {
@@ -75,7 +75,7 @@ namespace Lab6
             int rowA = FindMaxRowIndexInColumn(A, 1), rowB = FindMaxRowIndexInColumn(B, 1);
             if ((A.GetLength(0) == B.GetLength(0)) && (A.GetLength(1) == B.GetLength(1)))
             {
-                for (int col = 0; col < A.GetLength(0); col++)
+                for (int col = 0; col < A.GetLength(1); col++)
                 {
                     (A[rowA, col], B[rowB, col]) = (B[rowB, col], A[rowA, col]);
                 }
@@ -106,10 +106,17 @@ namespace Lab6
 
             // code here
 
-            int count = -1;
             int[] negativeData = GetNegativeCountPerRow(matrix);
-            int maxStr = negativeData.Max();
-            answer = Array.IndexOf(negativeData, maxStr);
+            int maxCount = negativeData.Max();
+            
+            for (int i = negativeData.Length - 1; i >= 0; i--)
+            {
+                if (negativeData[i] == maxCount)
+                {
+                    answer = i;
+                    break;
+                }
+            }
             // end
 
             return answer;
@@ -178,6 +185,8 @@ namespace Lab6
                 {
                     diagonal[i] = matrix[i, i];
                 }
+                
+                // Сортировка по возрастанию
                 for (int i = 0; i < rows - 1; i++)
                 {
                     for (int j = 0; j < rows - i - 1; j++)
@@ -190,6 +199,7 @@ namespace Lab6
                         }
                     }
                 }
+                
                 for (int i = 0; i < rows; i++)
                 {
                     matrix[i, i] = diagonal[i];
@@ -208,6 +218,8 @@ namespace Lab6
                 {
                     diagonal[i] = matrix[i, i];
                 }
+                
+                // Сортировка по убыванию
                 for (int i = 0; i < rows - 1; i++)
                 {
                     for (int j = 0; j < rows - i - 1; j++)
@@ -220,6 +232,7 @@ namespace Lab6
                         }
                     }
                 }
+                
                 for (int i = 0; i < rows; i++)
                 {
                     matrix[i, i] = diagonal[i];
@@ -338,7 +351,7 @@ namespace Lab6
 
             return answer;
         }
-        public delegate int Func(int[][] array);
+        public delegate int MyFunc(int[][] array);
         public int CountPositive(int[][] array)
         {
             int countPos = 0;
@@ -375,7 +388,7 @@ namespace Lab6
             }
             return maxLength;
         }
-        public int Task10(int[][] array, Func<int[][], int> func)
+        public int Task10(int[][] array, MyFunc func)
         {
             int answer = 0;
 
