@@ -560,7 +560,7 @@ namespace Lab6
 
             int[] a = SumPositiveElementsInColumns(A);
             int[] b = SumPositiveElementsInColumns(B);
-            CombineArrays(a, b);
+            answer = CombineArrays(a, b);
             // end
 
             return answer;
@@ -628,3 +628,4 @@ namespace Lab6
     }
 
 }
+
