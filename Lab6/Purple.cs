@@ -1,6 +1,7 @@
+using System.Runtime.CompilerServices;
+
 namespace Lab6 {
     public class Purple {
-
 
         public void Task1(int[,] A, int[,] B) {
             // code here
@@ -42,21 +43,64 @@ namespace Lab6 {
 
         //
 
+
         public void Task2(ref int[,] A, int[,] B) {
-
             // code here
-
+            if (A.GetLength(1) == B.GetLength(0)) {
+                InsertColumn(ref A, FindMaxIndexByValueProvider(A, CountPositiveElementsInRow, 0), FindMaxIndexByValueProvider(B, CountPositiveElementsInColumn, 1), B);
+            }
             // end
-
         }
+
+        static int FindMaxIndexByValueProvider(int[,] matrix, Func<int[,], int, int> value_provider, int dim) {
+            var max_value = int.MinValue;
+            var ret = 0;
+
+            ForRange(
+                delegate (int i) {
+                    var value = value_provider(matrix, i);
+
+                    if (value > max_value) {
+                        max_value = value;
+                        ret = i;
+                    }
+                },
+                matrix.GetLength(dim)
+            );
+
+            return ret;
+        }
+
+        public int CountPositiveElementsInRow(int[,] matrix, int row) =>
+            CountPositives(matrix.GetLength(1), delegate (int i) { return matrix[row, i]; });
+
+        public int CountPositiveElementsInColumn(int[,] matrix, int col) =>
+            CountPositives(matrix.GetLength(0), delegate (int i) { return matrix[i, col]; });
 
         public void InsertColumn(ref int[,] A, int rowIndex, int columnIndex, int[,] B) {
-
+            var rows = A.GetLength(0);
+            var cols = A.GetLength(1);
+            var ret = new int[rows + 1, cols];
+            var a_fixed = A;
+            ForRange(delegate (int c) {
+                ForRange(delegate (int r) { ret[r, c] = a_fixed[r, c]; }, rowIndex + 1);
+                ret[rowIndex + 1, c] = B[c, columnIndex];
+                ForRange(delegate (int r) { ret[r + 1, c] = a_fixed[r, c]; }, rows, rowIndex + 1);
+            }, cols);
+            A = ret;
         }
 
-        public int CountPositiveElementsInRow(int[,] matrix, int row) { return 0; }
+        static void ForRange(Action<int> on_index_action, int end, int begin = 0, int step = 1) {
+            for (var i = begin; i < end; i += step) {
+                on_index_action(i);
+            }
+        }
 
-        public int CountPositiveElementsInColumn(int[,] matrix, int col) { return 0; }
+        static int CountPositives(int len, Func<int, int> item_provider) {
+            var ret = 0;
+            ForRange(delegate (int i) { if (item_provider(i) > 0) { ret += 1; } }, len);
+            return ret;
+        }
 
         //
 
