@@ -57,14 +57,14 @@ namespace Lab6
 
             return answer;
         }
-        public void Task7(int[,] matrix, Sorting sort)
-        {
+        // public void Task7(int[,] matrix, Sorting sort)
+        // {
 
-            // code here
+        //     // code here
 
-            // end
+        //     // end
 
-        }
+        // }
         public int Task8(double[] A, double[] B)
         {
             int answer = 0;
@@ -94,4 +94,5 @@ namespace Lab6
             return res;
         }
     }
+
 }
