@@ -1,6 +1,7 @@
-﻿using System;
-using System.Security.Cryptography;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+﻿/*using system;
+//using system
+.security.cryptography;
+using static system.runtime.interopservices.javascript.jstype;
 
 namespace Lab6
 {
@@ -94,3 +95,4 @@ namespace Lab6
         }
     }
 }
+}*/
