@@ -29,7 +29,6 @@ namespace Lab6
             int distanceB = (B.Length - 1) - max_in_b;
             double[] targetArray = null;
             int targetIndex = -1;
-            
             if (distanceA > distanceB)
             {
                 targetArray = A;
@@ -203,8 +202,7 @@ namespace Lab6
             // Проверки
             if (n < 0 || k < 0 || k > n) return 0;
             if (n > 20) return 0; )
-            answer = Factorial(n) / (Factorial(k) * Factorial(n - k));
-            
+            answer = Factorial(n) / (Factorial(k) * Factorial(n - k));  
             return answer;
         }
         public double GetTime(double v, double a)
@@ -269,3 +267,4 @@ namespace Lab6
         }
     }
 }
+
