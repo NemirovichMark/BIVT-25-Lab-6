@@ -284,10 +284,19 @@ namespace Lab6
             return answer;
         }
         public delegate void Swapper(int[] array);
-        public double GetSum(double[] array)
+        public double Sum(double[] array)
         {
             double sum = 0;
-            for(int i = 1; i < array.Length; i += 2)
+            for (int i = 1; i < array.Length; i += 2)
+            {
+                sum += array[i];
+            }
+            return sum;
+        }
+        public int GetSum(int[] array)
+        {
+            int sum = 0;
+            for (int i = 1; i < array.Length; i += 2)
             {
                 sum += array[i];
             }
@@ -323,7 +332,7 @@ namespace Lab6
             // code here
 
             Swapper swapper;
-            if( array.Length % 2 == 0)
+            if (array.Length % 2 == 0)
             {
                 swapper = SwapFromLeft;
             }
@@ -331,20 +340,20 @@ namespace Lab6
             {
                 swapper = SwapFromRight;
             }
-               
-            for(int i = 0; i < array.Length; i++)
+
+            for (int i = 0; i < array.Length; i++)
             {
                 int[] ARRAY = new int[array[i].Length];
-                for(int j = 0; j < array[i].Length; j++)
+                for (int j = 0; j < array[i].Length; j++)
                 {
                     ARRAY[j] = array[i][j];
                 }
                 swapper(ARRAY);
-                
-                double[] dARRAY = Array.ConvertAll(ARRAY, x => (double)x);
-                answer += (int)GetSum(dARRAY);
+
+                answer += GetSum(ARRAY);
             }
-            
+
+
             // end
 
             return answer;
