@@ -1846,7 +1846,7 @@
             int[,] A = { { 1, 2 }, { 3, 4 } };
             int[,] B = { { 5, 6 }, { 7, 8 } };
             _main.SwapRowColumn(A, 1, B, 0); // обмен 2-й строки A и 1-го столбца B
-            int[,] ansA = { { 1, 2 }, { 5, 7} };
+            int[,] ansA = { { 1, 2 }, { 5, 7 } };
             int[,] ansB = { { 3, 6 }, { 4, 8 } };
             CollectionAssert.AreEqual(ansA.Cast<int>().ToArray(), A.Cast<int>().ToArray());
             CollectionAssert.AreEqual(ansB.Cast<int>().ToArray(), B.Cast<int>().ToArray());
@@ -1980,8 +1980,8 @@
         [TestMethod]
         public void Test_SortInCheckersOrder()
         {
-            int[][] arr = new int[][] { new int[] { 1, 10, 4, 7, 8, 4, 2 }, 
-                new int[] { 3, 0, -3, 1, 2, 4, 7, 6, 5, -2, -3 } , 
+            int[][] arr = new int[][] { new int[] { 1, 10, 4, 7, 8, 4, 2 },
+                new int[] { 3, 0, -3, 1, 2, 4, 7, 6, 5, -2, -3 } ,
                 new int[] { -3, 4, 0, 5, 6, 7, 6, 5, 1 } };
             _main.SortInCheckersOrder(arr);
             int[][] expected = new int[][] { new int[] { 1, 2, 4, 4, 7, 8, 10 },
