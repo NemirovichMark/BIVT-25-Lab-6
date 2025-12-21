@@ -346,11 +346,11 @@ namespace Lab6
         }
         public void SortAscending(int[] array)
         {
-            array.OrderBy(i => i).ToArray();
+            Array.Sort(array);
         }
         public void SortDescending(int[] array)
         {
-            array.OrderBy(i => i).ToArray();
+            Array.Sort(array);
             Array.Reverse(array);
         }
         public double Task10(int[][] array, Func<int[][], double> func)
@@ -366,32 +366,28 @@ namespace Lab6
         }
         public double FindMedian(int[][] array)
         {
-            int n = 0;
+            double median;
+            int len = 0;
             for (int i = 0; i < array.Length; i++)
             {
-                n += array[i].Length;
+                len += array[i].Length;
             }
-            int[] arr = new int[n];
-            int k = 0;
-            for (int i = 0; i < array.Length; i++)
+
+            int[] arr = new int[len];
+            for (int i = 0, k = 0; i < array.Length; i++)
             {
                 for (int j = 0; j < array[i].Length; j++)
                 {
-                    arr[k] = array[i][j];
-                    k++;
+                    arr[k++] = array[i][j];
                 }
             }
-            arr.OrderBy(x => x).ToArray();
-            double m = 0;
+            SortAscending(arr);
             if (arr.Length % 2 == 0)
             {
-                m = (double)(arr[n / 2 - 1] + arr[n / 2]) / 2;
+                median = (double)(arr[len / 2 - 1] + arr[len / 2]) / 2;
             }
-            else
-            {
-                m = (double)arr[n / 2];
-            }
-            return m;
+            else median = arr[len / 2];
+            return median;
         }
 
         public double CountZeroSum(int[][] array)
