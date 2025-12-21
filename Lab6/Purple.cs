@@ -1,12 +1,10 @@
-﻿using System;
+using System;
 using System.Security.Cryptography;
 using static System.Runtime.InteropServices.JavaScript.JSType;
-
 namespace Lab6
 {
     public class Purple
     {
-        {
         public void Task1(int[,] A, int[,] B)
         {
 
@@ -49,7 +47,7 @@ namespace Lab6
             {
                 int rowInd = -1;
                 int colInd = -1;
-                int max = -1000000;
+                int max = -100000000;
 
                 for (int i = 0; i < A.GetLength(0); i++)
                 {
@@ -60,7 +58,7 @@ namespace Lab6
                     }
                 }
 
-                max = -10000000;
+                max = -100000000;
                 for (int i = 0; i < B.GetLength(1); i++)
                 {
                     if (CountPositiveElementsInColumn(B, i) > max)
@@ -135,19 +133,19 @@ namespace Lab6
 
         public void ChangeMatrixValues(int[,] matrix)
         {
-            int[] sortArray = new int[matrix.Length];
-            int[] tempArray = new int[matrix.Length];
+            int[] sortArr = new int[matrix.Length];
+            int[] tempArr = new int[matrix.Length];
             for (int i = 0; i < matrix.Length; i++)
             {
-                tempArray[i] = matrix[i / (int)matrix.GetLength(1), i % (int)matrix.GetLength(1)];
+                tempArr[i] = matrix[i / (int)matrix.GetLength(1), i % (int)matrix.GetLength(1)];
             }
-            for (int i = 0; i < tempArray.Length; i++)
+            for (int i = 0; i < tempArr.Length; i++)
             {
-                for (int j = 0; j < tempArray.Length - 1; j++)
+                for (int j = 0; j < tempArr.Length - 1; j++)
                 {
-                    if (tempArray[j] < tempArray[j + 1])
+                    if (tempArr[j] < tempArr[j + 1])
                     {
-                        (tempArray[j], tempArray[j + 1]) = (tempArray[j + 1], tempArray[j]);
+                        (tempArr[j], tempArr[j + 1]) = (tempArr[j + 1], tempArr[j]);
                     }
                 }
             }
@@ -164,9 +162,9 @@ namespace Lab6
                 int[] aaa = new int[5];
                 for (int i = 0; i < matrix.Length; i++)
                 {
-                    if ((matrix[i / (int)matrix.GetLength(1), i % (int)matrix.GetLength(1)] == tempArray[0] || matrix[i / (int)matrix.GetLength(1), i % (int)matrix.GetLength(1)] == tempArray[1] || matrix[i / (int)matrix.GetLength(1), i % (int)matrix.GetLength(1)] == tempArray[2] || matrix[i / (int)matrix.GetLength(1), i % (int)matrix.GetLength(1)] == tempArray[3] || matrix[i / (int)matrix.GetLength(1), i % (int)matrix.GetLength(1)] == tempArray[4]) && k < 5)
+                    if ((matrix[i / (int)matrix.GetLength(1), i % (int)matrix.GetLength(1)] == tempArr[0] || matrix[i / (int)matrix.GetLength(1), i % (int)matrix.GetLength(1)] == tempArr[1] || matrix[i / (int)matrix.GetLength(1), i % (int)matrix.GetLength(1)] == tempArr[2] || matrix[i / (int)matrix.GetLength(1), i % (int)matrix.GetLength(1)] == tempArr[3] || matrix[i / (int)matrix.GetLength(1), i % (int)matrix.GetLength(1)] == tempArr[4]) && k < 5)
                     {
-                        tempArray[Array.IndexOf(tempArray, matrix[i / (int)matrix.GetLength(1), i % (int)matrix.GetLength(1)])] = -1000000000;
+                        tempArr[Array.IndexOf(tempArr, matrix[i / (int)matrix.GetLength(1), i % (int)matrix.GetLength(1)])] = -1000000000;
                         matrix[i / (int)matrix.GetLength(1), i % (int)matrix.GetLength(1)] *= 2;
                         k++;
                     }
@@ -712,7 +710,4 @@ namespace Lab6
 
     }
 } 
-}
-    }
-
 }
