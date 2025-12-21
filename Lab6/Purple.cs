@@ -29,18 +29,22 @@ namespace Lab6
         }
         public int FindDiagonalMatrixIndex(int[,] matrix)
         {
-            int ind = 0;
-            int maxEl = matrix[0, 0];
-            for (int x = 0; x < matrix.GetLength(0); x++)
+            if (matrix.GetLength(0) == matrix.GetLength(1))
             {
-                if (matrix[x, x] > maxEl)
+                int ind = 0;
+                int maxEl = matrix[0, 0];
+                for (int x = 0; x < matrix.GetLength(0); x++)
                 {
-                    maxEl = matrix[x, x];
-                    ind = x;
+                    if (matrix[x, x] > maxEl)
+                    {
+                        maxEl = matrix[x, x];
+                        ind = x;
+                    }
                 }
+                Console.WriteLine(ind);
+                return ind;
             }
-            Console.WriteLine(ind);
-            return ind;
+            return 0;
         }
         public void Task1(int[,] A, int[,] B)
         {

@@ -1836,7 +1836,7 @@
         public void Test_FindDiagonalMaxIndex()
         {
             int[,] matrix = { { 1, -2, 4, -2 }, { -1, -2, -3, -5 }, { 4, 5, 3, 3 }, { 3, 5, 6, 3 } };
-            int index = _main.FindDiagonalMaxIndex(matrix);
+            int index = _main.FindDiagonalMatrixIndex(matrix);
             Assert.AreEqual(2, index);
         }
 
