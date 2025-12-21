@@ -38,42 +38,42 @@ namespace Lab6
             // end
 
         }
-        public void Task5(int[] matrix, Sorting sort)
-        {
+        // public void Task5(int[] matrix, Sorting sort)
+        // {
 
-            // code here
+        //     // code here
 
-            // end
+        //     // end
 
-        }
-        public void Task6(int[,] matrix, SortRowsByMax sort)
-        {
+        // }
+        // public void Task6(int[,] matrix, SortRowsByMax sort)
+        // {
 
-            // code here
+        //     // code here
 
-            // end
+        //     // end
 
-        }
-        public int[] Task7(int[,] matrix, FindNegatives find)
-        {
-            int[] negatives = null;
+        // }
+        // public int[] Task7(int[,] matrix, FindNegatives find)
+        // {
+        //     int[] negatives = null;
 
-            // code here
+        //     // code here
 
-            // end
+        //     // end
 
-            return negatives;
-        }
-        public int[,] Task8(int[,] matrix, MathInfo info)
-        {
-            int[,] answer = null;
+        //     return negatives;
+        // }
+        // public int[,] Task8(int[,] matrix, MathInfo info)
+        // {
+        //     int[,] answer = null;
 
-            // code here
+        //     // code here
 
-            // end
+        //     // end
 
-            return answer;
-        }
+        //     return answer;
+        // }
         public int Task9(double a, double b, double h, Func<double, double> func)
         {
             int answer = 0;
@@ -93,4 +93,5 @@ namespace Lab6
 
         }
     }
+
 }
