@@ -510,34 +510,68 @@ namespace Lab6 {
 
         public int Task9(double a, double b, double h, Func<double, double> func) {
             int answer = 0;
-
             // code here
-
+            answer = CountSignFlips(a, b, h, func);
             // end
-
             return answer;
         }
 
-        public int CountSignFlips(double a, double b, double h, Func<double, double> func) { return 0; }
+        public int CountSignFlips(double a, double b, double h, Func<double, double> func) {
+            var ret = 0;
+            var s0 = Math.Sign(func(a));
 
-        public double FuncA(double x) { return 0; }
+            if (s0 == 0) {
+                s0 = 1;
+            }
 
-        public double FuncB(double x) { return 0; }
+            for (var x = a + h; x < b + 1e-6; x += h) {
+                var s1 = Math.Sign(func(x));
+
+                if (s1 == 0) { s1 = 1; }
+                if (s1 != s0 && s0 != 0) { ret += 1; }
+
+                s0 = s1;
+            }
+
+            return ret;
+        }
+
+        public double FuncA(double x) => x * x - Math.Sin(x);
+
+        public double FuncB(double x) => Math.Exp(x) - 1;
 
         //
 
         public void Task10(int[][] array, Action<int[][]> func) {
-
             // code here
-
+            func(array);
             // end
-
         }
 
-        public void SortInCheckersOrder(int[][] array) { }
+        public void SortInCheckersOrder(int[][] array) {
+            ForRange(delegate (int i) {
+                Array.Sort(array[i]);
+                if ((i & 1) == 1) { Array.Reverse(array[i]); }
+            }, array.Length);
+        }
 
-        public void SortBySumDesc(int[][] array) { }
+        public void SortBySumDesc(int[][] array) {
+            var n = array.Length - 1;
+            for (var i = 0; i < n; i += 1) {
+                for (var j = 0; j < n - i; j += 1) {
+                    ref var a = ref array[j];
+                    ref var b = ref array[j + 1];
 
-        public void TotalReverse(int[][] array) { }
+                    if (a.Sum() < b.Sum()) {
+                        Swap(ref a, ref b);
+                    }
+                }
+            }
+        }
+
+        public void TotalReverse(int[][] array) {
+            foreach (var item in array) { Array.Reverse(item); }
+            Array.Reverse(array);
+        }
     }
 }
