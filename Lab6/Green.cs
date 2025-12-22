@@ -5,6 +5,7 @@ namespace Lab6
 {
     public class Green
     {
+        public delegate void Sorting(int[,] matrix);
         public void Task1(ref int[] A, ref int[] B)
         {
 

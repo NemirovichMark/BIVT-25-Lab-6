@@ -2,6 +2,13 @@
 {
     public class Blue
     {
+        public delegate int Finder(int[,] matrix, out int row, out int col);
+
+        public delegate void SortRowsStyle(int[,] matrix, int row);
+
+        public delegate void ReplaceMaxElements(int[,] matrix, int row, int maxValue);
+        
+        public delegate int[] GetTriangle(int[,] matrix);
         public void Task1(ref int[,] matrix)
         {
 
