@@ -6,7 +6,7 @@ namespace Lab6
 {
     public class Purple
     {
-        public void Task1(int[,] A, int[,] B)
+        /*public void Task1(int[,] A, int[,] B)
         {
 
             // code here
@@ -91,6 +91,6 @@ namespace Lab6
 
             // end
 
-        }
+        }*/
     }
 }
